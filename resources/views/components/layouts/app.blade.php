@@ -9,6 +9,8 @@
     <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
 
     <title>{{ $title ?? 'Zanzibar Housing Corporation' }}</title>
+    <script src="//unpkg.com/alpinejs" defer></script>
+
     @vite('resources/css/app.css')
 </head>
 

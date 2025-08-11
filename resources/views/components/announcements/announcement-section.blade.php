@@ -2,7 +2,7 @@
   <div class="flex flex-row border-b-2 border-black-active">
     <div class="flex items-center bg-black rounded-t-md text-cp-white">
       <span class="px-2"><i class="fa fa-bullhorn fa-2x"></i></span>
-      <h3 class="pr-2">Public Notice</h3>
+      <h3 class="pr-2 text-white">Public Notice</h3>
     </div>
   </div>
   <div class="divide-y py-1">

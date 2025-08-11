@@ -2,7 +2,7 @@
     <div class="flex justify-between border-b-2 border-black-active">
         <div class="flex items-center bg-black rounded-t-md text-cp-white">
             <span class="px-2"><i class="fa fa-newspaper fa-2x"></i></span>
-            <h3 class="pr-2">News & Events</h3>
+            <h3 class="pr-2 text-white">News & Events</h3>
         </div>
     </div>
     <div class="lg:grid lg:grid-cols-2 lg:gap-2 flex flex-col mt-2">
