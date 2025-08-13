@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
     <meta charset="UTF-8">
@@ -16,9 +16,9 @@
 
 <body class="bg-gray-50 text-gray-900 m-0 p-0">
 
-    <x-header class="fixed top-0 left-0 w-full z-50" />
+    <x-header.header class="fixed top-0 left-0 w-full z-50" />
     
-    <x-navbar class="fixed top-[110px] left-0 w-full z-40" />
+    <x-header.navbar class="fixed top-[110px] left-0 w-full z-40" />
 
 
     <main class="mx-auto pt-[150px]">
@@ -26,7 +26,7 @@
     </main>
 
 
-    <x-footer.main />
+    <x-footer.footer-wrapper />
 
 
 </body>

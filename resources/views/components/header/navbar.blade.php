@@ -153,7 +153,7 @@
               <a href="#annual" class="block px-4 py-2 hover:underline text-sm font-medium" role="menuitem">Kiembe Samaki</a>
             </li>
             <li>
-              <a href="#special-editions" class="block px-4 py-2 hover:underline text-sm font-medium" role="menuitem">MWinyi Housing Scheme(Kisaka Saka)</a>
+              <a href="#special-editions" class="block px-4 py-2 hover:underline text-sm font-medium" role="menuitem">Mwinyi Housing Scheme(Kisaka Saka)</a>
             </li>
           </ul>
         </div>

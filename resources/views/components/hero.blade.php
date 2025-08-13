@@ -48,6 +48,7 @@
     </div>
 </div>
 
+
 <!-- Alpine Carousel Logic -->
 <script>
     function carousel() {

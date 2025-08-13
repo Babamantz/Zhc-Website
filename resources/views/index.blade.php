@@ -1,6 +1,6 @@
 <x-layouts.app title="Home">
     <x-hero />
-    <x-news.news-section />
+    <x-announcement-news-wrapper />
     <x-properties.properties-swiper />
     <x-media/>
     <x-services.service-swiper />

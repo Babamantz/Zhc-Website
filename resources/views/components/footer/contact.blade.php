@@ -11,7 +11,7 @@
         </div>
 
         <div class="w-full md:w-5/12 pl-0 md:pl-6 text-white">
-            <x-footer.heading title="Quick Links" />
+            <x-footer.heading :title="__('landing.landing.properties')" />
             @foreach([
                 ['label' => 'Home', 'url' => '#'],
                 ['label' => 'Contact Details', 'url' => '/contacts'],
