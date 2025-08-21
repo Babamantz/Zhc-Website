@@ -32,14 +32,14 @@
             >
                 <ul class="py-1" role="menu" aria-label="Site list">
                     <li>
-                        <a href="{{route('pages.about.about_zhc')}}" target="_blank" rel="noopener noreferrer"
+                        <a href="{{route('pages.about.about_zhc')}}" target="" rel="noopener noreferrer"
                            class="block px-4 py-2 hover:underline text-sm font-medium"
                            role="menuitem">
                             About Zhc
                         </a>
                     </li>
                     <li>
-                        <a href="https://example2.com" target="_blank" rel="noopener noreferrer"
+                        <a href="{{url('organization-structure')}}" target="_self" rel="noopener noreferrer"
                            class="block px-4 py-2 hover:underline text-sm font-medium"
                            role="menuitem">
                             Organization Structure
@@ -209,7 +209,7 @@
   </div>
 </div>
 
-        <a href="/news" class="hover:underline">News</a>
+        <a href="{{route('news.index')}}" class="hover:underline">News</a>
          <div x-data="{ open: false }" class="relative">
             <button
                 @click="open = !open"
@@ -253,7 +253,7 @@
             </div>
         </div>
         
-        <a href="/contact" class="hover:underline">Contact</a>
-        <a href="/news" class="hover:underline">FAQs</a>
+        <a href="{{url('/contacts')}}" class="hover:underline">Contact</a>
+        <a href="{{route('pages.faqs')}}" class="hover:underline">FAQs</a>
     </div>
 </nav>

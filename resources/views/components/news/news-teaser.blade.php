@@ -1,4 +1,6 @@
 @props(['href', 'img', 'title', 'date', 'excerpt'])
+
+
 <div class="relative overflow-hidden bg-no-repeat bg-cover shadow-lg rounded-md news-item-hover h-96">
   <a href="{{ $href }}">
     <img src="{{ $img }}" class="object-cover object-top rounded-md w-full h-96" />

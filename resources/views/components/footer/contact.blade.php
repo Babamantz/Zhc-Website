@@ -15,13 +15,16 @@
             @foreach([
                 ['label' => 'Home', 'url' => '#'],
                 ['label' => 'Contact Details', 'url' => '/contacts'],
-                ['label' => 'Mission and Vision', 'url' => '/pages/mission-and-vision'],
+                ['label' => 'Mission and Vision', 'url' => '/organization-structure'],
                 ['label' => 'FAQs', 'url' => '/faqs'],
-                ['label' => 'What we do?', 'url' => '/pages/what-we-do'],
-                ['label' => 'Who we Are?', 'url' => '/pages/who-we-are'],
-                ['label' => 'Who we Serve?', 'url' => '/pages/who-we-serve'],
+                ['label' => 'What we do?', 'url' => '#'],
+                ['label' => 'Who we Are?', 'url' => '#'],
+                ['label' => 'Who we Serve?', 'url' => '#'],
             ] as $link)
+
                 <div class="py-1"><a href="{{ $link['url'] }}" class="hover:underline">{{ $link['label'] }}</a></div>
+
+                
             @endforeach
         </div>
     </div>

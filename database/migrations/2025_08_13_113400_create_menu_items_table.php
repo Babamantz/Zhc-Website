@@ -17,7 +17,7 @@ return new class extends Migration
             $table->foreignId('parent_id')->nullable()->constrained('menu_items')->cascadeOnDelete();
             $table->string('title');
             $table->string('url')->nullable();
-            $table->string('target')->default('_self'); // or _blank
+            $table->enum('target',['_blank','_self'])->default('_self'); // or _blank
             $table->integer('order')->default(0);
             $table->boolean('is_active')->default(true);
             $table->timestamps();

@@ -7,4 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class ProjectMedia extends Model
 {
     //
+
+    protected $guarded = false;
 }

@@ -4,7 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Projects extends Model
+class NewsMedia extends Model
 {
     //
+
+    protected $guarded = false;
 }

@@ -10,7 +10,7 @@
 
         <div class="w-full md:w-1/2 text-white">
             <x-footer.heading title="Important Links" />
-            @foreach ([['label' => 'MoF', 'url' => 'http://mof.go.tz'], ['label' => 'TRA', 'url' => '#'], ['label' => 'ZRB', 'url' => 'http://zanrevenue.org'], ['label' => 'NIDA', 'url' => 'http://nida.go.tz'], ['label' => 'ZCSRA', 'url' => 'https://zcsra.go.tz/'], ['label' => 'BRELA', 'url' => 'https://brela.go.tz'], ['label' => 'BPRA', 'url' => 'https://bpra.go.tz'], ['label' => 'LATRA', 'url' => 'https://latra.go.tz'], ['label' => 'Police Force', 'url' => 'https://police.go.tz']] as $link)
+            @foreach ([ ['label' => 'ZRA', 'url' => 'http://zanrevenue.org'], ['label' => 'MOLD', 'url' => 'https://ardhismz.go.tz'], ['label' => 'NHC', 'url' => 'https://nhc.co.tz']] as $link)
                 <div class="py-1"><a href="{{ $link['url'] }}" target="_blank"
                         class="hover:underline">{{ $link['label'] }}</a></div>
             @endforeach

@@ -1,3 +1,4 @@
+
 <x-layouts.app title="Home">
     <x-hero />
     <x-announcement-news-wrapper />
