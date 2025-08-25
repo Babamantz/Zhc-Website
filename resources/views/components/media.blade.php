@@ -1,12 +1,18 @@
 @php
-$videos = [
-        'https://www.youtube.com/embed/dQw4w9WgXcQ',
-        'https://www.youtube.com/embed/ScMzIvxBSi4',
-        'https://www.youtube.com/embed/ysz5S6PUM-U',
-        'https://www.youtube.com/embed/aqz-KE-bpKQ',
-        'https://www.youtube.com/embed/kXYiU_JCYtU',
+    $videos = [
+        'https://www.youtube.com/watch?v=BYc5HHpAIb4',
+        'https://www.youtube.com/watch?v=my74ThOExlM',
+        'https://www.youtube.com/watch?v=Gh24NQkkIVU',
+        'https://www.youtube.com/watch?v=hNfN4NXjflg',
+        'https://www.youtube.com/watch?v=ADhz7NMmdr4',
     ];
+
+    // Convert to embed format
+    $embedVideos = array_map(function($url) {
+        return str_replace('watch?v=', 'embed/', $url);
+    }, $videos);
 @endphp
+
 
 <div class="bg-gradient-to-br from-slate-50 to-slate-100 p-8 rounded-2xl shadow-xl" x-data="{ open: false }">
   <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -26,7 +32,8 @@ $videos = [
       <!-- Video Placeholder -->
       {{-- <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"> --}}
 
-        <x-youtube-swiper :videos="$videos" />
+         <x-youtube-swiper :videos="$embedVideos" />
+
       {{-- </div> --}}
     {{-- </div> --}}
    
