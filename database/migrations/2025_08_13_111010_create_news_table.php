@@ -13,8 +13,7 @@ return new class extends Migration
     {
         Schema::create('news', function (Blueprint $table) {
             $table->id();
-            $table->string('href');
-            $table->string('img');
+            $table->json('img_news')->nullable();
             $table->string('title');
             $table->dateTime('date');
             $table->string('content');

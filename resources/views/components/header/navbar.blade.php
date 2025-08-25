@@ -39,6 +39,13 @@
                         </a>
                     </li>
                     <li>
+                        <a href="{{url('directors-message')}}" target="_self" rel="noopener noreferrer"
+                           class="block px-4 py-2 hover:underline text-sm font-medium"
+                           role="menuitem">
+                            Directors Message
+                        </a>
+                    </li>
+                    <li>
                         <a href="{{url('organization-structure')}}" target="_self" rel="noopener noreferrer"
                            class="block px-4 py-2 hover:underline text-sm font-medium"
                            role="menuitem">

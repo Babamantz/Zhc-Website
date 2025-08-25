@@ -5,7 +5,9 @@ namespace App\Filament\Resources\Announcements;
 use App\Filament\Resources\Announcements\Pages\CreateAnnouncement;
 use App\Filament\Resources\Announcements\Pages\EditAnnouncement;
 use App\Filament\Resources\Announcements\Pages\ListAnnouncements;
+use App\Filament\Resources\Announcements\Pages\ViewAnnouncement;
 use App\Filament\Resources\Announcements\Schemas\AnnouncementForm;
+use App\Filament\Resources\Announcements\Schemas\AnnouncementInfolist;
 use App\Filament\Resources\Announcements\Tables\AnnouncementsTable;
 use App\Models\Announcement;
 use BackedEnum;
@@ -20,11 +22,14 @@ class AnnouncementResource extends Resource
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
 
-    protected static ?string $recordTitleAttribute = 'Announcement';
-
     public static function form(Schema $schema): Schema
     {
         return AnnouncementForm::configure($schema);
+    }
+
+    public static function infolist(Schema $schema): Schema
+    {
+        return AnnouncementInfolist::configure($schema);
     }
 
     public static function table(Table $table): Table
@@ -44,6 +49,7 @@ class AnnouncementResource extends Resource
         return [
             'index' => ListAnnouncements::route('/'),
             'create' => CreateAnnouncement::route('/create'),
+            'view' => ViewAnnouncement::route('/{record}'),
             'edit' => EditAnnouncement::route('/{record}/edit'),
         ];
     }

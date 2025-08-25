@@ -5,6 +5,7 @@ use App\Livewire\FAQS\Faq;
 use App\Livewire\News\NewsIndex;
 use App\Livewire\Pages\About;
 use App\Livewire\Pages\About\AboutZhc;
+use App\Livewire\Pages\About\DirectorsMessage;
 use App\Livewire\Pages\About\OrganizationStructure;
 use App\Livewire\Pages\Contacts;
 use App\Livewire\Pages\Service;
@@ -16,6 +17,7 @@ Route::get('/', function () {
 
 
 Route::get('/about',AboutZhc::class)->name('pages.about.about_zhc');
+Route::get('/directors-message',DirectorsMessage::class)->name('pages.about.structure');
 Route::get('/organization-structure',OrganizationStructure::class)->name('pages.about.structure');
 Route::get('/contacts',Contacts::class)->name('pages.contacts');
 Route::get('/services',Service::class)->name('pages.services');

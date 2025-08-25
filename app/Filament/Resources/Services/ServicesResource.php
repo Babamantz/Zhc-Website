@@ -2,29 +2,35 @@
 
 namespace App\Filament\Resources\Services;
 
-use App\Filament\Resources\Services\Pages\CreateServices;
+use BackedEnum;
+use App\Models\Service;
+use App\Models\Services;
+use Filament\Tables\Table;
+use Filament\Schemas\Schema;
+use Filament\Resources\Resource;
+use Filament\Support\Icons\Heroicon;
 use App\Filament\Resources\Services\Pages\EditServices;
 use App\Filament\Resources\Services\Pages\ListServices;
+use App\Filament\Resources\Services\Pages\ViewServices;
+use App\Filament\Resources\Services\Pages\CreateServices;
 use App\Filament\Resources\Services\Schemas\ServicesForm;
 use App\Filament\Resources\Services\Tables\ServicesTable;
-use App\Models\Services;
-use BackedEnum;
-use Filament\Resources\Resource;
-use Filament\Schemas\Schema;
-use Filament\Support\Icons\Heroicon;
-use Filament\Tables\Table;
+use App\Filament\Resources\Services\Schemas\ServicesInfolist;
 
 class ServicesResource extends Resource
 {
-    protected static ?string $model = Services::class;
+    protected static ?string $model = Service::class;
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
-
-    protected static ?string $recordTitleAttribute = 'Service';
 
     public static function form(Schema $schema): Schema
     {
         return ServicesForm::configure($schema);
+    }
+
+    public static function infolist(Schema $schema): Schema
+    {
+        return ServicesInfolist::configure($schema);
     }
 
     public static function table(Table $table): Table
@@ -44,6 +50,7 @@ class ServicesResource extends Resource
         return [
             'index' => ListServices::route('/'),
             'create' => CreateServices::route('/create'),
+            'view' => ViewServices::route('/{record}'),
             'edit' => EditServices::route('/{record}/edit'),
         ];
     }

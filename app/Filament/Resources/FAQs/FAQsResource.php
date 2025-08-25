@@ -1,35 +1,40 @@
 <?php
 
-namespace App\Filament\Resources\FAQs;
+namespace App\Filament\Resources\Faqs;
 
 use BackedEnum;
-use App\Models\FAQ;
+use App\Models\Faq;
 use Filament\Tables\Table;
 use Filament\Schemas\Schema;
 use Filament\Resources\Resource;
 use Filament\Support\Icons\Heroicon;
-use App\Filament\Resources\FAQs\Pages\EditFAQs;
-use App\Filament\Resources\FAQs\Pages\ListFAQs;
-use App\Filament\Resources\FAQs\Pages\CreateFAQs;
-use App\Filament\Resources\FAQs\Schemas\FAQsForm;
-use App\Filament\Resources\FAQs\Tables\FAQsTable;
+use App\Filament\Resources\Faqs\Pages\EditFaqs;
+use App\Filament\Resources\Faqs\Pages\ListFaqs;
+use App\Filament\Resources\Faqs\Pages\ViewFaqs;
+use App\Filament\Resources\Faqs\Pages\CreateFaqs;
+use App\Filament\Resources\Faqs\Schemas\FaqsForm;
+use App\Filament\Resources\Faqs\Tables\FaqsTable;
+use App\Filament\Resources\Faqs\Schemas\FaqsInfolist;
 
-class FAQsResource extends Resource
+class FaqsResource extends Resource
 {
-    protected static ?string $model = FAQ::class;
+    protected static ?string $model = Faq::class;
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
 
-    protected static ?string $recordTitleAttribute = 'FAQ';
-
     public static function form(Schema $schema): Schema
     {
-        return FAQsForm::configure($schema);
+        return FaqsForm::configure($schema);
+    }
+
+    public static function infolist(Schema $schema): Schema
+    {
+        return FaqsInfolist::configure($schema);
     }
 
     public static function table(Table $table): Table
     {
-        return FAQsTable::configure($table);
+        return FaqsTable::configure($table);
     }
 
     public static function getRelations(): array
@@ -42,9 +47,10 @@ class FAQsResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => ListFAQs::route('/'),
-            'create' => CreateFAQs::route('/create'),
-            'edit' => EditFAQs::route('/{record}/edit'),
+            'index' => ListFaqs::route('/'),
+            'create' => CreateFaqs::route('/create'),
+            'view' => ViewFaqs::route('/{record}'),
+            'edit' => EditFaqs::route('/{record}/edit'),
         ];
     }
 }

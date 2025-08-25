@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Filament\Resources\FAQs\Pages;
+namespace App\Filament\Resources\Faqs\Pages;
 
-use App\Filament\Resources\FAQs\FAQsResource;
+use App\Filament\Resources\Faqs\FaqsResource;
 use Filament\Resources\Pages\CreateRecord;
 
-class CreateFAQs extends CreateRecord
+class CreateFaqs extends CreateRecord
 {
-    protected static string $resource = FAQsResource::class;
+    protected static string $resource = FaqsResource::class;
 }

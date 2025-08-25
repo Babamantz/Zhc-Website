@@ -3,6 +3,8 @@
 namespace App\Filament\Resources\News\Schemas;
 
 use Filament\Forms\Components\DateTimePicker;
+use Filament\Forms\Components\RichEditor;
+use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Schema;
 
@@ -12,17 +14,20 @@ class NewsForm
     {
         return $schema
             ->components([
-                TextInput::make('href')
-                    ->required(),
-                TextInput::make('img')
-                    ->required(),
+                  SpatieMediaLibraryFileUpload::make('img_news')
+                    ->image()
+                    ->multiple()
+                    ->columnSpanFull()
+                    ->collection('news')
+                    ->responsiveImages()
+                    ->conversion('webp'),
                 TextInput::make('title')
                     ->required(),
                 DateTimePicker::make('date')
                     ->required(),
-                TextInput::make('content')
+                RichEditor::make('content')
                     ->required(),
-                TextInput::make('excerpt')
+                RichEditor::make('excerpt')
                     ->required(),
             ]);
     }

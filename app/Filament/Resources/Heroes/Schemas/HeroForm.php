@@ -12,16 +12,20 @@ class HeroForm
     {
         return $schema
             ->components([
+                TextInput::make('title')
+                    ->required(),
                 TextInput::make('slug')
                     ->required(),
-                FileUpload::make('hero')
-                ->label('Hero Image')
-                ->image() // Ensures only image uploads
+                FileUpload::make('img_hero')
+                ->label('Image Hero')
                 ->directory('heroes') // Store inside storage/app/public/heroes
                 ->disk('public') // Use the "public" disk (make sure it's linked)
                 ->visibility('public') // Optional, ensures it's publicly accessible
                 ->maxSize(2048) // Optional: limit size in KB
                 ->previewable(true)
+                ->multiple()
+                ->reorderable()
+                ->image()
                 ->required(),
             ]);
     }

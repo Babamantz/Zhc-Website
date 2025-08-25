@@ -28,7 +28,7 @@
                     <a href="" target="_blank" class="block group">
                         <div
                             class="flex flex-col items-center justify-center p-6 bg-[#0A2C73] text-white rounded-lg shadow-lg transition-transform hover:scale-105">
-                            <div class="relative w-28 h-32 mb-4">
+                            <div class="relative w-28 h-56 mb-4">
                                 <div class="absolute inset-0 bg-cover bg-center opacity-70 rounded-md"
                                     style="background-image: url('https://www.tira.go.tz/uploads/services/a4e9a3a9a6d71c0a2440aab1d42e62ca.jpeg'); clip-path: polygon(50% 0%, 93% 25%, 93% 75%, 50% 100%, 7% 75%, 7% 25%);">
                                 </div>
@@ -47,7 +47,7 @@
                     <a href="" target="_blank" class="block group">
                         <div
                             class="flex flex-col items-center justify-center p-6 bg-[#0A2C73] text-white rounded-lg shadow-lg transition-transform hover:scale-105">
-                            <div class="relative w-28 h-32 mb-4">
+                            <div class="relative w-28 h-56 mb-4">
                                 <div class="absolute inset-0 bg-cover bg-center opacity-70 rounded-md"
                                     style="background-image: url('https://www.tira.go.tz/uploads/services/a4e9a3a9a6d71c0a2440aab1d42e62ca.jpeg'); clip-path: polygon(50% 0%, 93% 25%, 93% 75%, 50% 100%, 7% 75%, 7% 25%);">
                                 </div>
@@ -66,7 +66,7 @@
                     <a href="" target="_blank" class="block group">
                         <div
                             class="flex flex-col items-center justify-center p-6 bg-[#0A2C73] text-white rounded-lg shadow-lg transition-transform hover:scale-105">
-                            <div class="relative w-28 h-32 mb-4">
+                            <div class="relative w-28 h-56 mb-4">
                                 <div class="absolute inset-0 bg-cover bg-center opacity-70 rounded-md"
                                     style="background-image: url(''); clip-path: polygon(50% 0%, 93% 25%, 93% 75%, 50% 100%, 7% 75%, 7% 25%);">
                                 </div>
