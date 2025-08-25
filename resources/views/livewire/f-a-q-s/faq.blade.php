@@ -66,7 +66,7 @@ $faqs = [
             <div class="text-sm md:text-base mx-2">
                 
               
-              <div x-data="{ open: null }" class="space-y-4">
+<div x-data="{ open: 0 }" class="space-y-4">
     @foreach($faqs as $index => $faq)
         <div class="border rounded-lg shadow-sm">
             <button 
@@ -76,12 +76,13 @@ $faqs = [
                 <span>{{ $faq['question'] }}</span>
                 <span x-text="open === {{ $index }} ? '-' : '+'"></span>
             </button>
-            <div x-show="open === {{ $index }}" class="px-4 py-3 border-t bg-white">
+            <div x-show="open === {{ $index }}" x-collapse class="px-4 py-3 border-t bg-white">
                 {!! $faq['answer'] !!}
             </div>
         </div>
     @endforeach
 </div>
+
 
                 
                
