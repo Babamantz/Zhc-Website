@@ -29,34 +29,71 @@ $data = [
 ];
 @endphp
 <div class="flex  flex-col"> 
-    <x-page-header title="About ZHC" />
+    <x-page-header title="Directors Message" />
 
     {{-- Control div --}}
 
     {{-- Outer wrapper: 12-column grid --}}
     <div class="lg:grid lg:grid-cols-10 lg:gap-6 flex flex-col mt-5 px-4 min-h-[80vh]">
+        
 
         {{-- Left column: col-span-10 --}}
         <div class="lg:col-span-6">
             {{-- Featured properties or custom grid goes here --}}
+  
+<h2 class="text-2xl font-bold mb-6 border-b-2 ">Director's Message</h2>
 
-            <div class="flex flex-col">
-            <div class="text-sm md:text-base mx-2">
-                
-                <h3>Establishment&nbsp;</h3>
-                <p><a href="https://www.tra.go.tz/">The Tanzania Revenue Authority (TRA)</a> was established by <strong>Act of Parliament No. 11 of 1995</strong>, and started its operations on <strong>1<sup>st</sup> July 1996</strong>. &nbsp;In carrying out its statutory functions, TRA is regulated by law, and is responsible for administering impartially various taxes of the Central Government.</p>
-                <h3>Vision</h3><p>"A Trusted Revenue Administration for Socio-economic Development".</p>
-                <h3>Our Mission</h3><p>"We Make It Easy to Pay Tax and Enhance Compliance for Sustainable Development".</p>
-                <h3>Our Core Values</h3><p><a href="https://www.tra.go.tz/">TRA</a> core values are a handful of moral boundaries within which <a href="https://www.tra.go.tz/">TRA</a> operates. They define TRA’s personality and are ethical standards by which <a href="https://www.tra.go.tz/">TRA</a> would be measured. The values are a commitment to the stakeholders and are incorporated into all actions taken by the organization.</p><p>&nbsp;</p><ul><li><strong>Professionalism:</strong> We are committed to apply the law consistently, responsibly and with credibility using the skills and knowledge &nbsp; &nbsp; &nbsp;as a prerequisite in administering your requirements</li><li><strong>Accountability</strong>: We build and sustain an organization that values and promotes accountability</li><li><strong>Integrity</strong>: We believe in being fair and honest when serving you</li><li><strong>Trustworthy</strong>: We determine to maintain a workplace in which trustworthiness will thrive</li></ul>
+    <!-- Content Section -->
+    <div class="text-gray-700 leading-relaxed">
+        
+        <!-- Floating Photo -->
+        <img 
+            src="{{ asset('images/director.jpg') }}" 
+            alt="Director Photo" 
+            class="w-40 h-48 object-cover rounded-lg shadow-md float-left mr-4 mb-3"
+        >
 
-                
-                <div class="mt-8">
-                    
-                  </div>
-                  
-            </div>
-            </div>
-            </div>
+        <!-- Message -->
+        <h3 class="text-xl font-semibold mb-3">Welcome</h3>
+        <p class="mb-3">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, 
+            nunc non facilisis vestibulum, metus urna vehicula urna, nec dapibus 
+            neque sem nec mauris.
+        </p>
+        <p class="mb-3">
+            Vivamus scelerisque, urna sit amet lacinia cursus, orci orci interdum 
+            lacus, eget tempus ex augue non odio. Donec nec suscipit odio.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                Sed euismod, nunc non facilisis vestibulum, metus urna vehicula 
+                urna, nec dapibus neque sem nec mauris.
+                jfdnfvnjfnvjnfvnfjnvjfnvjnfjvnfjnvfjnvjf
+                kndcndnjnfvfnvjnfnvjfnfvfnvfnjvnfvfjvnjfnvjf
+                vfvfvnjfvnjfnvjfjvfnjvnfjvnjfnvjfnjvnfjnvjfvnfj
+                vkfmvkmdfnvnfjrnviurovifonvjfnvjnfjnvjnfvjnfvnj
+                nvjnfjvnfvnfjvjfnvjnfvjnfjvnjfvnfvjlsoivfnjvnfd
+                vkfnvnfjvnokjnfijopfpefkfmnvjnvjfnsnsklfkdsioefnle
+                kfvnfnvfnvofvkf;sppoekmvkmfvnfkdsopspepkrkmkmksmdkmslksmkmf
+                kdcndckdncdkncslcslnslnlsnkdlsdcskmldsmkmlksmlcmslkdmcklsmck
+                smcksmclsmcmsdcmsldcsldcsdcksmckmslcsmlcmsldmcsldmclsdkmcsdkmckmlscs
+                kmdlkmslckmsdlcmsldkmcklmdsclkmslmclkmslcsdkcmlsdmclsdcmsdmcslcmslm
+                kmlkmcslmcsdlcmsldmclsmdclmdnlkefppfiodnckdmckdmckdmckmdckmdkmckdmcd
+                dklckdmckdincdclscmspcsnocnsnclksclmskcmskmckscmksmmcsmpcmsckmskmckms
+                sklcmlscoinldklclkdncsjdncjsdncjsdncjsdnclsnclkslcsnlkcnslkdncslk
+        </p>
+        <p class="mb-3">
+            Curabitur at justo at sapien cursus vehicula. Morbi nec velit sed orci 
+            mattis dictum.
+        </p>
+        <p>
+            Thank you for being part of our journey.
+        </p>
+
+        <!-- Clear float -->
+        <div class="clear-both"></div>
+    </div>
+
+         
+        </div>
         
 
         {{-- Right column: col-span-2 --}}
