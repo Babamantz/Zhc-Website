@@ -50,6 +50,7 @@ $data = [
         <img 
             src="{{ asset('images/director.jpg') }}" 
             alt="Director Photo" 
+            loading="lazy"
             class="w-40 h-48 object-cover rounded-lg shadow-md float-left mr-4 mb-3"
         >
 

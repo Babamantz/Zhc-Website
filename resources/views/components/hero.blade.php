@@ -49,7 +49,7 @@
 </div>
 
 
-<!-- Alpine Carousel Logic -->
+{{-- <!-- Alpine Carousel Logic --> --}}
 <script>
     function carousel() {
         return {
