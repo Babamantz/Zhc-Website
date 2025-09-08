@@ -18,6 +18,21 @@ class News extends Model implements HasMedia
 
          $this->addMediaConversion('webp')
             ->format('webp')
-            ->performOnCollections('poster_image');
+            ->performOnCollections('news');
+            
+    $this->addMediaConversion('thumb')
+         ->width(400)
+         ->height(300)
+         ->performOnCollections('news');
+
+    $this->addMediaConversion('medium')
+         ->width(800)
+         ->height(600)
+         ->performOnCollections('news');
+
+    $this->addMediaConversion('full')
+         ->width(1600)
+         ->height(1200)
+         ->performOnCollections('news');
     }
 }

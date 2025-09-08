@@ -1,4 +1,3 @@
-<!-- resources/views/components/footer/bottom-bar.blade.php -->
 <div class="bg-[#0A2C73] relative z-10 bg-primary border-t border-secondary text-white mt-4">
     <div class="text-center py-2 text-sm">
         <ul class="flex justify-center flex-wrap gap-x-4">

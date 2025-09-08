@@ -1,4 +1,3 @@
-<!-- resources/views/components/footer/contact.blade.php -->
 <div class="w-full lg:w-7/12 z-10">
     <div class="flex flex-wrap">
         <div class="w-full md:w-7/12 text-white mb-6 md:mb-0">
@@ -15,7 +14,7 @@
             @foreach([
                 ['label' => 'Home', 'url' => '#'],
                 ['label' => 'Contact Details', 'url' => '/contacts'],
-                ['label' => 'Mission and Vision', 'url' => '/organization-structure'],
+                ['label' => 'Mission and Vision', 'url' => '/about'],
                 ['label' => 'FAQs', 'url' => '/faqs'],
                 ['label' => 'What we do?', 'url' => '#'],
                 ['label' => 'Who we Are?', 'url' => '#'],

@@ -4,6 +4,7 @@ namespace App\Livewire;
 
 use App\Models\Announcement;
 use App\Models\Hero;
+use App\Models\News;
 use App\Models\YoutubeVideo;
 use Livewire\Component;
 use App\Models\PosterAdvitising;
@@ -12,11 +13,33 @@ class Index extends Component
 { 
 
     
-  public $poster,$videosArray,$slides = [],$announcementsValues = [];
+  public $poster,$news,$newsArray=[],$videosArray,$slides = [],$announcementsValues = [];
 
 public function mount()
 {
-    
+    $news = News::orderBy("created_at","desc")->get();
+
+    $this->newsArray = $news->map(function ($currentNews) {
+    return [
+        'id'      => $currentNews->id,
+        'title'   => $currentNews->title,
+        'date'    => $currentNews->date,
+        'content' => $currentNews->content,
+        'excerpt' => $currentNews->excerpt, // fixed typo (exerpt → excerpt)
+        'images'  => $currentNews->getMedia('news')->map(function ($media) {
+            return [
+                'original' => $media->getUrl(),                // full-size original
+                'thumb'    => $media->getUrl('thumb'),         // 400x300
+                'medium'   => $media->getUrl('medium'),        // 800x600
+                'full'     => $media->getUrl('full'),          // 1600x1200
+            ];
+        })->toArray(),
+    ];
+})->toArray();
+
+// dd($this->newsArray);
+
+  
     // Get single poster
     $videos = YoutubeVideo::latest()->limit(5)->pluck('url');
     // dd($videos); 
@@ -45,7 +68,7 @@ public function mount()
             return $media->getUrl(); // or ->getUrl() for original
         })->toArray(),
     ];
-})->toArray();
+    })->toArray();
 
 }
 

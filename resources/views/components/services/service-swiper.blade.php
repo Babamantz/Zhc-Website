@@ -20,14 +20,11 @@
         <h2 class="text-2xl md:text-3xl font-bold text-yellow-600 mb-8">
             ZHC Online Services
         </h2>
-
         <!-- Swiper -->
         <div class="swiper" x-ref="serviceSwiper">
             <div class="swiper-wrapper">
-
-                <!-- Slide 1 -->
                 <div class="swiper-slide">
-                    <a href="" target="_blank" class="block group">
+                    <a href="https://www.mail.zhc.go.tz" target="_blank" class="block group">
                         <div
                             class="flex flex-col items-center justify-center p-6 bg-[#0A2C73] text-white rounded-lg shadow-lg transition-transform hover:scale-105">
                             <div class="relative w-28 h-32 mb-4">
@@ -43,10 +40,9 @@
                         </div>
                     </a>
                 </div>
-
                 <!-- Slide 2 -->
                 <div class="swiper-slide">
-                    <a href="" target="_blank" class="block group">
+                    <a href="https://www.portal.zhc.go.tz" target="_blank" class="block group">
                         <div
                             class="flex flex-col items-center justify-center p-6 bg-[#0A2C73] text-white rounded-lg shadow-lg transition-transform hover:scale-105">
                             <div class="relative w-28 h-32 mb-4">
@@ -62,7 +58,6 @@
                         </div>
                     </a>
                 </div>
-
                 <!-- Slide 3 -->
                 <div class="swiper-slide">
                     <a href="" target="_blank" class="block group">

@@ -17,10 +17,11 @@ class NewsForm
                   SpatieMediaLibraryFileUpload::make('img_news')
                     ->image()
                     ->multiple()
+                    ->disk('public')
+                    ->visibility('public')
                     ->columnSpanFull()
                     ->collection('news')
-                    ->responsiveImages()
-                    ->conversion('webp'),
+                    ->responsiveImages(),
                 TextInput::make('title')
                     ->required(),
                 DateTimePicker::make('date')
