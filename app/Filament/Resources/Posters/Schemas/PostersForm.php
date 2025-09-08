@@ -19,6 +19,7 @@ class PostersForm
                 ->required(),
                 SpatieMediaLibraryFileUpload::make('poster_image')
                     ->image()
+                    ->disk('public')
                     ->columnSpanFull()
                     ->collection('posters')
                     ->responsiveImages()

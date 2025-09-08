@@ -27,26 +27,6 @@ $data = [
     ],
 ];
 
-$faqs = [
-    [
-        'question' => 'MKATABA NI NINI ?',
-        'answer' => 'ETS is ...'
-    ],
-    [
-        'question' => 'NAWEZAJE KUPTATA MKATABA MPYA',
-        'answer' => '<p>These are products charged excise duty...</p>'
-    ],
-    [
-        'question' => 'NAWEZAJE KUNUNUA NYUMBA ?',
-        'answer' => 'Hakiki Stempu is ...'
-    ],
-    [
-        'question' => 'ZHC MOBILE CONNECT NI NINI ?',
-        'answer' => 'You should ...'
-    ]
-];
-
-
 
 @endphp
 
@@ -67,17 +47,17 @@ $faqs = [
                 
               
 <div x-data="{ open: 0 }" class="space-y-4">
-    @foreach($faqs as $index => $faq)
+    @foreach($faqsArray as $index => $faq)
         <div class="border rounded-lg shadow-sm">
             <button 
                 @click="open === {{ $index }} ? open = null : open = {{ $index }}" 
                 class="w-full flex justify-between items-center px-4 py-3 bg-[#0A2C73] text-white" hover:bg-gray-200 font-medium"
             >
-                <span>{{ $faq['question'] }}</span>
+                <span>{{ $faq['header'] }}</span>
                 <span x-text="open === {{ $index }} ? '-' : '+'"></span>
             </button>
             <div x-show="open === {{ $index }}" x-collapse class="px-4 py-3 border-t bg-white">
-                {!! $faq['answer'] !!}
+                {!! $faq['content'] !!}
             </div>
         </div>
     @endforeach

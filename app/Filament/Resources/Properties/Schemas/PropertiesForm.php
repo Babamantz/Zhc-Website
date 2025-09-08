@@ -19,8 +19,10 @@ class PropertiesForm
                 TextInput::make('excerpt')
                     ->required(),
                 RichEditor::make('content')
+                ->columnSpanFull()
                     ->required(),
                 SpatieMediaLibraryFileUpload::make('property_images')
+                ->columnSpanFull()
                    ->collection('properties')
                    ->required(),
             ]);

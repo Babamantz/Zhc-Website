@@ -19,6 +19,7 @@ class PosterAdvitising extends Model  implements HasMedia
 
          $this->addMediaConversion('webp')
             ->format('webp')
+            ->useDisk('public')
             ->performOnCollections('poster_image');
     }
 

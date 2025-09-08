@@ -15,7 +15,8 @@ class OnlineServicesForm
                 //
                 TextInput::make('title'),
                 TextInput::make('alt'),
-                SpatieMediaLibraryFileUpload::make('image'),
+                SpatieMediaLibraryFileUpload::make('image')
+                ->columnSpanFull(),
             ]);
     }
 }

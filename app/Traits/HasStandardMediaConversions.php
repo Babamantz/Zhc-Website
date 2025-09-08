@@ -15,6 +15,7 @@ trait HasStandardMediaConversions
      */
     public function registerMediaConversions(Media $media = null): void
     {
+        
         $type = $this->mediaType ?? 'default';
 
         switch ($type) {

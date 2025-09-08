@@ -1,0 +1,4 @@
+/* Filament RichEditor global height */
+.trix-content {
+    @apply min-h-[300px];
+}

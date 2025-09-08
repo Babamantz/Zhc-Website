@@ -21,12 +21,15 @@ class AnnouncementForm
                     ->required(),
                 TextInput::make('title')
                     ->required(),
-                SpatieMediaLibraryFileUpload::make('announcement')
-                ->label('Upload PDF')
-                ->downloadable()
-                ->openable(),
                 TextInput::make('announcement')
                     ->required(),
+                 SpatieMediaLibraryFileUpload::make('announcement_file')
+                 ->disk('public')
+                 ->collection('announcements')
+                ->label('Upload PDF')
+                ->downloadable()
+                ->columnSpanFull()
+                ->openable(),
             ]);
     }
 }

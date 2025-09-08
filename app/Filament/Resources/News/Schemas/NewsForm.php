@@ -26,8 +26,10 @@ class NewsForm
                 DateTimePicker::make('date')
                     ->required(),
                 RichEditor::make('content')
+                ->columnSpanFull()
                     ->required(),
                 RichEditor::make('excerpt')
+                ->columnSpanFull()
                     ->required(),
             ]);
     }

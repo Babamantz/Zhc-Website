@@ -2,6 +2,7 @@
 
 use App\Livewire\Announcement\AnnouncementIndex;
 use App\Livewire\FAQS\Faq;
+use App\Livewire\Index;
 use App\Livewire\News\NewsIndex;
 use App\Livewire\Pages\About;
 use App\Livewire\Pages\About\AboutZhc;
@@ -11,11 +12,13 @@ use App\Livewire\Pages\Contacts;
 use App\Livewire\Pages\Service;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('index');
-});
+// Route::get('/', function () {
+//     return view('index');
+// });
 
+Route::get('/', Index::class);
 
+// Route::get('/',Index::class)->name('index');
 Route::get('/about',AboutZhc::class)->name('pages.about.about_zhc');
 Route::get('/directors-message',DirectorsMessage::class)->name('pages.about.structure');
 Route::get('/organization-structure',OrganizationStructure::class)->name('pages.about.structure');

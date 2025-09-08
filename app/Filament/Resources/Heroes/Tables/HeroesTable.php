@@ -2,16 +2,17 @@
 
 namespace App\Filament\Resources\Heroes\Tables;
 
+use Filament\Tables\Table;
+use Filament\Actions\EditAction;
+use Filament\Actions\ViewAction;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
-use Filament\Actions\EditAction;
-use Filament\Actions\ForceDeleteBulkAction;
 use Filament\Actions\RestoreBulkAction;
-use Filament\Actions\ViewAction;
-use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Filters\TrashedFilter;
-use Filament\Tables\Table;
+use Filament\Actions\ForceDeleteBulkAction;
+use Filament\Tables\Columns\SpatieMediaLibraryImageColumn;
 
 class HeroesTable
 {
@@ -23,13 +24,8 @@ class HeroesTable
                     ->searchable(),
                 TextColumn::make('slug')
                     ->searchable(),
-                ImageColumn::make('img_hero')
-                ->label('Image Hero')
-                ->disk('public')
-                ->visibility('public')
-                ->circular()
-                ->limit(3)
-                ->stacked(),
+                 SpatieMediaLibraryImageColumn::make("img_hero")
+                ->collection("hero_image"),
                 TextColumn::make('deleted_at')
                     ->dateTime()
                     ->sortable()

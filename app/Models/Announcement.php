@@ -9,7 +9,12 @@ use Spatie\MediaLibrary\InteractsWithMedia;
 class Announcement extends Model implements HasMedia
 {
     //
-       use InteractsWithMedia;
+    use InteractsWithMedia;
     protected $guarded = false;
+
+   public function getDateForHumansAttribute()
+{
+    return $this->created_at->format('Y-m-d') ;
+}
 
 }

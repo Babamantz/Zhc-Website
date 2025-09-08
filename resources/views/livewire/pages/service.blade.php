@@ -26,61 +26,7 @@ $data = [
         'date' => '17 March, 2025',
     ],
 ];
-$services = [
-    [
-        'title' => 'Project Consultancy Services',
-        'content' => '
-            <ul>
-                <li><strong>Feasibility Studies & Market Research</strong> – evaluating project viability and demand.</li>
-                <li><strong>Urban Planning & Design</strong> – providing modern, sustainable, and compliant designs.</li>
-                <li><strong>Cost Estimation & Financial Advisory</strong> – helping clients understand investment requirements and funding options.</li>
-                <li><strong>Regulatory Guidance</strong> – ensuring compliance with government policies, laws, and environmental standards.</li>
-            </ul>
-        ',
-    ],
-    [
-        'title' => 'Construction & Project Delivery',
-        'content' => '
-            <ul>
-                <li><strong>Residential Housing Projects</strong> – affordable housing, luxury apartments, and gated communities.</li>
-                <li><strong>Commercial & Mixed-Use Developments</strong> – office spaces, shopping complexes, and industrial facilities.</li>
-                <li><strong>Government & Institutional Projects</strong> – schools, hospitals, government offices, and public housing schemes.</li>
-                <li><strong>Turnkey Solutions</strong> – from planning and design to construction and handover.</li>
-            </ul>
-        ',
-    ],
-    [
-        'title' => 'Public–Private Partnerships (PPP)',
-        'content' => '
-            <p>We collaborate with both government institutions and private investors to deliver impactful housing and infrastructure projects. Through PPP arrangements, we ensure:</p>
-            <ul>
-                <li>Shared risk and investment.</li>
-                <li>Faster project execution.</li>
-                <li>Long-term sustainability and community development.</li>
-            </ul>
-        ',
-    ],
-    [
-        'title' => 'Renovation & Maintenance Services',
-        'content' => '
-            <ul>
-                <li>Rehabilitation of old housing estates.</li>
-                <li>Upgrading public facilities.</li>
-                <li>Regular property maintenance services.</li>
-            </ul>
-        ',
-    ],
-    [
-        'title' => 'Sustainability & Innovation',
-        'content' => '
-            <ul>
-                <li>Use of renewable energy solutions (solar, wind).</li>
-                <li>Eco-friendly materials and designs.</li>
-                <li>Smart housing technologies for improved efficiency.</li>
-            </ul>
-        ',
-    ],
-];
+
 
 
 @endphp
@@ -100,7 +46,7 @@ $services = [
             <div class="flex flex-col">
             <div class="text-sm md:text-base mx-2">
                 
-               <x-services :services="$services" />
+               <x-services :services="$servicesArray" />
                 
                
                   

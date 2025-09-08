@@ -9,5 +9,6 @@ class YoutubeVideo extends Model
     //
     protected $table = "youtube_advertising_video";
 
-    protected $guarded = [];
+    protected $guarded = false;
+    
 }

@@ -14,7 +14,7 @@ class FaqsForm
             ->components([
                 //
                 TextInput::make('header'),
-                RichEditor::make('content'),
+                RichEditor::make('content')->columnSpanFull(),
                 
             ]);
     }

@@ -4,9 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Service extends Model
+class OurFaq extends Model
 {
     //
+    protected $table = "faqs";
 
     protected $guarded = false;
+
 }

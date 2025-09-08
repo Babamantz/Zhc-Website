@@ -18,7 +18,7 @@ class Hero extends Model implements HasMedia
 
          $this->addMediaConversion('webp')
             ->format('webp')
-            ->performOnCollections('poster_image');
+            ->performOnCollections('hero_image');
     }
 
 
