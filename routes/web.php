@@ -4,6 +4,7 @@ use App\Livewire\Announcement\AnnouncementIndex;
 use App\Livewire\FAQS\Faq;
 use App\Livewire\Index;
 use App\Livewire\News\NewsIndex;
+use App\Livewire\News\NewsShow;
 use App\Livewire\Pages\About;
 use App\Livewire\Pages\About\AboutZhc;
 use App\Livewire\Pages\About\DirectorsMessage;
@@ -25,5 +26,6 @@ Route::get('/organization-structure',OrganizationStructure::class)->name('pages.
 Route::get('/contacts',Contacts::class)->name('pages.contacts');
 Route::get('/services',Service::class)->name('pages.services');
 Route::get('/faqs',Faq::class)->name('pages.faqs');
-Route::get('/news',NewsIndex::class)->name('news.index');
+Route::get('/news/all',NewsIndex::class)->name('news.index');
+Route::get('/news/{id}',NewsShow::class)->name('news.show');
 Route::get('/public-notice',AnnouncementIndex::class)->name('announcement.index');

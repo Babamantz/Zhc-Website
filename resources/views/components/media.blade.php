@@ -13,7 +13,7 @@
 
         <div class="bg-white rounded-xl shadow-lg p-6 flex flex-col items-center justify-center">
           <div class="w-full aspect-[3/2] rounded-lg overflow-hidden bg-cover bg-center" 
-           style="background-image: url('{{ $poster}}');;">
+           style="background-image: url('{{ $poster}}');">
          </div>
         </div
 

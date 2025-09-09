@@ -17,12 +17,11 @@ class AnnouncementForm
                     ->options(['label' => 'Label', 'pdf' => 'Pdf'])
                     ->default('label')
                     ->required(),
-                TextInput::make('Url')
-                    ->required(),
                 TextInput::make('title')
                     ->required(),
                 TextInput::make('announcement')
-                    ->required(),
+                    ->required()
+                    ->columnSpanFull(),
                  SpatieMediaLibraryFileUpload::make('announcement_file')
                  ->disk('public')
                  ->collection('announcements')

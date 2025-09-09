@@ -13,7 +13,7 @@
             @php $teaser = $news[0]; @endphp
             <div class="mb-4 hidden md:block py-2">
                 <x-news.news-teaser 
-                    :img="$teaser['images'][0]['medium']"
+                    :img="$teaser['images'][0]['original']"
                     :title="$teaser['title']" 
                     :date="$teaser['date']" 
                     :excerpt="$teaser['excerpt'] ?? null"
@@ -24,17 +24,19 @@
         {{-- Second column: news list (remaining items) --}}
         <div class="grid-cols-1">
             @foreach ($news as $item)
+            {{-- @dd($item['images'][0]['original']) --}}
                 <x-news.news-item 
-                    :image="$item['images'][0]['thumb']",
-                    :title="$item['title']",
-                    :date="$item['date']",
-                    :excerpt="$item['excerpt'] ?? null",
+                    :imageId="$item['id']"
+                    :image="$item['images'][0]['original']"
+                    :title="$item['title']"
+                    :date="$item['date']"
+                    :excerpt="$item['excerpt'] ?? null"
                     :showExcerpt="true" 
                 />
             @endforeach
 
             <div class="flex justify-start">
-                <a href="/news"
+                <a href="/news/all"
                     class="md:mt-4 text-base text-yellow-600 border-b-2 border-transparent hover:border-black-active hover:text-black-active">
                     View More <span><i class="fa fa-arrow-right"></i></span>
                 </a>

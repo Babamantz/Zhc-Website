@@ -79,7 +79,8 @@ $data = [
             <x-news.section :data="$data" title="Recent Updates" :grid="false">
                 <x-slot:items>
                     @foreach($data as $item)
-                        <x-news.news-item 
+                        <x-news.news-item
+                            :imageId="2"
                             :url="$item['href']" 
                             :image="$item['img']" 
                             :title="$item['title']" 

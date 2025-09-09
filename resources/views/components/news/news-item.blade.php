@@ -1,14 +1,18 @@
-@props(['image', 'title','date', 'excerpt' => null, 'showExcerpt' => false])
+@props(['image', 'imageId','title','date', 'excerpt' => null, 'showExcerpt' => false])
+{{-- @dd($imageId) --}}
+
+
+
 <div class="mb-4">
     <div class="flex items-start gap-4 mb-4">
         <!-- Image Section -->
-        <a href="" class="w-32 h-20 flex-shrink-0">
+        <a href="{{route('news.show',["id"=>$imageId])}}" class="w-32 h-20 flex-shrink-0">
             <img src="{{ $image }}" alt="{{ $title }}" class="w-full h-full object-cover rounded-md" />
         </a>
 
         <!-- Content Section -->
         <div class="flex flex-col justify-center">
-            <a href="" class="uppercase font-semibold text-sm text-gray-800 hover:text-blue-600">
+            <a href="{{route('news.show',["id"=>$imageId])}}" class="uppercase font-semibold text-sm text-gray-800 hover:text-blue-600">
                 {{ $title }}
             </a>
             <div class="text-sm text-gray-600 mt-1 flex items-center">
