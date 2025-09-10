@@ -1,5 +1,6 @@
 @props(['slides'])
 
+{{-- @dd($slides) --}}
 @php
 $slidesData = collect($slides)->map(function ($slide) {
     return [
@@ -10,6 +11,8 @@ $slidesData = collect($slides)->map(function ($slide) {
 })->toArray();
 @endphp
 
+{{-- @dd($slidesData[0]['img']) --}}
+
 <div class="w-full" 
      x-data="carousel({{ Js::from($slidesData) }})" 
      x-init="start()" 
@@ -19,7 +22,7 @@ $slidesData = collect($slides)->map(function ($slide) {
     <div class="relative w-full h-[calc(100vh-64px)] overflow-hidden">
 
         <!-- Slides -->
-        <template x-for="(slide, index) in slides" :key="index">
+        {{-- <template x-for="(slide, index) in slides" :key="index">
             <div x-show="current === index"
                 x-transition:enter="transition transform ease-out duration-700"
                 x-transition:enter-start="translate-x-full opacity-0"
@@ -28,7 +31,7 @@ $slidesData = collect($slides)->map(function ($slide) {
                 x-transition:leave-start="translate-x-0 opacity-100"
                 x-transition:leave-end="-translate-x-full opacity-0"
                 class="absolute inset-0 bg-cover bg-center"
-                :style="`background-image: url(${slide.img});`">
+                :style="`background-image: url('${slide.img'});`">
 
                 <!-- Overlay -->
                 <div class="absolute inset-0 bg-black bg-opacity-50"></div>
@@ -46,7 +49,37 @@ $slidesData = collect($slides)->map(function ($slide) {
                     </div>
                 </div>
             </div>
-        </template>
+        </template> --}}
+        <template x-for="(slide, index) in slides" :key="index">
+    <div x-show="current === index"
+        x-transition:enter="transition transform ease-out duration-700"
+        x-transition:enter-start="translate-x-full opacity-0"
+        x-transition:enter-end="translate-x-0 opacity-100"
+        x-transition:leave="transition transform ease-in duration-500"
+        x-transition:leave-start="translate-x-0 opacity-100"
+        x-transition:leave-end="-translate-x-full opacity-0"
+        class="absolute inset-0 bg-cover bg-center"
+        :style="`background-image: url('${slide.img}')`"
+    >
+
+        <!-- Overlay -->
+        {{-- <div class="absolute inset-0 bg-black bg-opacity-50"></div> --}}
+
+        <!-- Text Content -->
+        <div class="relative z-10 flex items-center justify-center h-full text-center text-white px-4">
+            <div class="max-w-2xl">
+                <h1 class="text-4xl md:text-5xl font-bold" x-text="slide.title"></h1>
+                <p class="mt-4 text-lg md:text-xl" x-text="slide.description"></p>
+                <a :href="slide.link ?? '#'"
+                   target="_blank"
+                   class="inline-block mt-6 bg-white text-[#0A2C73] px-6 py-3 rounded-lg text-lg hover:bg-gray-100 transition">
+                    Explore
+                </a>
+            </div>
+        </div>
+    </div>
+</template>
+
     </div>
 
     <!-- Arrows -->
@@ -72,6 +105,8 @@ $slidesData = collect($slides)->map(function ($slide) {
 
 <script>
     function carousel(slidesData) {
+        console.log(slidesData[0].img);
+        
         return {
             current: 0,
             interval: null,
