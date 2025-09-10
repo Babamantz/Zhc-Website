@@ -7,4 +7,5 @@
     <x-media :poster="$poster" :videos="$videosArray" />
 
     <x-services.service-swiper />
+    <x-call-centre/>
 </div>
