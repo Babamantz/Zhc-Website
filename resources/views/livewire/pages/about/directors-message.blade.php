@@ -24,7 +24,7 @@
             src="{{ url($directorMessage->getFirstMediaUrl()) }}" 
             alt="Director Photo" 
             loading="lazy"
-            class="w-60 h-72 object-cover rounded-lg shadow-md float-left mr-4 mb-3"
+            class="w-55 h-50 object-cover rounded-lg shadow-md float-left mr-4 mb-3"
         >
 
         <!-- Message -->
