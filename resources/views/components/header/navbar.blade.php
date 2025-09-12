@@ -32,7 +32,7 @@
             >
                 <ul class="py-1" role="menu" aria-label="Site list">
                     <li>
-                        <a href="{{route('pages.about.about_zhc')}}" target="" rel="noopener noreferrer"
+                        <a href="{{route('about_zhc')}}" target="_self" rel="noopener noreferrer"
                            class="block px-4 py-2 hover:underline text-sm font-medium"
                            role="menuitem">
                             About Zhc
