@@ -11,14 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
+
         Schema::create('projects', function (Blueprint $table) {
             $table->id();
-            $table->enum('status',['completed','ongoing'])->default('ongoing');
             $table->string('title');
-            $table->string('content');
+            $table->enum('status',['completed','ongoing'])->default('ongoing');
+            $table->longText('content');
             $table->string('project_name');
+            $table->string('slug');
             $table->timestamps();
         });
+
     }
 
     /**

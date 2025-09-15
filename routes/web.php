@@ -29,3 +29,4 @@ Route::get('/faqs',Faq::class)->name('pages.faqs');
 Route::get('/news/all',NewsIndex::class)->name('news.index');
 Route::get('/news/{id}',NewsShow::class)->name('news.show');
 Route::get('/public-notice',AnnouncementIndex::class)->name('announcement.index');
+// Route::get('project/{status}/{slug}',ProjectsIndex::class)->name('projects.show');
