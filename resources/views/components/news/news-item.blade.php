@@ -6,7 +6,7 @@
 <div class="mb-4">
     <div class="flex items-start gap-4 mb-4">
         <!-- Image Section -->
-        <a href="{{route('news.show',["id"=>$imageId])}}" class="w-32 h-20 flex-shrink-0">
+        <a href="{{route('news.show',["id"=>$imageId])}}" class="w-32 mt-1 h-20 flex-shrink-0">
             <img src="{{ $image }}" alt="{{ $title }}" class="w-full h-full object-cover rounded-md" />
         </a>
 
@@ -16,7 +16,7 @@
                 {{ $title }}
             </a>
             <div class="text-sm text-gray-600 mt-1 flex items-center">
-                <i class="fa fa-calendar mr-1 text-gray-500"></i> {{ $date }}
+                <i class="fa fa-calendar mr-1 text-gray-500"></i>{{\Carbon\carbon::parse($date)->format('y-M-Y')}}
             </div>
         </div>
     </div>

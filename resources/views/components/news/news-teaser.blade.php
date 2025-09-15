@@ -11,9 +11,11 @@
         <div class="text-white p-4 bg-black/75">
           <p class="md:uppercase font-bold text-sm md:text-base mb-2">{{ $title }}</p>
           <div class="flex justify-between mb-3 text-sm">
-            <div><i class="fa fa-calendar"></i> {{ $date }}</div>
+            <div><i class="fa fa-calendar"></i> {{ \Carbon\carbon::parse($date)->format('y-M-Y')}}</div>
           </div>
-          <p class="hidden md:block">{{ $excerpt }}</p>
+          <p class="hidden md:block">
+             {!! \Illuminate\Support\Str::limit(strip_tags($excerpt), 50) !!}
+          </p>
         </div>
       </div>
     </div>

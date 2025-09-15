@@ -3,8 +3,7 @@
 namespace App\Filament\Resources\Services;
 
 use BackedEnum;
-use App\Models\Service;
-use App\Models\Services;
+use App\Models\OurService;
 use Filament\Tables\Table;
 use Filament\Schemas\Schema;
 use Filament\Resources\Resource;
@@ -19,7 +18,7 @@ use App\Filament\Resources\Services\Schemas\ServicesInfolist;
 
 class ServicesResource extends Resource
 {
-    protected static ?string $model = Service::class;
+    protected static ?string $model = OurService::class;
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
 
