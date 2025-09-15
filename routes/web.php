@@ -11,6 +11,7 @@ use App\Livewire\Pages\About\DirectorsMessage;
 use App\Livewire\Pages\About\OrganizationStructure;
 use App\Livewire\Pages\Contacts;
 use App\Livewire\Pages\Service;
+use App\Livewire\Projects\ProjectShow;
 use Illuminate\Support\Facades\Route;
 
 // Route::get('/', function () {
@@ -29,4 +30,4 @@ Route::get('/faqs',Faq::class)->name('pages.faqs');
 Route::get('/news/all',NewsIndex::class)->name('news.index');
 Route::get('/news/{id}',NewsShow::class)->name('news.show');
 Route::get('/public-notice',AnnouncementIndex::class)->name('announcement.index');
-// Route::get('project/{status}/{slug}',ProjectsIndex::class)->name('projects.show');
+Route::get('project/{status}/{slug}',ProjectShow::class)->name('projects.show');

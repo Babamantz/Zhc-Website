@@ -3,6 +3,10 @@
 namespace App\Filament\Resources\Projects\Schemas;
 
 use Filament\Schemas\Schema;
+use Filament\Forms\Components\Select;
+use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\RichEditor;
+use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
 
 class ProjectsForm
 {
@@ -11,21 +15,25 @@ class ProjectsForm
         return $schema
             ->components([
                 //
-             TextInput::make('title')
+                TextInput::make('title')
                     ->required(),
-                TextInput::make('status')
-                    ->required(),
-                RichEditor::make('content')
-                ->columnSpanFull()
+                Select::make('status')
+                    ->options(['completed' => 'completed', 'ongoing' => 'ongoing'])
+                    ->default('label')
                     ->required(),
                 TextInput::make('slug')
                     ->required(),
                 TextInput::make('project_name')
                     ->required(),
-                SpatieMediaLibraryFileUpload::make('projects_pic')
-                ->columnSpanFull()
-                   ->collection('projects')
-                   ->required(), 
+                SpatieMediaLibraryFileUpload::make('project_pics')
+                    ->columnSpanFull()
+                    ->collection('project_images')
+                    ->disk('public')
+                    ->multiple()
+                    ->required(),
+                RichEditor::make('content')
+                    ->columnSpanFull()
+                    ->required(),
             ]);
     }
 }

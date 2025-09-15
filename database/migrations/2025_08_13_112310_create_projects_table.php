@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('title');
             $table->enum('status',['completed','ongoing'])->default('ongoing');
             $table->longText('content');
-            $table->string('project_name');
+            $table->string('project_name')->nullable();
             $table->string('slug');
             $table->timestamps();
         });

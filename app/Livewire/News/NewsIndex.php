@@ -18,7 +18,7 @@ class NewsIndex extends Component
     public function render()
     {
          
-         $newsList = News::latest()->with('media')->paginate(10);
+        $newsList = News::latest()->with('media')->paginate(10);
 
         $this->newsArray = $newsList->getCollection()->map(function ($currentNews) {
             return [

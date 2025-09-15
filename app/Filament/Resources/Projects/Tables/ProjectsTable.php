@@ -19,7 +19,6 @@ class ProjectsTable
                   TextColumn::make('title')
                     ->searchable(),
                 TextColumn::make('status')
-                    ->dateTime()
                     ->sortable(),
                 TextColumn::make('content')
                     ->searchable(),
@@ -27,9 +26,9 @@ class ProjectsTable
                     ->searchable(),
                 TextColumn::make('project_name')
                     ->searchable(),
-                SpatieMediaLibraryImageColumn::make("projects_pic")
-                ->label('Projects IMages')
-                ->collection("projects"),
+                SpatieMediaLibraryImageColumn::make("project_pics")
+                ->label('Projects Images')
+                ->collection("project_images"),
                 TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
