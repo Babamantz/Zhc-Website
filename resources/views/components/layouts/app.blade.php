@@ -10,7 +10,9 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <!-- Font Awesome 6 Free (latest) -->
-
+<style>
+     [x-cloak] { display: none !important; }
+</style>
 
     <title>{{ $title ?? 'Zanzibar Housing Corporation' }}</title>
     {{-- <script src="//unpkg.com/alpinejs" defer></script> --}}
