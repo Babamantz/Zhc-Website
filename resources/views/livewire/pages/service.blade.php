@@ -42,13 +42,13 @@
                                 {{ $item['title'] }}
                             </a>
                             <div class="text-sm text-gray-600 mt-1 flex items-center">
-                                <i class="fa fa-calendar mr-1 text-gray-500"></i> {{ $item['date'] }}
+                                <i class="fa fa-calendar mr-1 text-gray-500"></i> {{ \Carbon\carbon::parse($item['date'])->format('y-M-Y') }}
                             </div>
 
                             {{-- Optional excerpt --}}
                             @if (!empty($item['excerpt']))
                                 <p class="text-xs text-gray-500 mt-2">
-                                    {{ $item['excerpt'] }}
+                                    {!! $item['excerpt'] !!}
                                 </p>
                             @endif
                         </div>

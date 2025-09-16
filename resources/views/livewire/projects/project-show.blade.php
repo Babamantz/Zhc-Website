@@ -1,6 +1,7 @@
 <div class="flex  flex-col">
     <x-page-header title="PROJECTS" />
 
+
     {{-- Control div --}}
 
     {{-- Outer wrapper: 12-column grid --}}
@@ -8,15 +9,15 @@
 
         {{-- Left column: col-span-10 --}}
         <div class="lg:col-span-6">
+            <h1 class="text-3xl font-bold p-1 ">{{ $project->project_name }}</h1>
             {{-- Featured properties or custom grid goes here --}}
 
             <div class="flex flex-col">
                 <div class="text-sm md:text-base mx-2">
-{{-- @dd($project) --}}
 
-                    <div class="max-w-6xl mx-auto p-6">
-                        <h1 class="text-3xl font-bold mb-4">{{ $project->title }}</h1>
-                        <p class="mb-6 text-gray-700">{!! $project->content !!}</p>
+                    <div class="max-w-6xl mx-auto ">
+
+                        <p class=" text-gray-700">{!! $project->content !!}</p>
 
                         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                             @foreach ($project->getMedia('project_images') as $media)
@@ -42,7 +43,7 @@
         <div class="lg:col-span-4">
             <x-news.news-header />
 
-            {{-- @foreach ($newsArray as $item)
+            @foreach ($newsArray as $item)
                 <div class="mb-4 mt-2">
                     <div class="flex items-start gap-4 mb-4">
 
@@ -57,18 +58,18 @@
                                 {{ $item['title'] }}
                             </a>
                             <div class="text-sm text-gray-600 mt-1 flex items-center">
-                                <i class="fa fa-calendar mr-1 text-gray-500"></i> {{ $item['date'] }}
+                                <i class="fa fa-calendar mr-1 text-gray-500"></i> {{ \Carbon\carbon::parse($item['date'])->format('y-M-Y') }}
                             </div>
 
                             @if (!empty($item['excerpt']))
                                 <p class="text-xs text-gray-500 mt-2">
-                                    {{ $item['excerpt'] }}
+                                    {!! $item['excerpt'] !!}
                                 </p>
                             @endif
                         </div>
                     </div>
                 </div>
-            @endforeach --}}
+            @endforeach
 
         </div>
 

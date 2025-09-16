@@ -84,7 +84,7 @@
                             <ul class="py-1" role="menu">
                                 @foreach ($completedProjects as $project)
                                     <li>
-                                        <a href="{{ route('projects.show', [$project->status,$project->slug]) }}"
+                                        <a href="{{ route('projects.show', [$project->status, $project->slug]) }}"
                                             class="block px-4 py-2 hover:underline text-sm font-medium" role="menuitem">
                                             {{ $project->title }}
                                         </a>
@@ -113,7 +113,7 @@
                             <ul class="py-1" role="menu">
                                 @foreach ($ongoingProjects as $project)
                                     <li>
-                                        <a href="{{ route('projects.show', [$project->status,$project->slug]) }}"
+                                        <a href="{{ route('projects.show', [$project->status, $project->slug]) }}"
                                             class="block px-4 py-2 hover:underline text-sm font-medium"
                                             role="menuitem">
                                             {{ $project->title }}
@@ -244,9 +244,9 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#researches" target="_blank" rel="noopener noreferrer"
+                        <a href="{{ route('announcement.index') }}" target="_blank" rel="noopener noreferrer"
                             class="block px-4 py-2 hover:underline text-sm font-medium" role="menuitem">
-                            Researches
+                            Public Notice
                         </a>
                     </li>
                 </ul>

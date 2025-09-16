@@ -105,6 +105,7 @@ $slidesData = collect($slides)->map(function ($slide) {
 
 <script>
     function carousel(slidesData) {
+        
         console.log(slidesData[0].img);
         
         return {
