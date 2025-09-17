@@ -15,10 +15,14 @@ use App\Filament\Resources\Services\Pages\CreateServices;
 use App\Filament\Resources\Services\Schemas\ServicesForm;
 use App\Filament\Resources\Services\Tables\ServicesTable;
 use App\Filament\Resources\Services\Schemas\ServicesInfolist;
+use UnitEnum;
 
 class ServicesResource extends Resource
 {
     protected static ?string $model = OurService::class;
+
+    
+    protected static string | UnitEnum | null $navigationGroup = 'Pages';
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
 

@@ -2,21 +2,25 @@
 
 namespace App\Filament\Resources\Magazines;
 
-use App\Filament\Resources\Magazines\Pages\CreateMagazines;
+use BackedEnum;
+use App\Models\Magazine;
+use App\Models\Magazines;
+use Filament\Tables\Table;
+use Filament\Schemas\Schema;
+use Filament\Resources\Resource;
+use Filament\Support\Icons\Heroicon;
 use App\Filament\Resources\Magazines\Pages\EditMagazines;
 use App\Filament\Resources\Magazines\Pages\ListMagazines;
+use App\Filament\Resources\Magazines\Pages\CreateMagazines;
 use App\Filament\Resources\Magazines\Schemas\MagazinesForm;
 use App\Filament\Resources\Magazines\Tables\MagazinesTable;
-use App\Models\Magazines;
-use BackedEnum;
-use Filament\Resources\Resource;
-use Filament\Schemas\Schema;
-use Filament\Support\Icons\Heroicon;
-use Filament\Tables\Table;
+use UnitEnum;
 
 class MagazinesResource extends Resource
 {
-    protected static ?string $model = Magazines::class;
+    protected static ?string $model = Magazine::class;
+
+    protected static string | UnitEnum | null $navigationGroup = 'Publications';
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
 

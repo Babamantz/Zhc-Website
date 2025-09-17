@@ -16,10 +16,12 @@ use App\Filament\Resources\YVideos\Pages\CreateYVideos;
 use App\Filament\Resources\YVideos\Schemas\YVideosForm;
 use App\Filament\Resources\YVideos\Tables\YVideosTable;
 use App\Filament\Resources\YVideos\Schemas\YVideosInfolist;
-
+use UnitEnum;
 class YVideosResource extends Resource
 {
     protected static ?string $model = YoutubeVideo::class;
+    
+    protected static string | UnitEnum | null $navigationGroup = 'Home';
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
 

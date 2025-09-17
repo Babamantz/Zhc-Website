@@ -13,10 +13,13 @@ use App\Filament\Resources\Projects\Pages\ListProjects;
 use App\Filament\Resources\Projects\Pages\CreateProjects;
 use App\Filament\Resources\Projects\Schemas\ProjectsForm;
 use App\Filament\Resources\Projects\Tables\ProjectsTable;
-
+use UnitEnum;
 class ProjectsResource extends Resource
 {
     protected static ?string $model = Project::class;
+
+    
+    protected static string | UnitEnum | null $navigationGroup = 'Pages';
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
 

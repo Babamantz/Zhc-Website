@@ -17,10 +17,14 @@ use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use UnitEnum;
 
 class HeroResource extends Resource
 {
     protected static ?string $model = Hero::class;
+
+    
+    protected static string | UnitEnum | null $navigationGroup = 'Home';
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
 

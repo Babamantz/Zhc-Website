@@ -15,10 +15,14 @@ use App\Filament\Resources\OnlineServices\Pages\CreateOnlineServices;
 use App\Filament\Resources\OnlineServices\Schemas\OnlineServicesForm;
 use App\Filament\Resources\OnlineServices\Tables\OnlineServicesTable;
 use App\Filament\Resources\OnlineServices\Schemas\OnlineServicesInfolist;
+use UnitEnum;
 
 class OnlineServicesResource extends Resource
 {
     protected static ?string $model = OnlineService::class;
+
+    
+    protected static string | UnitEnum | null $navigationGroup = 'Home';
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
 

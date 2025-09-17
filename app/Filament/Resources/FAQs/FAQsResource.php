@@ -16,10 +16,14 @@ use App\Filament\Resources\Faqs\Schemas\FaqsForm;
 use App\Filament\Resources\Faqs\Tables\FaqsTable;
 use App\Filament\Resources\Faqs\Schemas\FaqsInfolist;
 use App\Models\OurFaq;
+use UnitEnum;
 
 class FaqsResource extends Resource
 {
     protected static ?string $model = OurFaq::class;
+
+
+    protected static string | UnitEnum | null $navigationGroup = 'Pages';
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
 

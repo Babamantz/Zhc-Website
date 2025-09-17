@@ -9,7 +9,7 @@
 
         {{-- Left column: col-span-10 --}}
         <div class="lg:col-span-6">
-            <h1 class="text-3xl font-bold p-1 ">{{ $project->project_name }}</h1>
+            <h1 class="text-2xl font-bold border-b-2">{{ $project->project_name }}</h1>
             {{-- Featured properties or custom grid goes here --}}
 
             <div class="flex flex-col">
@@ -58,7 +58,8 @@
                                 {{ $item['title'] }}
                             </a>
                             <div class="text-sm text-gray-600 mt-1 flex items-center">
-                                <i class="fa fa-calendar mr-1 text-gray-500"></i> {{ \Carbon\carbon::parse($item['date'])->format('y-M-Y') }}
+                                <i class="fa fa-calendar mr-1 text-gray-500"></i>
+                                {{ \Carbon\carbon::parse($item['date'])->format('y-M-Y') }}
                             </div>
 
                             @if (!empty($item['excerpt']))

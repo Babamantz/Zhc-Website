@@ -5,6 +5,11 @@
         {{-- Left column: col-span-10  --}}
         <div class="lg:col-span-6">
 
+            <h1 class="text-2xl font-bold  border-b-2">Public Notice</h1>
+
+
+
+
             {{-- @dd($announcementsValues) --}}
             <div x-data="tableHandler({{ Js::from($announcementValues) }})" class="bg-white p-6 rounded-xl shadow">
 
@@ -94,32 +99,38 @@
             <x-news.news-header />
 
 
+
             @foreach ($newsArray as $item)
                 <div class="mb-4 mt-2">
                     <div class="flex items-start gap-4 mb-4">
                         <!-- Image Section -->
                         <a href="{{ route('news.show', ['id' => $item['id']]) }}" class="w-32 h-20 flex-shrink-0">
-                            <img src="{{ $item['images'][0]['original'] }}" alt="{{ $item['title'] }}"
-                                class="w-full h-full object-cover rounded-md" />
+                            @unless (empty($item['images'][0]['original']))
+                                <img src="{{ $item['images'][0]['original'] }}" alt="{{ $item['title'] ?? 'News Image' }}"
+                                    class="w-full h-full object-cover rounded-md" />
+                            @endunless
                         </a>
 
                         <!-- Content Section -->
                         <div class="flex flex-col justify-center">
                             <a href="{{ route('news.show', ['id' => $item['id']]) }}"
                                 class="uppercase font-semibold text-sm text-gray-800 hover:text-blue-600">
-                                {{ $item['title'] }}
+                                {{ $item['title'] ?? 'Untitled News' }}
                             </a>
+
                             <div class="text-sm text-gray-600 mt-1 flex items-center">
                                 <i class="fa fa-calendar mr-1 text-gray-500"></i>
-                                {{ \Carbon\carbon::parse($item['date'])->format('y-M-Y') }}
+                                @unless (empty($item['date']))
+                                    {{ \Carbon\Carbon::parse($item['date'])->format('y-M-Y') }}
+                                @endunless
                             </div>
 
                             {{-- Optional excerpt --}}
-                            @if (!empty($item['excerpt']))
+                            @unless (empty($item['excerpt']))
                                 <p class="text-xs text-gray-500 mt-2">
                                     {!! $item['excerpt'] !!}
                                 </p>
-                            @endif
+                            @endunless
                         </div>
                     </div>
                 </div>
