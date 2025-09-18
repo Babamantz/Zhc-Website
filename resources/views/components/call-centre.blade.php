@@ -9,10 +9,10 @@
             <div class="flex flex-col px-4 md:px-8">
                 <div class="text-center">
                     <p class="text-black text-sm font-bold sm:text-lg md:text-xl">
-                        {{ $helpCenter->title }}
+                        {{ $helpCenter->title ?? 'No data Available' }}
                     </p>
                     <p class="font-semibold text-sm sm:text-md py-2">
-                        {{ $helpCenter->description }}
+                        {{ $helpCenter->description ?? 'No data Available' }}
                     </p>
                 </div>
 
@@ -34,7 +34,7 @@
                             <img class="hidden md:block w-16 h-16 md:w-20 md:h-20" src="/images/w-logo.svg"
                                 alt="WhatsApp">
                             <p class="font-bold text-sm py-2">
-                                {{ $helpCenter->whatsapp }} - WhatsApp
+                                {{ $helpCenter->whatsapp ?? 'No data Available' }} - WhatsApp
                             </p>
                         </div>
                     @endif
@@ -45,7 +45,7 @@
                             <img class="hidden md:block w-16 h-16 md:w-20 md:h-20" src="/images/e-mail.svg"
                                 alt="Email">
                             <p class="font-bold text-sm py-2">
-                                {{ $helpCenter->email }}
+                                {{ $helpCenter->email ?? 'No data Available' }}
                             </p>
                         </div>
                     @endif
