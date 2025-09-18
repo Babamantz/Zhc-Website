@@ -21,9 +21,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', Index::class);
 
 // Route::get('/',Index::class)->name('index');
-Route::get('/about-us',AboutZhc::class)->name('about_zhc');
-Route::get('/directors-message',DirectorsMessage::class)->name('director-message');
-Route::get('/organization-structure',OrganizationStructure::class)->name('structure');
+Route::get('/about/about_us',AboutZhc::class)->name('about_zhc');
+Route::get('/about/directors-message',DirectorsMessage::class)->name('director-message');
+Route::get('/about/organization-structure',OrganizationStructure::class)->name('structure');
 Route::get('/contacts',Contacts::class)->name('pages.contacts');
 Route::get('/services',Service::class)->name('pages.services');
 Route::get('/faqs',Faq::class)->name('pages.faqs');

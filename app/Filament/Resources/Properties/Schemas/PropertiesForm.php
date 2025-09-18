@@ -14,17 +14,18 @@ class PropertiesForm
         return $schema
             ->components([
                 //
-                 TextInput::make('title')
+                TextInput::make('title')
                     ->required(),
                 TextInput::make('excerpt')
                     ->required(),
                 RichEditor::make('content')
-                ->columnSpanFull()
+                    ->columnSpanFull()
                     ->required(),
                 SpatieMediaLibraryFileUpload::make('property_images')
-                ->columnSpanFull()
-                   ->collection('properties')
-                   ->required(),
+                    ->columnSpanFull()
+                    ->disk('public')
+                    ->collection('properties')
+                    ->required(),
             ]);
     }
 }

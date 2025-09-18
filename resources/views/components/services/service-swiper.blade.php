@@ -1,3 +1,4 @@
+{{-- @dd($services) --}}
 <div class="w-full py-12 bg-white" x-data x-init="new Swiper($refs.serviceSwiper, {
     loop: true,
     spaceBetween: 30,
@@ -18,64 +19,42 @@
     <div class="max-w-7xl mx-auto px-4 text-center">
 
         <h2 class="text-2xl md:text-3xl font-bold text-yellow-600 mb-8">
-            ZHC Online Services
+            Services
         </h2>
         <!-- Swiper -->
         <div class="swiper" x-ref="serviceSwiper">
             <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                    <a href="https://www.mail.zhc.go.tz" target="_blank" class="block group">
-                        <div
-                            class="flex flex-col items-center justify-center p-6 bg-[#0A2C73] text-white rounded-lg shadow-lg transition-transform hover:scale-105">
-                            <div class="relative w-28 h-32 mb-4">
-                                <div class="absolute inset-0 bg-cover bg-center opacity-70 rounded-md"
-                                    style="background-image: url('https://www.tira.go.tz/uploads/services/a4e9a3a9a6d71c0a2440aab1d42e62ca.jpeg'); clip-path: polygon(50% 0%, 93% 25%, 93% 75%, 50% 100%, 7% 75%, 7% 25%);">
-                                </div>
-                                <div class="absolute inset-0 flex items-center justify-center">
-                                    <img src="https://www.tira.go.tz/uploads/services/icon-1659878969" alt="ORS Icon"
-                                        class="w-10 h-10">
-                                </div>
-                            </div>
-                            <h3 class="font-semibold text-lg mt-2">Portal</h3>
-                        </div>
-                    </a>
-                </div>
-                <!-- Slide 2 -->
-                <div class="swiper-slide">
-                    <a href="https://www.portal.zhc.go.tz" target="_blank" class="block group">
-                        <div
-                            class="flex flex-col items-center justify-center p-6 bg-[#0A2C73] text-white rounded-lg shadow-lg transition-transform hover:scale-105">
-                            <div class="relative w-28 h-32 mb-4">
-                                <div class="absolute inset-0 bg-cover bg-center opacity-70 rounded-md"
-                                    style="background-image: url('https://www.tira.go.tz/uploads/services/a4e9a3a9a6d71c0a2440aab1d42e62ca.jpeg'); clip-path: polygon(50% 0%, 93% 25%, 93% 75%, 50% 100%, 7% 75%, 7% 25%);">
-                                </div>
-                                <div class="absolute inset-0 flex items-center justify-center">
-                                    <img src="https://www.tira.go.tz/uploads/services/icon-1659885934" alt="RBS Icon"
-                                        class="w-10 h-10">
+                <!-- Slide 1 -->
+
+                @forelse ($services as $service)
+                    <div class="swiper-slide">
+                        <a href="{{ $service['title'] }}" target="_blank" class="block group">
+                            <div
+                                class="flex flex-col items-center justify-center p-6 rounded-lg shadow-lg text-white transition-transform hover:scale-105 relative overflow-hidden">
+                                {{-- Background --}}
+                                <div class="absolute inset-0 bg-cover bg-center opacity-60 group-hover:opacity-80 transition"
+                                    style="background-image: url('')"></div>
+
+                                {{-- Overlay --}}
+                                <div class="absolute inset-0 bg-[#0A2C73]  mix-blend-multiply"></div>
+
+                                {{-- Content --}}
+                                <div class="relative z-10 flex flex-col items-center">
+                                    <div class="w-28 h-32 flex items-center justify-center">
+                                        <img src="{{ $service['logo'] }}" alt="{{ $service['alt'] }}"
+                                            class="w-60 h-60 object-contain">
+                                    </div>
+                                    <h3 class="font-semibold text-lg mt-2 text-center">{{ $service['alt'] }}</h3>
                                 </div>
                             </div>
-                            <h3 class="font-semibold text-lg mt-2">ZHC Online Portal</h3>
-                        </div>
-                    </a>
-                </div>
-                <!-- Slide 3 -->
-                <div class="swiper-slide">
-                    <a href="" target="_blank" class="block group">
-                        <div
-                            class="flex flex-col items-center justify-center p-6 bg-[#0A2C73] text-white rounded-lg shadow-lg transition-transform hover:scale-105">
-                            <div class="relative w-28 h-32 mb-4">
-                                <div class="absolute inset-0 bg-cover bg-center opacity-70 rounded-md"
-                                    style="background-image: url(''); clip-path: polygon(50% 0%, 93% 25%, 93% 75%, 50% 100%, 7% 75%, 7% 25%);">
-                                </div>
-                                <div class="absolute inset-0 flex items-center justify-center">
-                                    <img src="https://www.tira.go.tz/uploads/services/icon-1659878879" alt="MIS Icon"
-                                        class="w-10 h-10">
-                                </div>
-                            </div>
-                            <h3 class="font-semibold text-lg mt-2">Portal</h3>
-                        </div>
-                    </a>
-                </div>
+                        </a>
+                    </div>
+                @empty
+                    <p>No Content</p>
+                @endforelse
+
+
+
             </div>
 
             <!-- Navigation and Pagination -->
