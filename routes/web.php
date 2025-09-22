@@ -14,12 +14,8 @@ use App\Livewire\Pages\Service;
 use App\Livewire\Projects\ProjectShow;
 use Illuminate\Support\Facades\Route;
 
-// Route::get('/', function () {
-//     return view('index');
-// });
 
 Route::get('/', Index::class);
-
 // Route::get('/',Index::class)->name('index');
 Route::get('/about/about_us',AboutZhc::class)->name('about_zhc');
 Route::get('/about/directors-message',DirectorsMessage::class)->name('director-message');
