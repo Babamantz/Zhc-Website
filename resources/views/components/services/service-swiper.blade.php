@@ -36,7 +36,7 @@
                                     style="background-image: url('')"></div>
 
                                 {{-- Overlay --}}
-                                <div class="absolute inset-0 bg-[#0A2C73]  mix-blend-multiply"></div>
+                                <div class="absolute inset-0 bg-gradient-to-r from-[#0A2C73] to-[#1A3C83] bg-opacity-95 mix-blend-multiply"></div>
 
                                 {{-- Content --}}
                                 <div class="relative z-10 flex flex-col items-center">

@@ -23,7 +23,7 @@ class YVideosResource extends Resource
     
     protected static string | UnitEnum | null $navigationGroup = 'Home';
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::VideoCamera;
 
     public static function form(Schema $schema): Schema
     {

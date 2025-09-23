@@ -1,8 +1,10 @@
 <?php
 
+use App\Http\Middleware\LogVisit;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
+use PhpParser\Builder\Class_;
 
 return Application::configure(basePath: dirname(__DIR__))
     ->withRouting(
@@ -12,6 +14,7 @@ return Application::configure(basePath: dirname(__DIR__))
     )
     ->withMiddleware(function (Middleware $middleware) {
         //
+        $middleware->append(LogVisit::class);
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //

@@ -22,7 +22,7 @@ class MagazinesResource extends Resource
 
     protected static string | UnitEnum | null $navigationGroup = 'Publications';
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::BookOpen;
 
     public static function form(Schema $schema): Schema
     {

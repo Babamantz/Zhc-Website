@@ -21,7 +21,7 @@ class PropertiesResource extends Resource
 {
     protected static ?string $model = Property::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::HomeModern;
 
     
     protected static string | UnitEnum | null $navigationGroup = 'Home';

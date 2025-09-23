@@ -4,8 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class OrganizationStructure extends Model
+class Visit extends Model
 {
     //
-    protected $guarded = false;
+    protected $guarded  = false;
 }

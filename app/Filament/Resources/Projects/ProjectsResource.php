@@ -21,7 +21,7 @@ class ProjectsResource extends Resource
     
     protected static string | UnitEnum | null $navigationGroup = 'Pages';
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::PresentationChartBar;
 
     public static function form(Schema $schema): Schema
     {

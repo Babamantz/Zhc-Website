@@ -24,7 +24,7 @@ class OnlineServicesResource extends Resource
     
     protected static string | UnitEnum | null $navigationGroup = 'Home';
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::Cog8Tooth;
 
     public static function form(Schema $schema): Schema
     {

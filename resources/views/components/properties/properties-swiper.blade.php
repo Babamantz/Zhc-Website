@@ -76,7 +76,7 @@
                                             <button @click="showContent = !showContent"
                                                 class="px-4 py-2 bg-white/20 hover:bg-white/30 rounded-lg text-sm font-medium">
                                                 <span x-show="!showContent">Show Details</span>
-                                                <span x-show="showContent">Hide Details</span>
+                                                <span x-show="showContent">Hide Info</span>
                                             </button>
                                         </div>
 

@@ -21,7 +21,7 @@ class DirectorMessageResource extends Resource
 
      protected static string | UnitEnum | null $navigationGroup = 'About';
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::ChatBubbleLeftRight;
 
     public static function form(Schema $schema): Schema
     {

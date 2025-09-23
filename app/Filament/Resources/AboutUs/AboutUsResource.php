@@ -14,12 +14,28 @@ use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
 use UnitEnum;
+
 class AboutUsResource extends Resource
 {
     protected static ?string $model = AboutUs::class;
-    protected static string | UnitEnum | null $navigationGroup = 'Home';
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    public static function getNavigationLabel(): string
+    {
+        return 'About Us';
+    }
+
+    public static function getPluralLabel(): string
+    {
+        return 'About Us';
+    }
+
+    public static function getLabel(): string
+    {
+        return 'About Us';
+    }
+    protected static string | UnitEnum | null $navigationGroup = 'About';
+
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::BuildingLibrary;
 
     public static function form(Schema $schema): Schema
     {

@@ -19,17 +19,17 @@ class PostersResource extends Resource
 {
     protected static ?string $model = PosterAdvitising::class;
 
-    
+
     protected static string | UnitEnum | null $navigationGroup = 'Home';
 
-    
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
 
-    
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::Photo;
 
 
 
-    
+
+
+
 
     public static function form(Schema $schema): Schema
     {

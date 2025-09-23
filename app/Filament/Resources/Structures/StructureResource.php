@@ -2,25 +2,41 @@
 
 namespace App\Filament\Resources\Structures;
 
-use App\Filament\Resources\Structures\Pages\CreateStructure;
+use UnitEnum;
+use BackedEnum;
+use Filament\Tables\Table;
+use Filament\Schemas\Schema;
+use Filament\Resources\Resource;
+use Filament\Support\Icons\Heroicon;
+use App\Models\OrganizationStructure;
 use App\Filament\Resources\Structures\Pages\EditStructure;
 use App\Filament\Resources\Structures\Pages\ListStructures;
+use App\Filament\Resources\Structures\Pages\CreateStructure;
 use App\Filament\Resources\Structures\Schemas\StructureForm;
 use App\Filament\Resources\Structures\Tables\StructuresTable;
-use App\Models\Structure;
-use BackedEnum;
-use Filament\Resources\Resource;
-use Filament\Schemas\Schema;
-use Filament\Support\Icons\Heroicon;
-use Filament\Tables\Table;
-use UnitEnum;
+
 class StructureResource extends Resource
 {
-    protected static ?string $model = Structure::class;
+    protected static ?string $model = OrganizationStructure::class;
 
-     protected static string | UnitEnum | null $navigationGroup = 'About';
+    protected static string | UnitEnum | null $navigationGroup = 'About';
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    public static function getNavigationLabel(): string
+    {
+        return 'Organization Structure';
+    }
+
+    public static function getPluralLabel(): string
+    {
+        return 'Organization Structure';
+    }
+
+    public static function getLabel(): string
+    {
+        return 'Organization Structure';
+    }
+
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::BuildingOffice2;
 
     public static function form(Schema $schema): Schema
     {
