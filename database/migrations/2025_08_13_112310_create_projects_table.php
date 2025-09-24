@@ -15,7 +15,7 @@ return new class extends Migration
         Schema::create('projects', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->enum('status',['completed','ongoing'])->default('ongoing');
+            $table->enum('status',['completed','ongoing','upcoming'])->default('ongoing');
             $table->longText('content');
             $table->string('project_name')->nullable();
             $table->string('slug');

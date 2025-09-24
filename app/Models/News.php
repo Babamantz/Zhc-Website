@@ -2,37 +2,65 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
 use Spatie\MediaLibrary\HasMedia;
+use Mews\Purifier\Facades\Purifier;
+use Illuminate\Database\Eloquent\Model;
 use Spatie\MediaLibrary\InteractsWithMedia;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
 class News extends Model implements HasMedia
 {
-    //
-      use InteractsWithMedia;
-    protected $guarded = false;
+     //
+     use InteractsWithMedia;
+     protected $guarded = false;
 
-    public function registerMediaConversions(?Media $media = null): void 
-    { 
 
-         $this->addMediaConversion('webp')
-            ->format('webp')
-            ->performOnCollections('news');
-            
-    $this->addMediaConversion('thumb')
-         ->width(400)
-         ->height(300)
-         ->performOnCollections('news');
+     protected function title()
+     {
+          return Attribute::make(
+               set: fn(string $value) => Purifier::clean($value, 'title')
+          );
+     }
+     protected function date()
+     {
+          return Attribute::make(
+               set: fn(string $value) => Purifier::clean($value, 'date')
+          );
+     }
+     protected function content()
+     {
+          return Attribute::make(
+               set: fn(string $value) => Purifier::clean($value, 'content')
+          );
+     }
+     protected function excerpt()
+     {
+          return Attribute::make(
+               set: fn(string $value) => Purifier::clean($value, 'excerpt')
+          );
+     }
 
-    $this->addMediaConversion('medium')
-         ->width(800)
-         ->height(600)
-         ->performOnCollections('news');
+     public function registerMediaConversions(?Media $media = null): void
+     {
 
-    $this->addMediaConversion('full')
-         ->width(1600)
-         ->height(1200)
-         ->performOnCollections('news');
-    }
+          $this->addMediaConversion('webp')
+               ->format('webp')
+               ->performOnCollections('news');
+
+          $this->addMediaConversion('thumb')
+               ->width(400)
+               ->height(300)
+               ->performOnCollections('news');
+
+          $this->addMediaConversion('medium')
+               ->width(800)
+               ->height(600)
+               ->performOnCollections('news');
+
+          $this->addMediaConversion('full')
+               ->width(1600)
+               ->height(1200)
+               ->performOnCollections('news');
+     }
 }
