@@ -5,6 +5,7 @@ namespace App\Livewire\Pages\About;
 use App\Models\News;
 use Livewire\Component;
 use App\Models\DirectorMessage;
+use Illuminate\Support\Facades\Cache;
 
 class DirectorsMessage extends Component
 {
@@ -15,7 +16,9 @@ class DirectorsMessage extends Component
 
         $dMessage = DirectorMessage::first();
 
-        $this->directorMessage = DirectorMessage::with('media')->first();
+        $this->directorMessage = Cache::remember('director_message', 15552000, function () {
+            DirectorMessage::with('media')->first();
+        });
 
 
         $news = News::orderBy("created_at", "desc")->get();
