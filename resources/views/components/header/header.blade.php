@@ -30,6 +30,9 @@
 </header> --}}
 
 
+
+
+
 <header
     {{ $attributes->merge([
         'class' => '
@@ -50,11 +53,11 @@
         <div class="flex flex-col items-center text-center">
             <h1
                 class="text-base md:text-lg font-semibold text-shadow-white text-opacity-10 tracking-wide dark:text-white dark:text-opacity-100">
-                Serikali ya Mapinduzi ya Zanzibar
+                Serikali ya Mapinduzi ya Zanzibar 
             </h1>
             <h2
                 class="text-xl md:text-2xl lg:text-3xl font-bold text-shadow-white text-opacity-10 tracking-wider uppercase mt-1 dark:text-white dark:text-opacity-100">
-                Zanzibar Housing Corporation
+                Zanzibar Housing Corporation 
             </h2>
         </div>
 

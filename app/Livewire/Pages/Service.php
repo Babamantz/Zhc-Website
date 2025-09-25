@@ -16,13 +16,14 @@ class Service extends Component
     {
         $cacheTime = 15552000;
         $services = Cache::remember('our_services', $cacheTime, function () {
-            OurService::select(['header', 'content'])->get();
+            return  OurService::select(['header', 'content'])->get();
         });
+
         $this->servicesArray =  $services->toArray();
 
 
         $news = Cache::remember('news_list', 604800, function () {
-            News::orderBy("created_at", "desc")->get();
+            return   News::orderBy("created_at", "desc")->get();
         });
 
         $this->newsArray = $news->map(function ($currentNews) {
