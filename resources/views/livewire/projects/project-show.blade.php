@@ -40,7 +40,7 @@
 
 
         {{-- Right column: col-span-2 --}}
-        <div class="lg:col-span-4">
+        <div class="hidden md:col-span-4">
             <x-news.news-header />
 
             @foreach ($newsArray as $item)
@@ -61,7 +61,7 @@
                                 <i class="fa fa-calendar mr-1 text-gray-500"></i>
                                 {{ \Carbon\carbon::parse($item['date'])->format('y-M-Y') }}
                             </div>
-{{-- 
+                            {{-- 
                             @if (!empty($item['excerpt']))
                                 <p class="text-xs text-gray-500 mt-2">
                                     {!! $item['excerpt'] !!}
