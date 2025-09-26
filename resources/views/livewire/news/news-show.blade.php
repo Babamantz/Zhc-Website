@@ -47,9 +47,9 @@
         {{-- <x-vertical-line thickness="2" color="black" /> --}}
 
         {{-- Right column: col-span-2 --}}
-        <div class="hidden md:col-span-4">
-            <x-announcements.announcement-section :announcements="$announcementsValues" />
+            <div class="hidden md:block md:col-span-4">
+                <x-announcements.announcement-section :announcements="$announcementsValues" />
 
+            </div>
         </div>
     </div>
-</div>

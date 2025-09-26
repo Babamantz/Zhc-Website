@@ -95,100 +95,101 @@
         {{-- <x-vertical-line thickness="2" color="black" /> --}}
 
         {{-- Right column: col-span-2 --}}
-        <div class="hidden md:col-span-4">
-            <x-news.news-header />
+            <div class="hidden md:block md:col-span-4">
+                <x-news.news-header />
 
 
 
-            @foreach ($newsArray as $item)
-                <div class="mb-4 mt-2">
-                    <div class="flex items-start gap-4 mb-4">
-                        <!-- Image Section -->
-                        <a href="{{ route('news.show', ['id' => $item['id']]) }}" class="w-32 h-20 flex-shrink-0">
-                            @unless (empty($item['images'][0]['original']))
-                                <img src="{{ $item['images'][0]['original'] }}" alt="{{ $item['title'] ?? 'News Image' }}"
-                                    class="w-full h-full object-cover rounded-md" />
-                            @endunless
-                        </a>
-
-                        <!-- Content Section -->
-                        <div class="flex flex-col justify-center">
-                            <a href="{{ route('news.show', ['id' => $item['id']]) }}"
-                                class="uppercase font-semibold text-sm text-gray-800 hover:text-blue-600">
-                                {{ $item['title'] ?? 'Untitled News' }}
+                @foreach ($newsArray as $item)
+                    <div class="mb-4 mt-2">
+                        <div class="flex items-start gap-4 mb-4">
+                            <!-- Image Section -->
+                            <a href="{{ route('news.show', ['id' => $item['id']]) }}" class="w-32 h-20 flex-shrink-0">
+                                @unless (empty($item['images'][0]['original']))
+                                    <img src="{{ $item['images'][0]['original'] }}"
+                                        alt="{{ $item['title'] ?? 'News Image' }}"
+                                        class="w-full h-full object-cover rounded-md" />
+                                @endunless
                             </a>
 
-                            <div class="text-sm text-gray-600 mt-1 flex items-center">
-                                <i class="fa fa-calendar mr-1 text-gray-500"></i>
-                                @unless (empty($item['date']))
-                                    {{ \Carbon\Carbon::parse($item['date'])->format('y-M-Y') }}
-                                @endunless
-                            </div>
+                            <!-- Content Section -->
+                            <div class="flex flex-col justify-center">
+                                <a href="{{ route('news.show', ['id' => $item['id']]) }}"
+                                    class="uppercase font-semibold text-sm text-gray-800 hover:text-blue-600">
+                                    {{ $item['title'] ?? 'Untitled News' }}
+                                </a>
 
-                            {{-- Optional excerpt --}}
-                            {{-- @unless (empty($item['excerpt']))
+                                <div class="text-sm text-gray-600 mt-1 flex items-center">
+                                    <i class="fa fa-calendar mr-1 text-gray-500"></i>
+                                    @unless (empty($item['date']))
+                                        {{ \Carbon\Carbon::parse($item['date'])->format('y-M-Y') }}
+                                    @endunless
+                                </div>
+
+                                {{-- Optional excerpt --}}
+                                {{-- @unless (empty($item['excerpt']))
                                 <p class="text-xs text-gray-500 mt-2">
                                     {!! $item['excerpt'] !!}
                                 </p>
                             @endunless --}}
+                            </div>
                         </div>
                     </div>
-                </div>
-            @endforeach
+                @endforeach
 
 
 
+            </div>
         </div>
     </div>
-</div>
 
 
-<script>
-    function tableHandler(announcementDatas) {
-        console.log(announcementDatas);
+    <script>
+        function tableHandler(announcementDatas) {
+            console.log(announcementDatas);
 
-        return {
-            search: "",
-            perPage: 10,
-            page: 1,
-            sortBy: 'title',
-            sortAsc: true,
-            data: announcementDatas,
-            filteredData() {
-                return this.data.filter(d => d.title.toLowerCase().includes(this.search.toLowerCase()));
-            },
-            sortedData() {
-                return this.filteredData().sort((a, b) => {
-                    let valA = a[this.sortBy].toLowerCase();
-                    let valB = b[this.sortBy].toLowerCase();
-                    if (valA < valB) return this.sortAsc ? -1 : 1;
-                    if (valA > valB) return this.sortAsc ? 1 : -1;
-                    return 0;
-                });
-            },
-            paginatedData() {
-                return this.sortedData().slice((this.page - 1) * this.perPage, this.page * this.perPage);
-            },
-            startIndex() {
-                return (this.page - 1) * this.perPage;
-            },
-            endIndex() {
-                return Math.min(this.page * this.perPage, this.filteredData().length);
-            },
-            nextPage() {
-                if (this.endIndex() < this.filteredData().length) this.page++;
-            },
-            prevPage() {
-                if (this.page > 1) this.page--;
-            },
-            sort(field) {
-                if (this.sortBy === field) {
-                    this.sortAsc = !this.sortAsc;
-                } else {
-                    this.sortBy = field;
-                    this.sortAsc = true;
+            return {
+                search: "",
+                perPage: 10,
+                page: 1,
+                sortBy: 'title',
+                sortAsc: true,
+                data: announcementDatas,
+                filteredData() {
+                    return this.data.filter(d => d.title.toLowerCase().includes(this.search.toLowerCase()));
+                },
+                sortedData() {
+                    return this.filteredData().sort((a, b) => {
+                        let valA = a[this.sortBy].toLowerCase();
+                        let valB = b[this.sortBy].toLowerCase();
+                        if (valA < valB) return this.sortAsc ? -1 : 1;
+                        if (valA > valB) return this.sortAsc ? 1 : -1;
+                        return 0;
+                    });
+                },
+                paginatedData() {
+                    return this.sortedData().slice((this.page - 1) * this.perPage, this.page * this.perPage);
+                },
+                startIndex() {
+                    return (this.page - 1) * this.perPage;
+                },
+                endIndex() {
+                    return Math.min(this.page * this.perPage, this.filteredData().length);
+                },
+                nextPage() {
+                    if (this.endIndex() < this.filteredData().length) this.page++;
+                },
+                prevPage() {
+                    if (this.page > 1) this.page--;
+                },
+                sort(field) {
+                    if (this.sortBy === field) {
+                        this.sortAsc = !this.sortAsc;
+                    } else {
+                        this.sortBy = field;
+                        this.sortAsc = true;
+                    }
                 }
             }
         }
-    }
-</script>
+    </script>

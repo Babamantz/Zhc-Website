@@ -27,7 +27,8 @@
 
 
         {{-- Right column: col-span-2 --}}
-        <div class="hidden md:col-span-4">
+
+        <div class="hidden md:block md:col-span-4">
             <x-news.news-header />
             @foreach ($newsArray as $item)
                 <div class="mb-4 mt-2">
