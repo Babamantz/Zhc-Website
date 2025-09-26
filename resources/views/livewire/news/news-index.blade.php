@@ -38,7 +38,7 @@
                             {{-- Optional excerpt --}}
                             @unless (empty($item['excerpt']))
                                 <p class=" text-gray-500 mt-2">
-                                    {!! \Illuminate\Support\Str::limit(strip_tags($item['excerpt']), 100) !!}
+                                    {!! \Illuminate\Support\Str::limit(strip_tags($item['excerpt']), 80) !!}
                                 </p>
                             @endunless
                         </div>
