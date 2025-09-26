@@ -1,69 +1,35 @@
-{{-- <header
+<header
     {{ $attributes->merge([
         'class' => '
-                fixed top-0 left-0 w-full z-50 
-                bg-gradient-to-r from-[#0A2C73] to-[#1A3C83] bg-opacity-95 
-                text-white text-opacity-100 
-                backdrop-blur-md shadow-md  
-                dark:from-gray-900 dark:to-gray-800 dark:text-white dark:text-opacity-100
-            ',
+                            fixed top-0 left-0 w-full z-50 
+                            bg-gradient-to-r from-[#0A2C73] to-[#1A3C83] bg-opacity-95 
+                            text-white text-opacity-100 
+                            backdrop-blur-md shadow-md 
+                            dark:from-gray-900 dark:to-gray-800 dark:text-white dark:text-opacity-100
+                        ',
     ]) }}
-    style="background-image: url('{{ asset('images/zhc_banner3.png') }}'); background-attachment: fixed;" x-data="{mobileMenu: false}">
+    style="background-image: url('{{ asset('images/zhc_banner3.png') }}'); background-attachment: fixed;">
+    <div class="container mx-auto flex  items-center justify-between  px-4">
 
-    <div class="container mx-auto flex items-center justify-between  ">
-        <img src="{{ asset('images/smz.png') }}" alt="Government Logo" class="h-30 -mx-15">
+        <!-- Left Logo -->
+        <img src="{{ asset('images/smz.png') }}" alt="Government Logo" class="flex h-16  md:h-20 lg:h-30 md:-mx-15">
 
-        <div class="flex flex-col items-center">
+        <!-- Center Titles -->
+        <div class=" hidden md:flex flex-col items-center text-center">
             <h1
-                class="text-lg md:text-xl font-semibold text-shadow-white text-opacity-10 text-center tracking-wide dark:text-white dark:text-opacity-100">
+                class="text-base md:text-lg font-semibold text-shadow-white text-opacity-10 tracking-wide dark:text-white dark:text-opacity-100">
                 Serikali ya Mapinduzi ya Zanzibar
             </h1>
             <h2
-                class="text-2xl md:text-3xl font-bold text-shadow-white text-opacity-10 text-center tracking-wider uppercase mt-1 dark:text-white dark:text-opacity-100">
+                class="text-xl md:text-2xl lg:text-3xl font-bold text-shadow-white text-opacity-10 tracking-wider uppercase mt-1 dark:text-white dark:text-opacity-100">
                 Zanzibar Housing Corporation
             </h2>
         </div>
 
-        <img src="{{ asset('images/zhc_logo.png') }}" alt="Zhc Logo" class="h-20 -mx-15">
-    </div>
-    <div class="bg-white/20 h-[.2vh] dark:bg-gray-700/40"></div>
-</header> --}}
-
-
-
-
-
-<header
-    {{ $attributes->merge([
-        'class' => '
-                fixed top-0 left-0 w-full z-50 
-                bg-gradient-to-r from-[#0A2C73] to-[#1A3C83] bg-opacity-95 
-                text-white text-opacity-100 
-                backdrop-blur-md shadow-md  
-                dark:from-gray-900 dark:to-gray-800 dark:text-white dark:text-opacity-100
-            ',
-    ]) }}
-    style="background-image: url('{{ asset('images/zhc_banner3.png') }}'); background-attachment: fixed;">
-    <div class="container mx-auto flex flex-col md:flex-row items-center justify-between space-y-2 md:space-y-0 px-4">
-
-        <!-- Left Logo -->
-        <img src="{{ asset('images/smz.png') }}" alt="Government Logo" class="h-16 md:h-20 lg:h-30 md:-mx-15">
-
-        <!-- Center Titles -->
-        <div class="flex flex-col items-center text-center">
-            <h1
-                class="text-base md:text-lg font-semibold text-shadow-white text-opacity-10 tracking-wide dark:text-white dark:text-opacity-100">
-                Serikali ya Mapinduzi ya Zanzibar 
-            </h1>
-            <h2
-                class="text-xl md:text-2xl lg:text-3xl font-bold text-shadow-white text-opacity-10 tracking-wider uppercase mt-1 dark:text-white dark:text-opacity-100">
-                Zanzibar Housing Corporation 
-            </h2>
-        </div>
-
         <!-- Right Logo -->
-        <img src="{{ asset('images/zhc_logo.png') }}" alt="Zhc Logo" class="h-16 md:h-20 lg:h-20 md:-mx-15">
+        <img src="{{ asset('images/zhc_logo.png') }}" alt="Zhc Logo" class="flex h-16 md:h-20 lg:h-20 md:-mx-15">
     </div>
+
 
     <div class="bg-white/20 h-[.2vh] dark:bg-gray-700/40"></div>
 </header>

@@ -16,13 +16,13 @@ class Faq extends Component
         $cacheTime = 15552000;
 
         $faqs = Cache::remember('our_faq', $cacheTime, function () {
-           return OurFaq::select(['header', 'content'])->get();
+            return OurFaq::select(['header', 'content'])->get();
         });
         $this->faqsArray =  $faqs->toArray();
 
 
         $news = Cache::remember('news_list', 604800, function () {
-          return  News::orderBy("created_at", "desc")->get();
+            return  News::orderBy("created_at", "desc")->get();
         });
 
         $this->newsArray = $news->map(function ($currentNews) {
