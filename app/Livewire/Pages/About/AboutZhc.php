@@ -14,11 +14,11 @@ class AboutZhc extends Component
     public function mount()
     {
         $this->aboutUs = Cache::remember('about_us_first', 15552000, function () {
-            AboutUs::first();
+            return AboutUs::first();
         });
 
         $news = Cache::remember('news_list', 604800, function () {
-            News::orderBy("created_at", "desc")->get();
+            return  News::orderBy("created_at", "desc")->get();
         });
 
         $this->newsArray = $news->map(function ($currentNews) {

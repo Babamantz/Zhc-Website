@@ -316,6 +316,37 @@
                                 </ul>
                             </div>
                         </li>
+                        <!-- Upcoming Projects -->
+                        <li x-data="{ subOpen: false }" class="relative">
+                            <button @click="subOpen = !subOpen" @keydown.escape="subOpen = false"
+                                class="w-full flex justify-between items-center px-4 py-2 text-sm font-medium hover:bg-[#123b9b]">
+                                Upcoming
+                                <svg class="w-4 h-4 transition-transform duration-200"
+                                    :class="{ 'rotate-90': subOpen }" xmlns="http://www.w3.org/2000/svg"
+                                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M9 5l7 7-7 7" />
+                                </svg>
+                            </button>
+
+                            <div x-show="subOpen" x-cloak @click.away="subOpen = false"
+                                x-transition:enter="transition ease-out duration-200"
+                                x-transition:enter-start="opacity-0 -translate-x-2"
+                                x-transition:enter-end="opacity-100 translate-x-0"
+                                x-transition:leave="transition ease-in duration-150"
+                                x-transition:leave-start="opacity-100 translate-x-0"
+                                x-transition:leave-end="opacity-0 -translate-x-2"
+                                class="absolute top-0 left-full ml-1 w-48 bg-[#0A2C73] rounded shadow-lg z-30">
+                                <ul class="py-1">
+                                    @foreach ($ongoingProjects as $project)
+                                        <li><a href="{{ route('projects.show', [$project->status, $project->slug]) }}"
+                                                class="block px-4 py-2 hover:bg-[#123b9b] text-sm font-medium">
+                                                {{ $project->title }}
+                                            </a></li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        </li>
                     </ul>
                 </div>
             </div>

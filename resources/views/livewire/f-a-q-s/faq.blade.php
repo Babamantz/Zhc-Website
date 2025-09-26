@@ -98,11 +98,11 @@
                             </div>
 
                             {{-- Optional excerpt --}}
-                            @if (!empty($item['excerpt']))
+                            {{-- @if (!empty($item['excerpt']))
                                 <p class="text-xs text-gray-500 mt-2">
                                     {{ $item['excerpt'] }}
                                 </p>
-                            @endif
+                            @endif --}}
                         </div>
                     </div>
                 </div>

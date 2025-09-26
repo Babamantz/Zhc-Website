@@ -14,7 +14,7 @@
                 <div class="mb-4 mt-2">
                     <div class="flex items-start gap-4 mb-4">
                         <!-- Image Section -->
-                        <a href="{{ route('news.show', ['id' => $item['id']]) }}" class="w-32 h-20 flex-shrink-0">
+                        <a href="{{ route('news.show', ['id' => $item['id']]) }}" class="w-60 h-30 flex-shrink-0">
                             @unless (empty($item['images'][0]['original']))
                                 <img src="{{ $item['images'][0]['original'] }}" alt="{{ $item['title'] ?? 'News Image' }}"
                                     class="w-full h-full object-cover rounded-md" />
