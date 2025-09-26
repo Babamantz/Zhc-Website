@@ -18,7 +18,7 @@ class ProjectsForm
                 TextInput::make('title')
                     ->required(),
                 Select::make('status')
-                    ->options(['completed' => 'completed', 'ongoing' => 'ongoing'])
+                    ->options(['completed' => 'completed', 'ongoing' => 'ongoing','upcoming' => 'upcoming'])
                     ->default('label')
                     ->required(),
                 TextInput::make('slug')
