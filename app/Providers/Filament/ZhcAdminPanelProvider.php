@@ -30,6 +30,8 @@ class ZhcAdminPanelProvider extends PanelProvider
             ->default()
             ->id('zhc-admin')
             ->path('zhc-admin')
+            ->brandName('ZCMS')
+            ->brandLogo(asset('images/zhc_logo.png'))
             ->login()
             ->colors([
                 'primary' => Color::Blue,
