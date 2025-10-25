@@ -1,10 +1,11 @@
 @php
-    $helpCenter = \App\Models\HelpCenter::first();
+    $helpCenter = \App\Models\HelpCenter::with('media')->first();
+
 @endphp
 
-<section class="bg-fit bg-no-repeat md:bg-fit bg-top h-auto"
-    style="w-20 h-20 background-image: url('{{ $helpCenter?->getFirstMediaUrl('help_centers') ?: asset('images/call_c.jpg') }}')">
-    <div class="py-16 md:py-0 bg-gradient-to-l from-yellow-400 to-transparent">
+<section class="w-full h-auto bg-cover bg-no-repeat sm: md:bg-fit bg-top"
+    style=" background-image: url('{{ $helpCenter?->getFirstMediaUrl('help_center') ?? asset('images/call_c.jpg') }}')">
+    <div class="py-16 md:py-0 bg-gradient-to-l rom-orange-200 to-amber-60 ">
         <div class="container mx-auto px-4 pt-2 lg:px-8">
             <div class="flex flex-col px-4 md:px-8">
                 <div class="text-center">
@@ -29,7 +30,7 @@
                     </div>
 
                     <!-- WhatsApp -->
-                    @if ($helpCenter->whatsapp)
+                    @if ($helpCenter->whatsapp ?? '')
                         <div class="flex items-start md:items-center mx-4 gap-1">
                             <img class="hidden md:block w-16 h-16 md:w-20 md:h-20" src="/images/w-logo.svg"
                                 alt="WhatsApp">
@@ -40,7 +41,7 @@
                     @endif
 
                     <!-- Email -->
-                    @if ($helpCenter->email)
+                    @if ($helpCenter->email ?? '')
                         <div class="flex items-start md:items-center gap-1 mx-4">
                             <img class="hidden md:block w-16 h-16 md:w-20 md:h-20" src="/images/e-mail.svg"
                                 alt="Email">
