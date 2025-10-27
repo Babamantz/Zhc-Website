@@ -6,7 +6,7 @@
 {{-- <section class="w-full h-auto bg-cover bg-no-repeat  md:bg-fit bg-top"
     style=" background-image: url('{{ $helpCenter?->getFirstMediaUrl('help_center') ?? asset('images/call_c.jpg') }}')"> --}}
 <section class="w-full h-auto bg-cover bg-center bg-no-repeat"
-    style="background-image: url('{{ $helpCenter?->getFirstMediaUrl('help_center') ?? asset('images/call_c.jpg') }}');">
+    style="background-image: url('{{ $helpCenter?->getFirstMediaUrl('help_center') ?? asset('images/call_c.jpg') }}');background-size: 100% 100%;">
 
     <div class="py-16 md:py-0 bg-gradient-to-l  to-amber-60 ">
         <div class="container mx-auto px-4 pt-2 lg:px-8">
