@@ -8,7 +8,7 @@
 <section class="w-full h-auto bg-cover bg-center bg-no-repeat"
     style="background-image: url('{{ $helpCenter?->getFirstMediaUrl('help_center') ?? asset('images/call_c.jpg') }}');">
 
-    <div class="py-16 md:py-0 bg-gradient-to-l rom-orange-200 to-amber-60 ">
+    <div class="py-16 md:py-0 bg-gradient-to-l  to-amber-60 ">
         <div class="container mx-auto px-4 pt-2 lg:px-8">
             <div class="flex flex-col px-4 md:px-8">
                 <div class="text-center">
