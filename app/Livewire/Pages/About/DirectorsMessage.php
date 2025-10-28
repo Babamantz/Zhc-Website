@@ -16,13 +16,20 @@ class DirectorsMessage extends Component
 
         $dMessage = DirectorMessage::first();
 
-        $this->directorMessage = Cache::remember('director_message', 15552000, function () {
+        $dMessage = Cache::remember('director_message', 15552000, function () {
             DirectorMessage::with('media')->first();
         });
 
+        $this->directorMessage = $dMessage;
 
-        $news = News::orderBy("created_at", "desc")->get();
-        // dd($news);
+
+        // $news = News::orderBy("created_at", "desc")->get();
+        // // dd($news);
+
+        $news = Cache::remember('news_list', 604800, function () {
+            return  News::orderBy("created_at", "desc")->get();
+        });
+
 
         if ($news) {
 

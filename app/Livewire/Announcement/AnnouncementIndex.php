@@ -6,6 +6,7 @@ use App\Models\News;
 use Livewire\Component;
 use App\Models\Announcement;
 use Livewire\WithPagination;
+use Illuminate\Support\Facades\Cache;
 
 class AnnouncementIndex extends Component
 {
@@ -16,7 +17,9 @@ class AnnouncementIndex extends Component
     public function render()
     {
 
-        $announcementLists = Announcement::latest()->with('media')->get();
+        $announcementLists = Cache::remember('announcements', 15552000, function () {
+            return Announcement::latest()->with('media')->get();
+        });
 
         $this->announcementsValues = $announcementLists->map(function ($announcementList) {
             return [
@@ -27,7 +30,9 @@ class AnnouncementIndex extends Component
             ];
         });
 
-        $newsList = News::get();
+        $newsList = Cache::remember('news_list', 604800, function () {
+            return News::get();
+        });
         $this->newsArray = $newsList->map(function ($currentNews) {
             return [
                 'id'      => $currentNews->id,

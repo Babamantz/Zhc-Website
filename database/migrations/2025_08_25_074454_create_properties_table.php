@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('properties', function (Blueprint $table) {
             $table->id();
-            $table->string("title");
-            $table->string("excerpt");
-            $table->string("content");
+            $table->text("title");
+            $table->text("excerpt");
+            $table->longText("content");
             $table->timestamps();
         });
     }

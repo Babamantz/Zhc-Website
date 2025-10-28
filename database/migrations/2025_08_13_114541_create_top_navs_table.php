@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('top_navs', function (Blueprint $table) {
             $table->id();
-            $table->string('slug');
-            $table->string('media')->nullable();
-            $table->string('alt')->nullable();
-            $table->string('text')->nullable();
+            $table->text('slug');
+            $table->text('media')->nullable();
+            $table->text('alt')->nullable();
+            $table->text('text')->nullable();
 
             $table->timestamps();
         });

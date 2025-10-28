@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Mews\Purifier\Facades\Purifier;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 
@@ -24,9 +25,12 @@ class AboutUs extends Model
         );
     }
     protected function content()
+
     {
         return Attribute::make(
             set: fn(string $value) => Purifier::clean($value, 'content')
         );
     }
+
+   
 }

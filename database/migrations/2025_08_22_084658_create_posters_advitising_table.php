@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('posters_advitising', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->string('alt');
+            $table->text('title');
+            $table->text('alt');
             $table->timestamps();
         });
     }

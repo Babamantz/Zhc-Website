@@ -4,9 +4,9 @@
             <x-footer.heading title="Contact Us" />
             <p class="my-1">Zanzibar Housing Corporation</p>
             <p class="my-1">Serikali ya Mapinduzi Zanzibar</p>
-            <p class="my-1 mb-3">Sonara Building, Darajani, P.O. Box Zanzibar</p>
-            <p class="my-1"><i class="fas fa-envelope mr-2"></i> <a href="mailto:coi@tira.go.tz">dg@zhc.go.tz</a></p>
-            <p class="my-1"><i class="fas fa-phone mr-2"></i> <a href="tel:+255262321180">+255 24 000000</a></p>
+            <p class="my-1 mb-3">Sonara Building, Darajani, P.O.Box 795 Zanzibar</p>
+            <p class="my-1"><i class="fas fa-envelope mr-2"></i> <a href="#">dg@zhc.go.tz</a></p>
+            <p class="my-1"><i class="fas fa-phone mr-2"></i> <a href="">+255 24 000000</a></p>
         </div>
 
         <div class="w-full md:w-5/12 pl-0 md:pl-6 text-white text-center sm:text-center md:text-left">

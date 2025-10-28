@@ -28,7 +28,7 @@
 
                         <div class="text-sm text-gray-600 mt-1 flex items-center">
                             <i class="fa fa-calendar mr-1 text-gray-500"></i>
-                            {{ \Carbon\carbon::parse($news['date'])->format('y-M-Y') }}
+                            {{ \Carbon\carbon::parse($news['date'])->format('d M ,Y') }}
                         </div>
 
                         {{-- Optional excerpt --}}

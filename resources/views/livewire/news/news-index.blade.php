@@ -31,7 +31,7 @@
                             <div class="text-sm text-gray-600 mt-1 flex items-center">
                                 <i class="fa fa-calendar mr-1 text-gray-500"></i>
                                 @unless (empty($item['date']))
-                                    {{ \Carbon\Carbon::parse($item['date'])->format('y-M-Y') }}
+                                    {{ \Carbon\Carbon::parse($item['date'])->format('d M ,Y') }}
                                 @endunless
                             </div>
 

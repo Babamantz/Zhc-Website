@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->foreignId('menu_id')->constrained()->cascadeOnDelete();
             $table->foreignId('parent_id')->nullable()->constrained('menu_items')->cascadeOnDelete();
-            $table->string('title');
-            $table->string('url')->nullable();
+            $table->text('title');
+            $table->text('url')->nullable();
             $table->enum('target',['_blank','_self'])->default('_self'); // or _blank
             $table->integer('order')->default(0);
             $table->boolean('is_active')->default(true);

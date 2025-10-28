@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('faqs', function (Blueprint $table) {
             $table->id();
-            $table->string('header');
-            $table->string('content');
+            $table->text('header');
+            $table->longText('content');
             $table->timestamps();
         });
     }

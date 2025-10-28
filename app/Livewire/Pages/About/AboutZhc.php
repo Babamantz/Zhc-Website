@@ -13,7 +13,7 @@ class AboutZhc extends Component
 
     public function mount()
     {
-        $this->aboutUs = Cache::remember('about_us_first', 15552000, function () {
+        $this->aboutUs = Cache::remember('about_zhc', 15552000, function () {
             return AboutUs::first();
         });
 

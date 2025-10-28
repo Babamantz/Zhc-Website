@@ -16,7 +16,7 @@
                 {{ $title }}
             </a>
             <div class="text-sm text-gray-600 mt-1 flex items-center">
-                <i class="fa fa-calendar mr-1 text-gray-500"></i>{{\Carbon\carbon::parse($date)->format('y-M-Y')}}
+                <i class="fa fa-calendar mr-1 text-gray-500"></i>{{\Carbon\carbon::parse($date)->format('d M ,Y')}}
             </div>
         </div>
     </div>

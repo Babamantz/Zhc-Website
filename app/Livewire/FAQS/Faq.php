@@ -20,6 +20,8 @@ class Faq extends Component
         });
         $this->faqsArray =  $faqs->toArray();
 
+        // dd($faqs);
+
 
         $news = Cache::remember('news_list', 604800, function () {
             return  News::orderBy("created_at", "desc")->get();

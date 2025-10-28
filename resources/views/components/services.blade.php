@@ -5,7 +5,7 @@
         @unless (empty($service['header']) && empty($service['content']))
             <div class="border rounded-lg shadow-sm">
                 <button @click="open === {{ $index }} ? open = null : open = {{ $index }}"
-                    class="w-full flex justify-between items-center text-white px-4 py-3 bg-[#0A2C73] hover:bg-gray-200 font-semibold">
+                    class="w-full flex justify-between items-center text-white px-4 py-3 bg-[#0A2C73]  font-semibold">
 
                     {{-- Show header only if not empty --}}
                     @unless (empty($service['header']))

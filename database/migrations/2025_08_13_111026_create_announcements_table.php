@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('announcements', function (Blueprint $table) {
             $table->id();
             $table->enum('type',['label','pdf'])->default('label');
-            $table->string('title');
-            $table->string('announcement');
+            $table->text('title');
+            $table->longText('announcement');
             $table->timestamps();
         });
     }

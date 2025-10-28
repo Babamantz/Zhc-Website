@@ -5,19 +5,26 @@ namespace App\Livewire\Projects;
 use App\Models\News;
 use App\Models\Project;
 use Livewire\Component;
+use Illuminate\Support\Facades\Cache;
 
 class ProjectShow extends Component
 {
     public $project, $newsArray;
     public function mount($slug)
     {
-        $projectData = Project::where("slug", $slug)
-            ->where("slug", $slug)
-            ->firstOrFail();
+        $projectData = Cache::remember('projects', 604800, function () use ($slug) {
+            return Project::where("slug", $slug)
+                ->where("slug", $slug)
+                ->firstOrFail();
+        });
 
         $this->project = $projectData;
 
-        $news = News::orderBy("created_at", "desc")->get();
+        // $news = News::orderBy("created_at", "desc")->get();
+        $news = Cache::remember('news_list', 604800, function () {
+            return  News::orderBy("created_at", "desc")->get();
+        });
+
 
         $this->newsArray = $news->map(function ($currentNews) {
             return [

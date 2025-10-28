@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('youtube_advertising_video', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->string('url');
+            $table->text('title');
+            $table->text('url');
             $table->timestamps();
         });
     }
