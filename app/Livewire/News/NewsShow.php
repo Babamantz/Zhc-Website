@@ -9,9 +9,12 @@ use App\Models\Announcement;
 class NewsShow extends Component
 {
     public $news, $announcementsValues = [];
-    public function mount($id)
+    public function mount(News $news)
     {
-        $news = News::with('media')->findOrFail($id);
+        // dd($news);s
+        // $news = News::with('media')->findOrFail($id);
+
+        $news = $news->load('media');
 
         $this->news = [
             'id'      => $news->id,

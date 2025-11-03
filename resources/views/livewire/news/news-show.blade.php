@@ -21,7 +21,7 @@
                     <!-- Content Section -->
                     <div class="flex flex-col justify-center">
 
-                        <a href="{{ route('news.show', ['id' => $news['id']]) }}"
+                        <a href="{{ route('news.show', ['news' => $news['id']]) }}"
                             class="uppercase font-semibold text-sm text-gray-800 hover:text-blue-600">
                             {{ $news['title'] }}
                         </a>

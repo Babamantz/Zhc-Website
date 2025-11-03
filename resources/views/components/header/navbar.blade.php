@@ -201,9 +201,9 @@
                 x-transition:leave-start="opacity-100 translate-y-0" x-transition:leave-end="opacity-0 -translate-y-2"
                 class="absolute left-0 mt-1 w-48 bg-[#0A2C73] text-white rounded shadow-lg z-20">
                 <ul class="py-1" role="menu">
-                    <li><a href="#" class="block px-4 py-2 hover:bg-[#123b9b] text-sm font-medium">Photos</a>
+                    <li><a href="/" class="block px-4 py-2 hover:bg-[#123b9b] text-sm font-medium">Photos</a>
                     </li>
-                    <li><a href="#" class="block px-4 py-2 hover:bg-[#123b9b] text-sm font-medium">Videos</a>
+                    <li><a href="/" class="block px-4 py-2 hover:bg-[#123b9b] text-sm font-medium">Videos</a>
                     </li>
                 </ul>
             </div>

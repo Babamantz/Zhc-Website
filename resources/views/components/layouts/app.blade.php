@@ -24,6 +24,7 @@
 </head>
 
 <body class="bg-gray-50 text-gray-900 m-0 p-0">
+    <x-page-spinner />
 
     <x-header.header class="fixed top-0 left-0 w-full z-50" />
 

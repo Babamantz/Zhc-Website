@@ -24,8 +24,7 @@ Route::middleware(["web"])->group(function () {
     Route::get('/services', Service::class)->name('pages.services');
     Route::get('/faqs', Faq::class)->name('pages.faqs');
     Route::get('/news/all', NewsIndex::class)->name('news.index');
-    Route::get('/news/{id}', NewsShow::class)->name('news.show')
-        ->whereNumber('id');
+    Route::get('/news/{news}', NewsShow::class)->name('news.show');
     Route::get('/public-notice', AnnouncementIndex::class)->name('announcement.index');
     Route::get('project/{status}/{slug}', ProjectShow::class)
         ->whereIn('status', ['ongoing', 'completed', 'upcoming']) // whitelist values
