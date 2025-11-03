@@ -24,7 +24,7 @@
                 <p>Postcode: Barabar ya Creek Darajani Sonara Building , 71124 Zanzibar,</p>
                 <p>P.O.Box 795 Zanzibar,</p>
                 <p>Email: dg@zhc.go.tz</p>
-                <p>Tel: +255 24 000000</p>
+                <p>Tel: +255 24 2230067</p>
             </div>
 
             <h3 class="mt-6 font-semibold text-gray-800">Working Hours (East African time)</h3>

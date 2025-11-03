@@ -12,7 +12,7 @@
 
             @foreach ($newsArray as $item)
                 <div class="mb-4 mt-2">
-                    <div class="flex items-start gap-4 mb-4">
+                    <div class="flex items-start mt-5 gap-4 mb-4">
                         <!-- Image Section -->
                         <a href="{{ route('news.show', ['news' => $item['id']]) }}" class="w-60 h-30 flex-shrink-0">
                             @unless (empty($item['images'][0]['original']))

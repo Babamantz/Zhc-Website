@@ -19,7 +19,7 @@
           {{ $item['title'] }}
         </a>
       </p>
-      <i class="fa fa-calendar text-sm"></i> {{$item['date']->format('d/m/Y')}}
+      <i class="fa fa-calendar text-sm"></i> {{$item['date']->format('d M, Y')}}
     </div>
   </div>
 </div>

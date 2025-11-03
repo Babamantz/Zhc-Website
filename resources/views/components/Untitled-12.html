@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="sw">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Muundo wa Shirika — Zanzibar Housing</title>
+
+  <!-- Tailwind CDN (for quick prototyping) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    /* Simple connector lines using pseudo elements */
+    .node {
+      position: relative;
+    }
+    /* vertical line below a parent to children */
+    .node > .children-connector::before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 100%;
+      transform: translateX(-50%);
+      width: 2px;
+      height: 1.25rem;
+      background: #cbd5e1; /* slate-300 */
+    }
+    /* horizontal connector between sibling groups */
+    .children-row::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0.6rem;
+      height: 2px;
+      background: #cbd5e1;
+    }
+    /* little vertical connector above each child box */
+    .child-box::before {
+      content: "";
+      position: absolute;
+      top: -1.25rem;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 2px;
+      height: 1rem;
+      background: #cbd5e1;
+    }
+
+    /* make connectors subtler on dark mode */
+    @media (prefers-color-scheme: dark) {
+      .node > .children-connector::before,
+      .children-row::before,
+      .child-box::before {
+        background: rgba(255,255,255,0.08);
+      }
+    }
+  </style>
+</head>
+<body class="bg-white text-slate-800 antialiased">
+
+  <main class="min-h-screen flex flex-col items-center py-12 px-4">
+    <h1 class="text-center font-bold text-xl md:text-2xl mb-10">MUUNDO WA SHIRIKA LA NYUMBA ZANZIBAR</h1>
+
+    <!-- Top of chart -->
+     <!-- /max width -->
+  </main>
+</body>
+</html>

@@ -28,7 +28,7 @@
 
             <div class="flex flex-col">
                 <div class="text-sm md:text-base mx-2">
-                    <div class="max-w-6xl mx-auto">
+                    <div class="max-w-6xl mt-5 mx-auto">
                         <p class="text-gray-700">{!! $project->content !!}</p>
 
                         {{-- Image Grid --}}
@@ -190,19 +190,19 @@
                 <div class="mb-4 mt-2">
                     <div class="flex items-start gap-4 mb-4">
 
-                        <a href="{{ route('news.show', ['id' => $item['id']]) }}" class="w-32 h-20 flex-shrink-0">
+                        <a href="{{ route('news.show', ['news' => $item['id']]) }}" class="w-32 h-20 flex-shrink-0">
                             <img src="{{ $item['images'][0]['original'] }}" alt="{{ $item['title'] }}"
                                 class="w-full h-full object-cover rounded-md" />
                         </a>
 
                         <div class="flex flex-col justify-center">
-                            <a href="{{ route('news.show', ['id' => $item['id']]) }}"
+                            <a href="{{ route('news.show', ['news' => $item['id']]) }}"
                                 class="uppercase font-semibold text-sm text-gray-800 hover:text-blue-600">
                                 {{ $item['title'] }}
                             </a>
                             <div class="text-sm text-gray-600 mt-1 flex items-center">
                                 <i class="fa fa-calendar mr-1 text-gray-500"></i>
-                                {{ \Carbon\carbon::parse($item['date'])->format('y-M-Y') }}
+                                {{ \Carbon\carbon::parse($item['date'])->format('d M, Y') }}
                             </div>
                             {{-- 
                             @if (!empty($item['excerpt']))

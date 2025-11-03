@@ -1,8 +1,7 @@
-@props(['img', 'title', 'date', 'excerpt'])
-
+@props(['id', 'img', 'title', 'date', 'excerpt'])
 
 <div class="relative overflow-hidden bg-no-repeat bg-cover shadow-lg rounded-md news-item-hover h-96">
-    <a href="">
+    <a href="{{ route('news.show', ['news' => $id]) }}">
         <img src="{{ $img }}" class="object-cover object-top rounded-md w-full h-96" />
     </a>
     <a href="">

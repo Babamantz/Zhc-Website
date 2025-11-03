@@ -1,0 +1,104 @@
+<div class="flex flex-col">
+    <x-page-header title="NEWS" />
+    <div class="lg:grid lg:grid-cols-11 lg:gap-6 flex flex-col mt-5 px-4 min-h-[80vh]">
+
+        {{-- Left column: col-span-10  --}}
+        <div class="lg:col-span-6">
+            <h1 class="text-2xl font-bold border-b-2">News</h1>
+
+            {{-- Loop through news items --}}
+            <div class="mb-4 mt-3" x-data="{ imageModalOpen: false, selectedImage: '', selectedTitle: '' }">
+                <div class="flex items-start gap-4 mb-4">
+                    <!-- Content Section -->
+                    <div class="flex flex-col justify-center w-full">
+
+                        <a href="{{ route('news.show', ['news' => $news['id']]) }}"
+                            class="uppercase font-semibold text-sm text-gray-800 hover:text-blue-600">
+                            {{ $news['title'] }}
+                        </a>
+
+                        <div class="text-sm text-gray-600 mt-1 flex items-center">
+                            <i class="fa fa-calendar mr-1 text-gray-500"></i>
+                            {{ \Carbon\carbon::parse($news['date'])->format('d M ,Y') }}
+                        </div>
+
+                        {{-- Optional excerpt --}}
+                        <p class="text-xs text-gray-500 mt-2">
+                            {!! $news['content'] !!}
+                        </p>
+
+                        {{-- Clickable Image --}}
+                        <div class="mt-3 relative group cursor-pointer"
+                            @click="imageModalOpen = true; selectedImage = '{{ $news['images'][0]['original'] }}'; selectedTitle = '{{ $news['title'] }}'">
+                            <img src="{{ $news['images'][0]['original'] }}" alt="{{ $news['title'] }}"
+                                class="w-full h-auto object-cover rounded-md transition-transform duration-300 group-hover:scale-[1.02]" />
+
+                            {{-- Overlay hint on hover --}}
+                            <div
+                                class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300 rounded-md flex items-center justify-center">
+                                <div
+                                    class="opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white/90 rounded-full p-3">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-gray-800" fill="none"
+                                        viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {{-- Image Modal --}}
+                <template x-teleport="body">
+                    <div x-show="imageModalOpen" x-transition:enter="transition ease-out duration-300"
+                        x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100"
+                        x-transition:leave="transition ease-in duration-200" x-transition:leave-start="opacity-100"
+                        x-transition:leave-end="opacity-0" @click="imageModalOpen = false"
+                        class="fixed inset-0 bg-black/90 flex items-center justify-center z-50 p-4"
+                        style="display: none;">
+
+                        <div class="relative max-w-7xl max-h-[90vh] w-full h-full flex flex-col">
+                            {{-- Close Button --}}
+                            <button @click="imageModalOpen = false"
+                                class="absolute -top-12 right-0 text-white hover:text-gray-300 text-4xl font-light z-20 transition-colors duration-200">
+                                &times;
+                            </button>
+
+                            {{-- Image Title --}}
+                            <div class="absolute -top-12 left-0 text-white text-sm font-medium" x-text="selectedTitle">
+                            </div>
+
+                            {{-- Image Container --}}
+                            <div class="flex items-center justify-center w-full h-full" @click.stop>
+                                <img :src="selectedImage" :alt="selectedTitle"
+                                    class="max-w-full max-h-full object-contain rounded-lg shadow-2xl" @click.stop />
+                            </div>
+
+                            {{-- Optional: Download/Actions Bar --}}
+                            <div
+                                class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent p-4 rounded-b-lg">
+                                <div class="flex justify-center gap-4">
+                                    <a :href="selectedImage" download
+                                        class="bg-white/20 hover:bg-white/30 text-white px-4 py-2 rounded-lg transition-colors duration-200 backdrop-blur-sm flex items-center gap-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none"
+                                            viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                                        </svg>
+                                        Download
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </template>
+            </div>
+        </div>
+
+        {{-- Right column: col-span-2 --}}
+        <div class="hidden lg:block lg:col-span-4">
+            <x-announcements.announcement-section :announcements="$announcementsValues" />
+        </div>
+    </div>
+</div>
