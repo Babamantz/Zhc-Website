@@ -1,338 +1,282 @@
-<style>
-    /* General node box style */
-    .box {
-        background: white;
-        border: 1px solid #cbd5e1;
-        /* slate-300 */
-        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
-        border-radius: 6px;
-        padding: .6rem .8rem;
-        text-align: center;
-        min-width: 12rem;
-    }
-
-    /* Vertical line under a node */
-    .vline {
-        position: relative;
-    }
-
-    .vline::after {
-        content: "";
-        position: absolute;
-        left: 50%;
-        top: 100%;
-        transform: translateX(-50%);
-        width: 2px;
-        height: 1.25rem;
-        background: #cbd5e1;
-    }
-
-    /* Horizontal connector between siblings/side nodes */
-    .hconnector {
-        position: relative;
-    }
-
-    .hconnector::before {
-        content: "";
-        position: absolute;
-        height: 2px;
-        left: 0;
-        right: 0;
-        top: 50%;
-        transform: translateY(-50%);
-        background: #cbd5e1;
-    }
-
-    /* little vertical connector above each child box */
-    .child-stem::before {
-        content: "";
-        position: absolute;
-        top: -1.25rem;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 2px;
-        height: 1rem;
-        background: #cbd5e1;
-    }
-
-    /* center vertical main trunk between director and departments */
-    .main-trunk {
-        position: relative;
-    }
-
-    .main-trunk::after {
-        content: "";
-        position: absolute;
-        left: 50%;
-        top: 0;
-        transform: translateX(-50%);
-        width: 2px;
-        height: 2.5rem;
-        background: #cbd5e1;
-        z-index: 0;
-    }
-
-    /* small horizontal connector for direct side node (Naibu) */
-    .side-connector {
-        position: relative;
-    }
-
-    .side-connector::before {
-        content: "";
-        position: absolute;
-        width: calc(100% + 1.5rem);
-        height: 2px;
-        left: -1.5rem;
-        top: 50%;
-        transform: translateY(-50%);
-        background: #cbd5e1;
-        z-index: 0;
-    }
-
-    /* responsive tweaks */
-    @media (max-width: 768px) {
-        .side-connector::before {
-            display: none;
+    <style>
+        body {
+            font-family: Arial, sans-serif;
         }
 
-        /* on small screens stack vertically */
-        .vline::after {
-            height: 0.9rem;
+        .org-box {
+            background: white;
+            border: 2px solid #000;
+            padding: 8px 10px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 10px;
+            line-height: 1.3;
+            min-height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        .main-trunk::after {
-            height: 1.25rem;
+        .line-v {
+            width: 2px;
+            background: #000;
+            margin: 0 auto;
         }
 
-        .child-stem::before {
-            height: 0.8rem;
-            top: -0.9rem;
+        .line-h {
+            height: 2px;
+            background: #000;
         }
-    }
-</style>
-<div class="flex  flex-col">
-    <x-page-header title="Organization Structure" />
+    </style>
+    <div class="flex  flex-col">
+        <x-page-header title="Organization Structure" />
 
-    {{-- Control div --}}
-
-
-    {{-- Outer wrapper: 12-column grid --}}
-    <div class="lg:grid lg:grid-cols-10 lg:gap-6 flex flex-col mt-5 px-4 min-h-[80vh]">
-
-        {{-- Left column: col-span-10 --}}
-        <div class="lg:col-span-6">
-            {{-- Featured properties or custom grid goes here --}}
-
-            <h2 class="text-2xl font-bold mb-6 border-b-2 ">Organization Structure</h2>
+        {{-- Control div --}}
 
 
-            <div class="w-full max-w-7xl">
-                <div class="flex flex-col items-center">
+        {{-- Outer wrapper: 12-column grid --}}
+        <div class="lg:grid lg:grid-cols-10 lg:gap-6 flex flex-col mt-5 px-4 min-h-[80vh]">
 
-                    <!-- BODI YA WAKURUGENZI -->
-                    <div class="vline">
-                        <div class="box w-56 mx-auto">BODI YA WAKURUGENZI</div>
-                    </div>
+            {{-- Left column: col-span-10 --}}
+            <div class="lg:col-span-6">
+                {{-- Featured properties or custom grid goes here --}}
 
-                    <!-- MKURUGENZI MKUU with Naibu aside -->
-                    <div class="mt-8 w-full flex justify-center">
-                        <div class="w-full max-w-4xl relative flex flex-col items-center">
-                            <!-- Director + Naibu layout -->
-                            <div class="w-full flex flex-col md:flex-row md:items-center md:justify-center gap-6">
-                                <!-- Director column (center) -->
-                                <div class="flex flex-col items-center md:items-end md:w-1/2">
-                                    <div class="vline main-trunk">
-                                        <div class="box w-60">MKURUGENZI MKUU</div>
-                                    </div>
-                                </div>
+                <h2 class="text-2xl font-bold mb-6 border-b-2 ">Organization Structure</h2>
 
-                                <!-- Naibu aside (right of director on md+) -->
-                                <div class="flex items-center md:items-start md:w-1/2 md:pl-6">
-                                    <!-- On md+, create a horizontal connector from director to naibu -->
-                                    <div class="side-connector md:pl-6">
-                                        <div class="box w-56">NAIBU MKURUGENZI</div>
-                                    </div>
-                                </div>
-                            </div>
+                <svg viewBox="0 0 1600 1400" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <style>
+                            .org-box {
+                                fill: white;
+                                stroke: #2563eb;
+                                stroke-width: 4;
+                            }
 
-                            <!-- Immediate units connected under the director (center trunk) -->
-                            <div class="w-full mt-6 flex justify-center">
-                                <!-- horizontal connector bar across (between left stack and right stack) -->
-                                <div class="w-full max-w-3xl relative">
-                                    <!-- vertical stem from director to this connector -->
-                                    <div class="absolute left-1/2 transform -translate-x-1/2 -translate-y-4">
-                                        <!-- small vertical continuation already from main-trunk -->
-                                    </div>
+                            .org-text {
+                                font-family: Arial, sans-serif;
+                                font-size: 13px;
+                                text-anchor: middle;
+                                font-weight: bold;
+                                fill: #1e40af;
+                            }
 
-                                    <!-- Row of immediate units (left, center spacer, right) -->
-                                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-start">
-                                        <!-- Left stack -->
-                                        <div class="flex flex-col items-center gap-6">
-                                            <div class="h-8"></div> <!-- spacer so stems align nicely -->
-                                            <div class="child-stem relative">
-                                                <div class="box w-64">KITENGO CHA TEHAMA</div>
-                                            </div>
-                                            <div class="child-stem relative">
-                                                <div class="box w-64">KITENGO CHA HUDUMA ZA SHERIA</div>
-                                            </div>
-                                            <div class="child-stem relative">
-                                                <div class="box w-64">KITENGO CHA UHUSIANO HABARI NA ELIMU</div>
-                                            </div>
-                                        </div>
+                            .title-text {
+                                font-family: Arial, sans-serif;
+                                font-size: 24px;
+                                font-weight: bolder;
+                                text-anchor: middle;
+                                fill: #1e40af;
+                            }
 
-                                        <!-- Center placeholder for vertical trunk alignment -->
-                                        <div class="flex justify-center">
-                                            <!-- empty - acts as center column over trunk -->
-                                        </div>
+                            .line {
+                                stroke: #2563eb;
+                                stroke-width: 3;
+                                fill: none;
+                            }
+                        </style>
+                    </defs>
 
-                                        <!-- Right stack -->
-                                        <div class="flex flex-col items-center gap-6">
-                                            <div class="h-8"></div>
-                                            <div class="child-stem relative">
-                                                <div class="box w-64">KITENGO CHA UKAGUZI WA NDANI</div>
-                                            </div>
-                                            <div class="child-stem relative">
-                                                <div class="box w-64">KITENGO CHA UNUNUZI NA UGAVI</div>
-                                            </div>
-                                            <div class="child-stem relative">
-                                                <div class="box w-64">KITENGO CHA UHASIBU</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                    <!-- Title -->
+                    <text x="800" y="40" class="title-text">MUUNDO WA SHIRIKA LA NYUMBA ZANZIBAR</text>
 
-                            <!-- Connector line down to Departments (main trunk) -->
-                            <div class="w-full mt-8 flex justify-center">
-                                <div class="relative w-full max-w-6xl flex justify-center">
-                                    <!-- vertical trunk -->
-                                    <div class="absolute left-1/2 transform -translate-x-1/2 top-0 w-0">
-                                        <div style="width:2px; height:1.25rem; background:#cbd5e1;"></div>
-                                    </div>
-                                </div>
-                            </div>
+                    <!-- Level 1: Board -->
+                    <rect x="710" y="70" width="180" height="50" class="org-box" rx="5" />
+                    <text x="800" y="92" class="org-text">BODI YA</text>
+                    <text x="800" y="108" class="org-text">WAKURUGENZI</text>
+                    <line x1="800" y1="120" x2="800" y2="150" class="line" />
 
-                            <!-- Departments Row -->
-                            <div class="w-full mt-10">
-                                <div class="w-full max-w-6xl mx-auto relative">
-                                    <!-- horizontal bar -->
-                                    <div class="absolute left-0 right-0 top-6">
-                                        <div style="height:2px; background:#cbd5e1;"></div>
-                                    </div>
+                    <!-- Level 2: Directors -->
+                    <rect x="620" y="150" width="180" height="50" class="org-box" rx="5" />
+                    <text x="710" y="172" class="org-text">MKURUGENZI</text>
+                    <text x="710" y="188" class="org-text">MKUU</text>
 
-                                    <!-- departments boxes aligned on that horizontal bar with stems up -->
-                                    <div class="grid grid-cols-1 md:grid-cols-5 gap-6 pt-10">
-                                        <!-- Dept 1 -->
-                                        <div class="relative flex justify-center">
-                                            <div class="child-stem absolute -top-10"></div>
-                                            <div class="box w-64 text-left">
-                                                <div class="font-semibold text-sm">IDARA YA HUDUMA ZA KIFUNDI NA
-                                                    UEKEZAJI</div>
-                                                <ul class="mt-2 text-xs text-slate-600 list-disc list-inside">
-                                                    <li>SEHEMU YA HUDUMA ZA UHANDISI NA UJENZI</li>
-                                                    <li>SEHEMU YA UEKEZAJI</li>
-                                                    <li>SEHEMU YA UBUNIFU WA MAJENGO</li>
-                                                </ul>
-                                            </div>
-                                        </div>
+                    <rect x="800" y="150" width="180" height="50" class="org-box" rx="5" />
+                    <text x="890" y="172" class="org-text">NAIBU</text>
+                    <text x="890" y="188" class="org-text">MKURUGENZI</text>
 
-                                        <!-- Dept 2 -->
-                                        <div class="relative flex justify-center">
-                                            <div class="child-stem absolute -top-10"></div>
-                                            <div class="box w-64 text-left">
-                                                <div class="font-semibold text-sm">IDARA YA USIMAMIZI NA MILIKI NA
-                                                    UENDESHAJI NA BIASHARA</div>
-                                                <ul class="mt-2 text-xs text-slate-600 list-disc list-inside">
-                                                    <li>SEHEMU YA UTATHMINI NA USIMAMIZI WA MILIKI</li>
-                                                    <li>SEHEMU YA BIASHARA NA MASOKO</li>
-                                                </ul>
-                                            </div>
-                                        </div>
+                    <line x1="800" y1="200" x2="800" y2="240" class="line" />
 
-                                        <!-- Dept 3 -->
-                                        <div class="relative flex justify-center">
-                                            <div class="child-stem absolute -top-10"></div>
-                                            <div class="box w-64 text-left">
-                                                <div class="font-semibold text-sm">IDARA YA MIPANGO NA UTAFITI</div>
-                                                <ul class="mt-2 text-xs text-slate-600 list-disc list-inside">
-                                                    <li>SEHEMU YA UTAFITI</li>
-                                                    <li>SEHEMU YA MIPANGO</li>
-                                                </ul>
-                                            </div>
-                                        </div>
+                    <!-- Level 3: Horizontal line for departments -->
+                    <line x1="100" y1="240" x2="1500" y2="240" class="line" />
 
-                                        <!-- Dept 4 -->
-                                        <div class="relative flex justify-center">
-                                            <div class="child-stem absolute -top-10"></div>
-                                            <div class="box w-64 text-left">
-                                                <div class="font-semibold text-sm">IDARA YA UTAWALA NA RASIMALI WATU
-                                                </div>
-                                                <ul class="mt-2 text-xs text-slate-600 list-disc list-inside">
-                                                    <li>SEHEMU YA UTAWALA</li>
-                                                    <li>SEHEMU YA RASIMALI WATU</li>
-                                                </ul>
-                                            </div>
-                                        </div>
+                    <!-- Level 3: Departments (6 boxes) -->
+                    <!-- Department 1 -->
+                    <line x1="235" y1="240" x2="235" y2="280" class="line" />
+                    <rect x="150" y="280" width="170" height="50" class="org-box" rx="5" />
+                    <text x="235" y="302" class="org-text">KITENGO CHA</text>
+                    <text x="235" y="318" class="org-text">TEHAMA</text>
 
-                                        <!-- Office Pemba -->
-                                        <div class="relative flex justify-center">
-                                            <div class="child-stem absolute -top-10"></div>
-                                            <div class="box w-64">
-                                                <div class="font-semibold text-sm">OFISI YA PEMBA</div>
-                                            </div>
-                                        </div>
-                                    </div> <!-- /grid -->
-                                </div>
-                            </div> <!-- /departments -->
-                        </div>
-                    </div>
-                </div>
+                    <!-- Department 2 -->
+                    <line x1="435" y1="240" x2="435" y2="280" class="line" />
+                    <rect x="350" y="280" width="170" height="50" class="org-box" rx="5" />
+                    <text x="435" y="295" class="org-text">KITENGO CHA</text>
+                    <text x="435" y="311" class="org-text">HUDUMA ZA SHERIA</text>
+
+                    <!-- Department 3 -->
+                    <line x1="635" y1="240" x2="635" y2="280" class="line" />
+                    <rect x="550" y="280" width="170" height="50" class="org-box" rx="5" />
+                    <text x="635" y="291" class="org-text">KITENGO CHA</text>
+                    <text x="635" y="305" class="org-text">UHUSIANO HABARI</text>
+                    <text x="635" y="319" class="org-text">NA ELIMU</text>
+
+                    <!-- Department 4 -->
+                    <line x1="965" y1="240" x2="965" y2="280" class="line" />
+                    <rect x="880" y="280" width="170" height="50" class="org-box" rx="5" />
+                    <text x="965" y="295" class="org-text">KITENGO CHA</text>
+                    <text x="965" y="311" class="org-text">UKAGUZI WA NDANI</text>
+
+                    <!-- Department 5 -->
+                    <line x1="1165" y1="240" x2="1165" y2="280" class="line" />
+                    <rect x="1080" y="280" width="170" height="50" class="org-box" rx="5" />
+                    <text x="1165" y="295" class="org-text">KITENGO CHA</text>
+                    <text x="1165" y="311" class="org-text">UNUNUZI NA UGAVI</text>
+
+                    <!-- Department 6 -->
+                    <line x1="1365" y1="240" x2="1365" y2="280" class="line" />
+                    <rect x="1280" y="280" width="170" height="50" class="org-box" rx="5" />
+                    <text x="1365" y="302" class="org-text">KITENGO CHA</text>
+                    <text x="1365" y="318" class="org-text">UHASIBU</text>
+
+                    <!-- Vertical connector to divisions -->
+                    <line x1="800" y1="200" x2="800" y2="370" class="line" />
+
+                    <!-- Level 4: Horizontal line for divisions -->
+                    <line x1="100" y1="370" x2="1500" y2="370" class="line" />
+
+                    <!-- Level 4: Main Divisions (5 boxes) -->
+                    <!-- Division 1 -->
+                    <line x1="210" y1="370" x2="210" y2="410" class="line" />
+                    <rect x="100" y="410" width="220" height="60" class="org-box" rx="5" />
+                    <text x="210" y="427" class="org-text">IDARA YA HUDUMA</text>
+                    <text x="210" y="442" class="org-text">ZA KIFUNDI NA</text>
+                    <text x="210" y="457" class="org-text">UEKEZAJI</text>
+
+                    <!-- Division 2 -->
+                    <line x1="470" y1="370" x2="470" y2="410" class="line" />
+                    <rect x="360" y="410" width="220" height="60" class="org-box" rx="5" />
+                    <text x="470" y="423" class="org-text">IDARA YA</text>
+                    <text x="470" y="437" class="org-text">USIMAMIZI WA MILKI</text>
+                    <text x="470" y="451" class="org-text">NA UENDESHAJI NA</text>
+                    <text x="470" y="465" class="org-text">BIASHARA</text>
+
+                    <!-- Division 3 -->
+                    <line x1="730" y1="370" x2="730" y2="410" class="line" />
+                    <rect x="620" y="410" width="220" height="60" class="org-box" rx="5" />
+                    <text x="730" y="435" class="org-text">IDARA YA MIPANGO</text>
+                    <text x="730" y="451" class="org-text">NA UTAFITI</text>
+
+                    <!-- Division 4 -->
+                    <line x1="990" y1="370" x2="990" y2="410" class="line" />
+                    <rect x="880" y="410" width="220" height="60" class="org-box" rx="5" />
+                    <text x="990" y="435" class="org-text">IDARA YA UTAWALA</text>
+                    <text x="990" y="451" class="org-text">NA RASIMALI WATU</text>
+
+                    <!-- Division 5 -->
+                    <line x1="1250" y1="370" x2="1250" y2="410" class="line" />
+                    <rect x="1140" y="410" width="220" height="60" class="org-box" rx="5" />
+                    <text x="1250" y="443" class="org-text">OFISI YA PEMBA</text>
+
+                    <!-- Level 5: Sections under Division 1 -->
+                    <line x1="210" y1="470" x2="210" y2="510" class="line" />
+                    <rect x="100" y="510" width="220" height="60" class="org-box" rx="5" />
+                    <text x="210" y="527" class="org-text">SEHEMU YA</text>
+                    <text x="210" y="541" class="org-text">HUDUMA ZA</text>
+                    <text x="210" y="555" class="org-text">UHANDISI NA UJENZI</text>
+
+                    <line x1="210" y1="570" x2="210" y2="590" class="line" />
+                    <rect x="100" y="590" width="220" height="40" class="org-box" rx="5" />
+                    <text x="210" y="607" class="org-text">SEHEMU YA</text>
+                    <text x="210" y="621" class="org-text">UEKEZAJI</text>
+
+                    <line x1="210" y1="630" x2="210" y2="650" class="line" />
+                    <rect x="100" y="650" width="220" height="50" class="org-box" rx="5" />
+                    <text x="210" y="667" class="org-text">SEHEMU YA</text>
+                    <text x="210" y="682" class="org-text">UBUNIFU WA MAJENGO</text>
+
+                    <!-- Level 5: Sections under Division 2 -->
+                    <line x1="470" y1="470" x2="470" y2="510" class="line" />
+                    <rect x="360" y="510" width="220" height="60" class="org-box" rx="5" />
+                    <text x="470" y="527" class="org-text">SEHEMU YA</text>
+                    <text x="470" y="541" class="org-text">UTAFHMINI NA</text>
+                    <text x="470" y="555" class="org-text">USIMAMIZI WA MILKI</text>
+
+                    <line x1="470" y1="570" x2="470" y2="590" class="line" />
+                    <rect x="360" y="590" width="220" height="50" class="org-box" rx="5" />
+                    <text x="470" y="607" class="org-text">SEHEMU YA</text>
+                    <text x="470" y="622" class="org-text">BIASHARA NA MASOKO</text>
+
+                    <!-- Level 5: Sections under Division 3 -->
+                    <line x1="730" y1="470" x2="730" y2="510" class="line" />
+                    <rect x="620" y="510" width="220" height="40" class="org-box" rx="5" />
+                    <text x="730" y="535" class="org-text">SEHEMU YA UTAFITI</text>
+
+                    <line x1="730" y1="550" x2="730" y2="570" class="line" />
+                    <rect x="620" y="570" width="220" height="40" class="org-box" rx="5" />
+                    <text x="730" y="587" class="org-text">SEHEMU YA</text>
+                    <text x="730" y="601" class="org-text">MIPANGO</text>
+
+                    <!-- Level 5: Sections under Division 4 -->
+                    <line x1="990" y1="470" x2="990" y2="510" class="line" />
+                    <rect x="880" y="510" width="220" height="40" class="org-box" rx="5" />
+                    <text x="990" y="527" class="org-text">SEHEMU YA</text>
+                    <text x="990" y="541" class="org-text">UTAWALA</text>
+
+                    <line x1="990" y1="550" x2="990" y2="570" class="line" />
+                    <rect x="880" y="570" width="220" height="40" class="org-box" rx="5" />
+                    <text x="990" y="587" class="org-text">SEHEMU YA</text>
+                    <text x="990" y="601" class="org-text">RASIMALI WATU</text>
+                </svg>
+
+
+
+
+
+
             </div>
 
 
-        </div>
-
-
-        {{-- Right column: col-span-2 --}}
-        <div class="hidden lg:block lg:col-span-4">
-            <x-news.news-header />
-            @foreach ($newsArray as $item)
-                <div class="mb-4 mt-2">
-                    <div class="flex items-start gap-4 mb-4">
-                        <!-- Image Section -->
-                        <a href="{{ route('news.show', ['news' => $item['id']]) }}" class="w-32 h-20 flex-shrink-0">
-                            @unless (empty($item['images'][0]['original']))
-                                <img src="{{ $item['images'][0]['original'] }}" alt="{{ $item['title'] ?? 'News Image' }}"
-                                    class="w-full h-full object-cover rounded-md" />
-                            @endunless
-                        </a>
-
-                        <!-- Content Section -->
-                        <div class="flex flex-col justify-center">
+            {{-- Right column: col-span-2 --}}
+            <div class="hidden lg:block lg:col-span-4">
+                <x-news.news-header />
+                @foreach ($newsArray as $item)
+                    <div class="mb-4 mt-2">
+                        <div class="flex items-start gap-4 mb-4">
+                            <!-- Image Section -->
                             <a href="{{ route('news.show', ['news' => $item['id']]) }}"
-                                class="uppercase font-semibold text-sm text-gray-800 hover:text-blue-600">
-                                {{ $item['title'] ?? 'Untitled News' }}
+                                class="w-32 h-20 flex-shrink-0">
+                                @unless (empty($item['images'][0]['original']))
+                                    <img src="{{ $item['images'][0]['original'] }}"
+                                        alt="{{ $item['title'] ?? 'News Image' }}"
+                                        class="w-full h-full object-cover rounded-md" />
+                                @endunless
                             </a>
 
-                            <div class="text-sm text-gray-600 mt-1 flex items-center">
-                                <i class="fa fa-calendar mr-1 text-gray-500"></i>
-                                @unless (empty($item['date']))
-                                    {{ \Carbon\Carbon::parse($item['date'])->format('d M, Y') }}
-                                @endunless
-                            </div>
+                            <!-- Content Section -->
+                            <div class="flex flex-col justify-center">
+                                <a href="{{ route('news.show', ['news' => $item['id']]) }}"
+                                    class="uppercase font-semibold text-sm text-gray-800 hover:text-blue-600">
+                                    {{ $item['title'] ?? 'Untitled News' }}
+                                </a>
 
-                            {{-- Optional excerpt --}}
-                            {{-- @unless (empty($item['excerpt']))
+                                <div class="text-sm text-gray-600 mt-1 flex items-center">
+                                    <i class="fa fa-calendar mr-1 text-gray-500"></i>
+                                    @unless (empty($item['date']))
+                                        {{ \Carbon\Carbon::parse($item['date'])->format('d M, Y') }}
+                                    @endunless
+                                </div>
+
+                                {{-- Optional excerpt --}}
+                                {{-- @unless (empty($item['excerpt']))
                                 <p class="text-xs text-gray-500 mt-2">
                                     {!! $item['excerpt'] !!}
                                 </p>
                             @endunless --}}
+                            </div>
                         </div>
                     </div>
-                </div>
-            @endforeach
+                @endforeach
+
+            </div>
 
         </div>
-
     </div>
-</div>

@@ -4,7 +4,7 @@
     <a href="{{ route('news.show', ['news' => $id]) }}">
         <img src="{{ $img }}" class="object-cover object-top rounded-md w-full h-96" />
     </a>
-    <a href="">
+    <a href="{{ route('news.show', ['news' => $id]) }}">
         <div class="absolute bottom-0 left-0 w-full h-full bg-black/30">
             <div class="flex justify-start items-end h-full">
                 <div class="text-white w-full p-4 bg-black/75">

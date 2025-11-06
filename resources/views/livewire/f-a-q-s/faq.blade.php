@@ -13,7 +13,7 @@
 
 
             <div class="flex flex-col">
-                <div class="text-sm md:text-base my-5 mx-2">
+                <div class="text-sm md:text-base my-3 mx-2">
 
                     {{-- @dd($faqsArray); --}}
 
@@ -63,7 +63,8 @@
                                 {{ $item['title'] }}
                             </a>
                             <div class="text-sm text-gray-600 mt-1 flex items-center">
-                                <i class="fa fa-calendar mr-1 text-gray-500"></i> {{ \Carbon\Carbon::parse($item['date'])->format('d M, Y') }}
+                                <i class="fa fa-calendar mr-1 text-gray-500"></i>
+                                {{ \Carbon\Carbon::parse($item['date'])->format('d M, Y') }}
                             </div>
 
                             {{-- Optional excerpt --}}

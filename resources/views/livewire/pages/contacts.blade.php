@@ -21,8 +21,9 @@
             </div>
             <div class="text-gray-700 space-y-2">
                 <p>Zanzibar Housing Corporation,</p>
-                <p>Postcode: Barabar ya Creek Darajani Sonara Building , 71124 Zanzibar,</p>
-                <p>P.O.Box 795 Zanzibar,</p>
+                <p>Postcode: Barabara ya Creek Darajani Sonara Building,</p>
+                <p>71124 Zanzibar.</p>
+                <p>P.O.Box 795 Zanzibar</p>
                 <p>Email: dg@zhc.go.tz</p>
                 <p>Tel: +255 24 2230067</p>
             </div>

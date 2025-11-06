@@ -12,29 +12,6 @@ class OrganizationStructure extends Component
     public function mount()
     {
 
-       
-
-
-    //     $news = News::orderBy("created_at", "desc")->get();
-
-    //     $this->newsArray = $news->map(function ($currentNews) {
-    //         return [
-    //             'id'      => $currentNews->id,
-    //             'title'   => $currentNews->title,
-    //             'date'    => $currentNews->date,
-    //             'content' => $currentNews->content,
-    //             'excerpt' => $currentNews->excerpt, // fixed typo (exerpt → excerpt)
-    //             'images'  => $currentNews->getMedia('news')->map(function ($media) {
-    //                 return [
-    //                     'original' => $media->getUrl(),                // full-size original
-    //                     'thumb'    => $media->getUrl('thumb'),         // 400x300
-    //                     'medium'   => $media->getUrl('medium'),        // 800x600
-    //                     'full'     => $media->getUrl('full'),          // 1600x1200
-    //                 ];
-    //             })->toArray(),
-    //         ];
-    //     })->toArray();
-    // }
       $news = Cache::remember('news_list', 604800, function () {
             News::orderBy("created_at", "desc")->get();
         });

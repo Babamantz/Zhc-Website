@@ -211,6 +211,11 @@
         filter: drop-shadow(0 0 20px rgba(232, 134, 74, 0.4));
     }
 
+    /* No spin class - stops the animation */
+    .spinning-ring.no-spin {
+        animation: none;
+    }
+
     @keyframes spin {
         to {
             transform: rotate(360deg);
@@ -333,10 +338,13 @@
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         const loader = document.getElementById('page-loader');
+        const spinningRing = document.querySelector('.spinning-ring');
 
         // Hide loader when page is fully loaded
         window.addEventListener('load', function() {
             loader.classList.add('hidden');
+            // Reset spinning when page loads
+            spinningRing.classList.remove('no-spin');
         });
 
         // Show loader when clicking on links (except anchors and external links opening in new tab)
@@ -347,14 +355,22 @@
                 const url = new URL(target.href);
                 const currentUrl = new URL(window.location.href);
 
+                // Check if the link has id="notice"
+                if (target.id === 'notice') {
+                    // Don't show loader for notice links
+                    return;
+                }
+
                 // Show loader for internal links (not anchor links)
                 if (url.origin === currentUrl.origin && !url.hash) {
                     loader.classList.remove('hidden');
+                    spinningRing.classList.remove('no-spin');
                 }
 
                 // For external links not opening in new tab
                 if (url.origin !== currentUrl.origin && target.target !== '_blank') {
                     loader.classList.remove('hidden');
+                    spinningRing.classList.remove('no-spin');
                 }
             }
         });
@@ -362,12 +378,14 @@
         // Show loader on form submissions
         document.addEventListener('submit', function(e) {
             loader.classList.remove('hidden');
+            spinningRing.classList.remove('no-spin');
         });
 
         // Handle browser back/forward buttons
         window.addEventListener('pageshow', function(event) {
             if (event.persisted) {
                 loader.classList.add('hidden');
+                spinningRing.classList.remove('no-spin');
             }
         });
 

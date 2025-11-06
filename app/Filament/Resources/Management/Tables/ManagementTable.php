@@ -1,34 +1,27 @@
 <?php
 
-namespace App\Filament\Resources\News\Tables;
+namespace App\Filament\Resources\Management\Tables;
 
+use Filament\Tables\Table;
+use Filament\Actions\EditAction;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
-use Filament\Actions\EditAction;
-use Filament\Actions\ViewAction;
-use Filament\Tables\Columns\SpatieMediaLibraryImageColumn;
 use Filament\Tables\Columns\TextColumn;
-use Filament\Tables\Table;
+use Filament\Tables\Columns\SpatieMediaLibraryImageColumn;
 
-class NewsTable
+class ManagementTable
 {
     public static function configure(Table $table): Table
     {
         return $table
             ->columns([
-                TextColumn::make('title')
-                    ->searchable(),
-                TextColumn::make('slug'),
-                TextColumn::make('date')
-                    ->dateTime()
+                TextColumn::make('title'),
+                TextColumn::make('role'),
+                SpatieMediaLibraryImageColumn::make("management_img")
+                    ->label('Image')
+                    ->collection("management_images"),
+                TextColumn::make('level')
                     ->sortable(),
-                TextColumn::make('content')
-                    ->searchable(),
-                TextColumn::make('excerpt')
-                    ->searchable(),
-                SpatieMediaLibraryImageColumn::make("img_news")
-                    ->label('News Images')
-                    ->collection("news"),
                 TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
@@ -37,12 +30,12 @@ class NewsTable
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
+
             ])
             ->filters([
                 //
             ])
             ->recordActions([
-                ViewAction::make(),
                 EditAction::make(),
             ])
             ->toolbarActions([

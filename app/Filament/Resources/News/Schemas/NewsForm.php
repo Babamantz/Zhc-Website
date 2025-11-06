@@ -24,6 +24,8 @@ class NewsForm
                     ->responsiveImages(),
                 TextInput::make('title')
                     ->required(),
+                TextInput::make('slug')
+                    ->required(),
                 DateTimePicker::make('date')
                     ->required(),
                 RichEditor::make('content')

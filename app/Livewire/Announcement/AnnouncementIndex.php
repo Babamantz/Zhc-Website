@@ -23,6 +23,7 @@ class AnnouncementIndex extends Component
 
         $this->announcementsValues = $announcementLists->map(function ($announcementList) {
             return [
+                'id' => $announcementList->id,
                 'type'        => $announcementList->type,
                 'title'       => $announcementList->title,
                 'date'        => $announcementList->created_at,

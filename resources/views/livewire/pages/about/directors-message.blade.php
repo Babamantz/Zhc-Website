@@ -79,12 +79,6 @@
                                 @endunless
                             </div>
 
-                            {{-- Optional excerpt --}}
-                            {{-- @unless (empty($item['excerpt']))
-                                <p class="text-xs text-gray-500 mt-2">
-                                    {!! $item['excerpt'] !!}
-                                </p>
-                            @endunless --}}
                         </div>
                     </div>
                 </div>

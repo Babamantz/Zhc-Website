@@ -3,6 +3,9 @@
 namespace App\Filament\Resources\Magazines\Schemas;
 
 use Filament\Schemas\Schema;
+use Filament\Forms\Components\Select;
+use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
 
 class MagazinesForm
 {
@@ -11,6 +14,7 @@ class MagazinesForm
         return $schema
             ->components([
                 //
+             
             ]);
     }
 }

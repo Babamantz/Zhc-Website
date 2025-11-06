@@ -63,7 +63,7 @@
                                         year: 'numeric' })">
                                     </td>
                                     <td class="px-4 py-2 text-center">
-                                        <a :href="doc.announcement" target="_blank"
+                                        <a :href="doc.announcement" target="_blank" id="notice"
                                             class="text-blue-600 hover:text-blue-800">
                                             <i class="fa fa-download fa-lg"></i>
                                         </a>

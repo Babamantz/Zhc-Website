@@ -37,6 +37,12 @@
                     <li><a href="{{ url('/about/organization-structure') }}"
                             class="block px-4 py-2 hover:bg-[#123b9b] text-sm font-medium">Organization Structure</a>
                     </li>
+                    <li><a href="{{ url('/about/management') }}"
+                            class="block px-4 py-2 hover:bg-[#123b9b] text-sm font-medium">Management</a>
+                    </li>
+                    <li><a href="{{ url('/about/board-members') }}"
+                            class="block px-4 py-2 hover:bg-[#123b9b] text-sm font-medium">Board Members</a>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -258,6 +264,12 @@
                         <li><a href="{{ url('/about/organization-structure') }}"
                                 class="block px-4 py-2 hover:bg-[#123b9b] text-sm font-medium">Organization
                                 Structure</a>
+                        </li>
+                        <li><a href="{{ url('/about/management') }}"
+                                class="block px-4 py-2 hover:bg-[#123b9b] text-sm font-medium">Management</a>
+                        </li>
+                        <li><a href="{{ url('/about/board-members') }}"
+                                class="block px-4 py-2 hover:bg-[#123b9b] text-sm font-medium">Board Members</a>
                         </li>
                     </ul>
                 </div>

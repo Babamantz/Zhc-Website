@@ -11,8 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('news_media', function (Blueprint $table) {
+        Schema::create('board_members', function (Blueprint $table) {
             $table->id();
+            $table->string('full_name');
+            $table->enum('level', ['level_one', 'level_two', 'level_three', 'level_four']);
+            $table->string('role')->nullable();
             $table->timestamps();
         });
     }
@@ -22,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('news_media');
+        Schema::dropIfExists('board_members');
     }
 };

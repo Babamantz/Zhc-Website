@@ -7,6 +7,7 @@ use Filament\PanelProvider;
 use Filament\Pages\Dashboard;
 use Filament\Support\Colors\Color;
 use Filament\Widgets\AccountWidget;
+use App\Filament\Pages\Auth\CustomLogin;
 use Filament\Widgets\FilamentInfoWidget;
 use App\Filament\Widgets\UserCountWidget;
 use Filament\Http\Middleware\Authenticate;
@@ -32,7 +33,7 @@ class ZhcAdminPanelProvider extends PanelProvider
             ->path('zhc-admin')
             ->brandName('ZCMS')
             ->brandLogo(asset('images/zhc_logo.png'))
-            ->login()
+            ->login(CustomLogin::class)
             ->colors([
                 'primary' => Color::Blue,
             ])
