@@ -47,6 +47,7 @@ class Index extends Component
         $this->newsArray = $news->map(function ($currentNews) {
             return [
                 'id'      => $currentNews->id,
+                'slug'      => $currentNews->slug,
                 'title'   => $currentNews->title,
                 'date'    => $currentNews->date,
                 'content' => $currentNews->content,

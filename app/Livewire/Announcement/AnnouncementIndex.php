@@ -37,6 +37,7 @@ class AnnouncementIndex extends Component
         $this->newsArray = $newsList->map(function ($currentNews) {
             return [
                 'id'      => $currentNews->id,
+                'slug'      => $currentNews->slug,
                 'title'   => $currentNews->title,
                 'date'    => $currentNews->date,
                 'content' => $currentNews->content,

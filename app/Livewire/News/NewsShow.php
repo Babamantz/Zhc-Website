@@ -8,16 +8,19 @@ use App\Models\Announcement;
 
 class NewsShow extends Component
 {
-    public $news, $announcementsValues = [];
-    public function mount(News $news)
-    {
-        // dd($news);s
-        // $news = News::with('media')->findOrFail($id);
+    public $news;
+    public $announcementsValues = [];
 
-        $news = $news->load('media');
+    public function mount(News $news)
+
+    {
+        // dd($news);
+        // Eager load media in one go
+        $news->load('media');
 
         $this->news = [
             'id'      => $news->id,
+            'slug'    => $news->slug,
             'title'   => $news->title,
             'date'    => $news->date,
             'content' => $news->content,
@@ -32,17 +35,17 @@ class NewsShow extends Component
             })->toArray(),
         ];
 
-
-
-        $announcements = Announcement::get();
-        $this->announcementsValues = $announcements->map(function ($announcement) {
-            return [
-                'type'       => $announcement->type,
-                'title'       => $announcement->title,
-                'date'       => $announcement->created_at,
-                'announcement' => $announcement->getFirstMediaUrl('announcements'),
-            ];
-        });
+        // Consider eager loading media here too for better performance
+        $this->announcementsValues = Announcement::with('media')
+            ->get()
+            ->map(function ($announcement) {
+                return [
+                    'type'         => $announcement->type,
+                    'title'        => $announcement->title,
+                    'date'         => $announcement->created_at->format('Y-m-d'), // Format the date
+                    'announcement' => $announcement->getFirstMediaUrl('announcements'),
+                ];
+            })->toArray(); // Add toArray() for consistency
     }
 
     public function render()

@@ -12,9 +12,9 @@
         @if (!empty($news))
             @php $teaser = $news[0]; @endphp
             <div class="mb-4 hidden md:block py-2">
-                
-                <x-news.news-teaser :id="$teaser['id']" :img="$teaser['images'][0]['original']" :title="$teaser['title']" :date="$teaser['date']"
-                    :excerpt="$teaser['excerpt'] ?? null" />
+
+                <x-news.news-teaser :id="$teaser['id']" :slug="$teaser['slug']" :img="$teaser['images'][0]['original']" :title="$teaser['title']"
+                    :date="$teaser['date']" :excerpt="$teaser['excerpt'] ?? null" />
             </div>
         @endif
 
@@ -22,8 +22,8 @@
         <div class="grid-cols-1">
             @foreach ($news as $item)
                 {{-- @dd($item['images'][0]['original']) --}}
-                <x-news.news-item :imageId="$item['id']" :image="$item['images'][0]['original']" :title="$item['title']" :date="$item['date']"
-                    :excerpt="$item['excerpt'] ?? null" :showExcerpt="true" />
+                <x-news.news-item :imageId="$item['id']" :slug="$teaser['slug']" :image="$item['images'][0]['original']" :title="$item['title']"
+                    :date="$item['date']" :excerpt="$item['excerpt'] ?? null" :showExcerpt="true" />
             @endforeach
 
             <div class="flex justify-start">

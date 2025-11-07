@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources\Projects\Schemas;
 
+use Illuminate\Support\Str;
 use Filament\Schemas\Schema;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
@@ -16,9 +17,12 @@ class ProjectsForm
             ->components([
                 //
                 TextInput::make('title')
-                    ->required(),
+                    ->live()
+                    ->afterStateUpdated(function ($set, $state) {
+                        $set('slug', Str::slug($state));
+                    }),
                 Select::make('status')
-                    ->options(['completed' => 'completed', 'ongoing' => 'ongoing','upcoming' => 'upcoming'])
+                    ->options(['completed' => 'completed', 'ongoing' => 'ongoing', 'upcoming' => 'upcoming'])
                     ->default('label')
                     ->required(),
                 TextInput::make('slug')

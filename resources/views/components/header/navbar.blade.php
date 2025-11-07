@@ -3,19 +3,19 @@
     $ongoingProjects = App\Models\Project::where('status', 'Ongoing')->get();
     $upcomingProjects = App\Models\Project::where('status', 'Upcoming')->get();
 @endphp
-<nav {{ $attributes->merge(['class' => 'bg-[#F7931E] text-white']) }}>
-    <div class="container  justify-center mx-auto px-6 py-4 space-x-4 hidden md:flex">
+<nav {{ $attributes->merge(['class' => 'bg-[#F7931E] text-white mt-2']) }}>
+    <div class="container  justify-center mx-auto px-6 py-2 space-x-4 hidden md:flex">
 
         <!-- Static links -->
-        <a href="/" class="hover:underline rounded">Home</a>
-        <a href="/services" class="hover:underline rounded">Services</a>
-        <a href="{{ route('news.index') }}" class="hover:underline rounded">News</a>
-        <a href="{{ url('/contacts') }}" class="hover:underline rounded">Contact</a>
-        <a href="{{ route('pages.faqs') }}" class="hover:underline rounded">FAQs</a>
+        <a href="/" class="hover:bg-blue-950 py-1 px-2 rounded">Home</a>
+        <a href="/services" class="hover:bg-blue-950 py-1 px-2 rounded">Services</a>
+        <a href="{{ route('news.index') }}" class="hover:bg-blue-950 py-1 px-2 rounded">News</a>
+        <a href="{{ url('/contacts') }}" class="hover:bg-blue-950 py-1 px-2 rounded">Contact</a>
+        <a href="{{ route('pages.faqs') }}" class="hover:bg-blue-950 py-1 px-2 rounded">FAQs</a>
 
         <!-- About Dropdown -->
         <div x-data="{ open: false }" class="relative" @keydown.escape="open = false">
-            <button @click="open = !open" class="inline-flex items-center space-x-1 hover:underline rounded"
+            <button @click="open = !open" class="inline-flex items-center space-x-1 hover:bg-blue-950 py-1 px-2 rounded"
                 aria-haspopup="true" :aria-expanded="open.toString()">
                 <span>About</span>
                 <svg class="w-4 h-4 text-white transition-transform duration-200" :class="{ 'rotate-180': open }"
@@ -49,7 +49,7 @@
 
         <!-- Projects Dropdown -->
         <div x-data="{ open: false }" class="relative" @keydown.escape="open = false">
-            <button @click="open = !open" class="inline-flex items-center space-x-1 hover:underline rounded"
+            <button @click="open = !open" class="inline-flex items-center space-x-1 hover:bg-blue-950 py-1 px-2 rounded"
                 aria-haspopup="true" :aria-expanded="open.toString()">
                 <span>Projects</span>
                 <svg class="w-4 h-4 text-white transition-transform duration-200" :class="{ 'rotate-180': open }"
@@ -165,8 +165,9 @@
 
         <!-- Publications Dropdown -->
         <div x-data="{ open: false }" class="relative" @keydown.escape="open = false">
-            <button @click="open = !open" class="inline-flex items-center space-x-1 hover:underline rounded"
-                aria-haspopup="true" :aria-expanded="open.toString()">
+            <button @click="open = !open"
+                class="inline-flex items-center space-x-1 hover:bg-blue-950 py-1 px-2 rounded" aria-haspopup="true"
+                :aria-expanded="open.toString()">
                 <span>Publications</span>
                 <svg class="w-4 h-4 text-white transition-transform duration-200" :class="{ 'rotate-180': open }"
                     xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -191,8 +192,9 @@
 
         <!-- Gallery Dropdown -->
         <div x-data="{ open: false }" class="relative" @keydown.escape="open = false">
-            <button @click="open = !open" class="inline-flex items-center space-x-1 hover:underline rounded"
-                aria-haspopup="true" :aria-expanded="open.toString()">
+            <button @click="open = !open"
+                class="inline-flex items-center space-x-1 hover:bg-blue-950 py-1 px-2 rounded" aria-haspopup="true"
+                :aria-expanded="open.toString()">
                 <span>Gallery</span>
                 <svg class="w-4 h-4 text-white transition-transform duration-200" :class="{ 'rotate-180': open }"
                     xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -215,6 +217,8 @@
             </div>
         </div>
     </div>
+
+    {{-- Mobile Navbar --}}
     <div class="nav-wrapper" x-data="{ open: false }">
         <div class="md:hidden flex items-center">
             <button @click="open = !open" class="focus:outline-none m-2 mx-5 p-1">

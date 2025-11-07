@@ -14,15 +14,16 @@ class NewsIndex extends Component
     public $newsArray = [];
     public $announcementsValues = [];
 
-    
+
     public function render()
     {
-         
+
         $newsList = News::latest()->with('media')->paginate(10);
 
         $this->newsArray = $newsList->getCollection()->map(function ($currentNews) {
             return [
                 'id'      => $currentNews->id,
+                'slug'      => $currentNews->slug,
                 'title'   => $currentNews->title,
                 'date'    => $currentNews->date,
                 'content' => $currentNews->content,
@@ -44,11 +45,11 @@ class NewsIndex extends Component
                 'type'        => $announcement->type,
                 'title'       => $announcement->title,
                 'date'        => $announcement->created_at,
-                'announcement'=> $announcement->getFirstMediaUrl('announcements'),
+                'announcement' => $announcement->getFirstMediaUrl('announcements'),
             ];
         });
 
-        return view('livewire.news.news-index',[
+        return view('livewire.news.news-index', [
             'newsList' => $newsList
         ]);
     }

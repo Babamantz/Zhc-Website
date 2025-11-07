@@ -14,7 +14,7 @@
             images: {{ json_encode(
                 collect($news['images'])->map(
                     fn($img) => [
-                        'url' => $img['original'],
+                        'url' => $img['medium'],
                         'name' => $news['title'],
                         'caption' => $news['content'],
                     ],
@@ -25,7 +25,7 @@
 
             <h1 class="text-2xl font-bold border-b-2 mb-4">News</h1>
             <div class="flex-1">
-                <a href="{{ route('news.show', ['news' => $news['id']]) }}"
+                <a href="{{ route('news.show', ['news' => $news['slug']]) }}"
                     class="uppercase font-semibold text-sm text-gray-800 hover:text-blue-600">
                     {{ $news['title'] }}
                 </a>
@@ -53,7 +53,7 @@
                         selectedTitle = images[currentIndex].name;
                         selectedCaption = images[currentIndex].caption;
                      ">
-                            <img src="{{ $image['original'] }}" alt="{{ $news['title'] }}"
+                            <img src="{{ $image['original'] }}" alt="image"
                                 class="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110">
 
                             <!-- Hover Overlay -->
@@ -110,11 +110,11 @@
                     <div class="relative max-w-6xl w-full max-h-[95vh] flex flex-col">
                         <!-- Header -->
                         <div class="flex items-center justify-between mb-4 text-white">
-                            <div class="flex-1">
+                            {{-- <div class="flex-1">
                                 <h3 class="text-lg font-semibold" x-text="selectedTitle"></h3>
                                 <p class="text-sm text-gray-300 mt-1" x-show="selectedCaption" x-text="selectedCaption">
                                 </p>
-                            </div>
+                            </div> --}}
                             <div class="text-sm bg-white/20 px-3 py-1 rounded-full backdrop-blur-sm mx-4">
                                 <span x-text="currentIndex + 1"></span> / <span x-text="images.length"></span>
                             </div>

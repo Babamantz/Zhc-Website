@@ -15,8 +15,20 @@ class News extends Model implements HasMedia
      use InteractsWithMedia;
      protected $guarded = false;
 
+     protected function casts(): array
+     {
+          return [
+               'title' => 'string',
+               'date' => 'string',
+               'content' => 'string',
+               'excerpt' => 'string',
+          ];
+     }
 
-     protected function title()
+
+
+
+     protected function title(): Attribute
      {
           return Attribute::make(
                set: fn(string $value) => Purifier::clean($value, 'title')
@@ -28,13 +40,13 @@ class News extends Model implements HasMedia
                set: fn(string $value) => Purifier::clean($value, 'date')
           );
      }
-     protected function content()
+     protected function content(): Attribute
      {
           return Attribute::make(
                set: fn(string $value) => Purifier::clean($value, 'content')
           );
      }
-     protected function excerpt()
+     protected function excerpt(): Attribute
      {
           return Attribute::make(
                set: fn(string $value) => Purifier::clean($value, 'excerpt')
@@ -62,5 +74,9 @@ class News extends Model implements HasMedia
                ->width(1600)
                ->height(1200)
                ->performOnCollections('news');
+     }
+     public function getRouteKeyName()
+     {
+          return 'slug';
      }
 }

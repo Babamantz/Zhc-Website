@@ -12,13 +12,14 @@ class OrganizationStructure extends Component
     public function mount()
     {
 
-      $news = Cache::remember('news_list', 604800, function () {
+        $news = Cache::remember('news_list', 604800, function () {
             News::orderBy("created_at", "desc")->get();
         });
 
         $this->newsArray = $news->map(function ($currentNews) {
             return [
                 'id'      => $currentNews->id,
+                'slug'      => $currentNews->slug,
                 'title'   => $currentNews->title,
                 'date'    => $currentNews->date,
                 'content' => $currentNews->content,

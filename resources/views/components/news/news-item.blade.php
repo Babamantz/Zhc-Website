@@ -1,4 +1,4 @@
-@props(['image', 'imageId', 'title', 'date', 'excerpt' => null, 'showExcerpt' => false])
+@props(['image', 'slug', 'imageId', 'title', 'date', 'excerpt' => null, 'showExcerpt' => false])
 {{-- @dd($imageId) --}}
 
 
@@ -6,13 +6,13 @@
 <div class="mb-4">
     <div class="flex items-start gap-4 mb-4">
         <!-- Image Section -->
-        <a href="{{ route('news.show', ['news' => $imageId]) }}" class="w-32 mt-1 h-20 flex-shrink-0">
+        <a href="{{ route('news.show', ['news' => $slug]) }}" class="w-32 mt-1 h-20 flex-shrink-0">
             <img src="{{ $image }}" alt="{{ $title }}" class="w-full h-full object-cover rounded-md" />
         </a>
 
         <!-- Content Section -->
         <div class="flex flex-col justify-center">
-            <a href="{{ route('news.show', ['news' => $imageId]) }}"
+            <a href="{{ route('news.show', ['news' => $slug]) }}"
                 class="uppercase font-semibold text-sm text-gray-800 hover:text-blue-600">
                 {{ $title }}
             </a>
