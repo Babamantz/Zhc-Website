@@ -29,7 +29,7 @@
                     {{ $item['title'] }}
                 </a>
             </p>
-            <i class="fa fa-calendar text-sm"></i> {{ $item['date']->format('d M, Y') }}
+            <i class="fa fa-calendar text-sm"></i> {{ \Carbon\Carbon::parse($item['date'])->format('d M, Y') }}
         </div>
     </div>
 </div>

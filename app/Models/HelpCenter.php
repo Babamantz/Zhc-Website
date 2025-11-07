@@ -16,4 +16,7 @@ class HelpCenter extends Model implements HasMedia
     protected $casts = [
         'phones' => 'array'
     ];
+
+
+    
 }

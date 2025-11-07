@@ -1,5 +1,4 @@
 <div>
-    {{-- @dd($propertySwipers); --}}
     <x-hero :slides="$slides" />
     <x-announcement-news-wrapper :announcements="$announcementsValues" :news="$newsArray" />
     <x-properties.properties-swiper :$propertySwipers />
