@@ -8,7 +8,7 @@
     <div class="lg:grid lg:grid-cols-10 lg:gap-6 flex flex-col mt-5 px-4 min-h-[80vh]">
 
         {{-- Left column: col-span-10 --}}
-        <div class="lg:col-span-6" x-data="{
+        <div class="lg:col-span-6 mb-3" x-data="{
             imageModalOpen: false,
             selectedImage: '',
             selectedTitle: '',
@@ -27,7 +27,7 @@
             <h1 class="text-2xl font-bold border-b-2">{{ $project->project_name }}</h1>
 
             <div class="flex flex-col">
-                <div class="text-sm md:text-base mx-2">
+                <div class="text-sm md:text-base">
                     <div class="max-w-6xl mt-5 mx-auto">
                         <p class="text-gray-700">{!! $project->content !!}</p>
 
@@ -183,7 +183,7 @@
 
         {{-- Right column: col-span-2 --}}
 
-        <div class="hidden lg:block lg:col-span-4">
+        <div class="mt-8 lg:mt-0 lg:col-span-4">
             <x-news.news-header />
 
             @foreach ($newsArray as $item)

@@ -5,19 +5,19 @@
 
 
         {{-- Left column: col-span-10  --}}
-        <div class="lg:col-span-6">
+        <div class="lg:col-span-6 ">
             <h1 class="text-2xl font-bold  border-b-2">News</h1>
 
             {{-- Loop through news items --}}
 
             @foreach ($newsArray as $item)
-            {{-- @dd($item['slug']) --}}
+                {{-- @dd($item['slug']) --}}
                 <div class="mb-4 mt-2">
                     <div class="flex items-start mt-5 gap-4 mb-4">
                         <!-- Image Section -->
                         <a href="{{ route('news.show', ['news' => $item['slug']]) }}" class="w-60 h-30 flex-shrink-0">
-                            @unless (empty($item['images'][0]['original']))
-                                <img src="{{ $item['images'][0]['original'] }}" alt="{{ $item['title'] ?? 'News Image' }}"
+                            @unless (empty($item['images'][0]['thumb']))
+                                <img src="{{ $item['images'][0]['thumb'] }}" alt="{{ $item['title'] ?? 'News Image' }}"
                                     class="w-full h-full object-cover rounded-md" />
                             @endunless
                         </a>
@@ -55,7 +55,7 @@
 
         {{-- Right column: col-span-2 --}}
 
-        <div class="hidden lg:block lg:col-span-4">
+        <div class="mt-8 lg:mt-0 lg:col-span-4">
             <x-announcements.announcement-section :announcements="$announcementsValues" />
 
         </div>

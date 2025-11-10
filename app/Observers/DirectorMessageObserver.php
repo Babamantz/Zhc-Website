@@ -2,22 +2,28 @@
 
 namespace App\Observers;
 
+use App\Models\DirectorMessage;
 use Illuminate\Support\Facades\Cache;
 
 class DirectorMessageObserver
 {
-
-    public function created($dMessage)
+    public function created(DirectorMessage $dMessage): void
     {
         Cache::forget('director_message');
     }
 
-    public function updated($dMessage): void
+    public function updated(DirectorMessage $dMessage): void
     {
         Cache::forget('director_message');
     }
 
-    public function deleted($dMessage)
+    public function deleted(DirectorMessage $dMessage): void
+    {
+        Cache::forget('director_message');
+    }
+
+    // (Optional) also clear after restore if using SoftDeletes
+    public function restored(DirectorMessage $dMessage): void
     {
         Cache::forget('director_message');
     }

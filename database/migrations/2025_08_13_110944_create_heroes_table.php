@@ -16,7 +16,6 @@ return new class extends Migration
             $table->text('title');
             $table->text('slug');
             $table->boolean('status')->default(false);
-            $table->json('img_hero')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

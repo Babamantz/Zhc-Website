@@ -43,6 +43,15 @@ class DirectorMessage extends Model implements HasMedia
 
         $this->addMediaConversion('webp')
             ->format('webp')
-            ->performOnCollections('hero_image');
+            ->performOnCollections('director_images');
+        $this->addMediaConversion('thumb')
+            ->width(400)
+            ->height(300)
+            ->performOnCollections('director_images');
+
+        $this->addMediaConversion('medium')
+            ->width(800)
+            ->height(600)
+            ->shouldBePerformedOn('director_images');
     }
 }

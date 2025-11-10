@@ -18,14 +18,14 @@ class DirectorMessageForm
                 TextInput::make("title"),
                 TextInput::make("slug"),
                 SpatieMediaLibraryFileUpload::make('img_director')
-                ->columnSpanFull()
-                // ->collection('hero_image')
-                ->image()    // ensures only images
-                ->disk('public')
-                ->visibility('public')
-                ->panelLayout('grid'), // 
+                    ->columnSpanFull()
+                    ->collection('director_images')
+                    ->image()    // ensures only images
+                    ->disk('public')
+                    ->visibility('public')
+                    ->panelLayout('grid'), // 
                 RichEditor::make("content")
-                ->columnSpanFull()
+                    ->columnSpanFull()
             ]);
     }
 }

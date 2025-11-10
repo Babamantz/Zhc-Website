@@ -2,8 +2,10 @@
 
 namespace App\Providers;
 
+use App\Models\DirectorMessage;
 use Filament\Support\Assets\Css;
 use Illuminate\Support\ServiceProvider;
+use App\Observers\DirectorMessageObserver;
 use Filament\Support\Facades\FilamentAsset;
 
 class AppServiceProvider extends ServiceProvider
@@ -22,9 +24,10 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         //
+        DirectorMessage::observe(DirectorMessageObserver::class);
 
         FilamentAsset::register([
-        Css::make('custom-stylesheet', __DIR__ . '/../../resources/css/filament.css'),
-            ]);
+            Css::make('custom-stylesheet', __DIR__ . '/../../resources/css/filament.css'),
+        ]);
     }
 }

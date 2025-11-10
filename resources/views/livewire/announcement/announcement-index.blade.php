@@ -95,7 +95,7 @@
         {{-- <x-vertical-line thickness="2" color="black" /> --}}
 
         {{-- Right column: col-span-2 --}}
-        <div class="hidden lg:block lg:col-span-4">
+        <div class="mt-8 lg:mt-0 lg:col-span-4">
             <x-news.news-header />
 
 
@@ -124,13 +124,6 @@
                                     {{ \Carbon\Carbon::parse($item['date'])->format('d M, Y') }}
                                 @endunless
                             </div>
-
-                            {{-- Optional excerpt --}}
-                            {{-- @unless (empty($item['excerpt']))
-                                <p class="text-xs text-gray-500 mt-2">
-                                    {!! $item['excerpt'] !!}
-                                </p>
-                            @endunless --}}
                         </div>
                     </div>
                 </div>

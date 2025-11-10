@@ -14,7 +14,7 @@
             <h1 class="text-2xl font-bold  border-b-2">About Zhc</h1>
 
             <div class="flex flex-col">
-                <div class="text-sm md:text-base my-5 mx-2">
+                <div class="text-sm md:text-base my-5 ">
 
 
                     @unless (empty($aboutUs['content']))
@@ -29,7 +29,7 @@
 
 
         {{-- Right column: col-span-2 --}}
-        <div class="hidden lg:block lg:col-span-4">
+        <div class="mt-8 lg:mt-0 lg:col-span-4">
             <x-news.news-header />
 
             @foreach ($newsArray as $item)

@@ -25,13 +25,13 @@
 
         <!-- Swiper -->
         <div class="swiper" x-ref="serviceSwiper">
-            <div class="swiper-wrapper">
+            <div class="swiper-wrapper flex justify-around">
                 @forelse ($propertySwipers as $property)
                     <div class="swiper-slide">
                         <div x-data="{ open: false }" class="relative">
 
                             <!-- Card -->
-                            <a href="javascript:void(0)" @click="open = true" class="block group">
+                            <a href="javascript:void(0)" id="notice" @click="open = true" class="block group">
                                 <div class="relative flex flex-col items-center justify-center h-64 p-6 text-white rounded-lg shadow-lg bg-cover bg-center"
                                     style="background-image: url('{{ $property['property'] }}');">
 

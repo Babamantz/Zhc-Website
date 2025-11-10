@@ -24,11 +24,5 @@ class Hero extends Model implements HasMedia
 
     protected $guarded = false;
 
-    protected $casts = [ 
-
-        'img_hero' => 'array'
-
-    ];
-    //
    
 }

@@ -3,8 +3,8 @@
 namespace App\Models;
 
 use Spatie\MediaLibrary\HasMedia;
-use Mews\Purifier\Facades\Purifier;
 use Illuminate\Database\Eloquent\Model;
+use Mews\Purifier\Facades\Purifier;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
