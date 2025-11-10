@@ -1,15 +1,15 @@
 <header
     {{ $attributes->merge([
         'class' => '
-                                fixed top-0 left-0 w-full z-50 
-                                bg-gradient-to-r from-[#0A2C73] to-[#1A3C83] bg-opacity-95 
-                                text-white text-opacity-100 
-                                backdrop-blur-md shadow-md 
-                                dark:from-gray-900 dark:to-gray-800 dark:text-white dark:text-opacity-100
-                            ',
+                                    fixed top-0 left-0 w-full z-50 
+                                    bg-gradient-to-r from-[#0A2C73] to-[#1A3C83] bg-opacity-95 
+                                    text-white text-opacity-100 
+                                    backdrop-blur-md shadow-md 
+                                    dark:from-gray-900 dark:to-gray-800 dark:text-white dark:text-opacity-100
+                                ',
     ]) }}
     style="background-image: url('{{ asset('images/zhc_banner3.png') }}'); background-attachment: fixed;">
-    <div class="container mx-auto flex  items-center justify-between  px-4">
+    <div class="py-1 md:py-0 container mx-auto flex  items-center justify-between  px-4">
 
         <!-- Left Logo -->
         <img src="{{ asset('images/smz.png') }}" alt="Government Logo" class="flex h-16  md:h-20 lg:h-30 md:-mx-15">

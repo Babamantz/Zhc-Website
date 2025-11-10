@@ -3,7 +3,7 @@
 
 @endphp
 
-<section class="w-full h-auto bg-cover bg-center bg-no-repeat "
+<section class="w-full hidden md:block h-auto bg-cover bg-center bg-no-repeat "
     style="background-image: url('{{ $helpCenter?->getFirstMediaUrl('help_center') ?? asset('images/call_c.jpg') }}');background-size: 100% 100%;">
 
     <div class="py-16 md:py-0 bg-gradient-to-l  to-amber-60 ">

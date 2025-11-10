@@ -25,7 +25,7 @@
         </div>
         <div class="flex-shrink">
             <p class="uppercase mb-1 font-bold">
-                <a href="{{ $item['announcement'] }}" id="notice"  download>
+                <a href="{{ $item['announcement'] }}" id="notice" download>
                     {{ $item['title'] }}
                 </a>
             </p>
