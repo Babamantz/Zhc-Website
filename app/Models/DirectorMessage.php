@@ -36,22 +36,28 @@ class DirectorMessage extends Model implements HasMedia
         );
     }
 
-
-
     public function registerMediaConversions(?Media $media = null): void
     {
+        // Add null check - conversions only run when media exists
+        if ($media === null) {
+            return;
+        }
 
         $this->addMediaConversion('webp')
             ->format('webp')
+            ->nonQueued() // or ->queued() if you have queue workers
             ->performOnCollections('director_images');
+
         $this->addMediaConversion('thumb')
             ->width(400)
             ->height(300)
+            ->nonQueued()
             ->performOnCollections('director_images');
 
         $this->addMediaConversion('medium')
             ->width(800)
             ->height(600)
-            ->shouldBePerformedOn('director_images');
+            ->nonQueued()
+            ->performOnCollections('director_images');
     }
 }

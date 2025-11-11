@@ -18,15 +18,19 @@ class BoardMember extends Model implements HasMedia
 
     public function registerMediaConversions(?Media $media = null): void
     {
+        if ($media === null) {
+            return;
+        }
+
         $this->addMediaConversion('webp')
             ->format('webp')
-            ->performOnCollections('board_images')
-            ->nonQueued(); // Add this line
+            ->nonQueued() // Add this line
+            ->performOnCollections('board_images');
 
         $this->addMediaConversion('thumb')
             ->width(400)
             ->height(300)
-            ->performOnCollections('board_images')
-            ->nonQueued(); // Add this line
+            ->nonQueued()
+            ->performOnCollections('board_images');
     }
 }

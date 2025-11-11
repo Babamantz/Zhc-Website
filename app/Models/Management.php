@@ -18,16 +18,19 @@ class Management extends Model implements HasMedia
 
     public function registerMediaConversions(?Media $media = null): void
     {
+        if ($media === null) {
+            return;
+        }
 
         $this->addMediaConversion('webp')
             ->format('webp')
-            ->performOnCollections('management_images')
-            ->nonQueued(); // Add this line
+            ->nonQueued() // Add this line
+            ->performOnCollections('management_images');
 
         $this->addMediaConversion('thumb')
             ->width(400)
             ->height(300)
-            ->performOnCollections('management_images')
-            ->nonQueued(); // This
+            ->nonQueued() // This
+            ->performOnCollections('management_images');
     }
 }

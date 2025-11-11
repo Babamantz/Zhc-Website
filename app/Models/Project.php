@@ -51,26 +51,36 @@ class Project extends Model implements HasMedia
             set: fn(string $value) => Purifier::clean($value, 'content')
         );
     }
+
+
     public function registerMediaConversions(?Media $media = null): void
     {
+        // Add null check - conversions only run when media exists
+        if ($media === null) {
+            return;
+        }
 
         $this->addMediaConversion('webp')
             ->format('webp')
+            ->nonQueued()
             ->performOnCollections('project_images');
 
         $this->addMediaConversion('thumb')
             ->width(400)
             ->height(300)
+            ->nonQueued()
             ->performOnCollections('project_images');
 
         $this->addMediaConversion('medium')
             ->width(800)
             ->height(600)
+            ->nonQueued()
             ->performOnCollections('project_images');
 
         $this->addMediaConversion('full')
             ->width(1600)
             ->height(1200)
+            ->nonQueued()
             ->performOnCollections('project_images');
     }
 }
