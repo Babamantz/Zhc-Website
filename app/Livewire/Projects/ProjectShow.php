@@ -10,41 +10,39 @@ use Illuminate\Support\Facades\Cache;
 class ProjectShow extends Component
 {
     public $project, $newsArray;
+
     public function mount($slug)
     {
-        $projectData = Cache::remember('projects', 604800, function () use ($slug) {
-            return Project::where("slug", $slug)
-                ->where("slug", $slug)
-                ->firstOrFail();
+        // Cache the specific project by slug
+        $this->project = Cache::remember("project_{$slug}", now()->addDays(7), function () use ($slug) {
+            return Project::where("slug", $slug)->firstOrFail();
         });
 
-        $this->project = $projectData;
-
-        // $news = News::orderBy("created_at", "desc")->get();
-        $news = Cache::remember('news_list', 604800, function () {
-            return  News::orderBy("created_at", "desc")->get();
+        // Cache all news for 7 days
+        $news = Cache::remember('news_list', now()->addDays(7), function () {
+            return News::latest('created_at')->take(5)->get();
         });
-
 
         $this->newsArray = $news->map(function ($currentNews) {
             return [
                 'id'      => $currentNews->id,
-                'slug'      => $currentNews->slug,
+                'slug'    => $currentNews->slug,
                 'title'   => $currentNews->title,
                 'date'    => $currentNews->date,
                 'content' => $currentNews->content,
-                'excerpt' => $currentNews->excerpt, // fixed typo (exerpt → excerpt)
+                'excerpt' => $currentNews->excerpt,
                 'images'  => $currentNews->getMedia('news')->map(function ($media) {
                     return [
-                        'original' => $media->getUrl(),                // full-size original
-                        'thumb'    => $media->getUrl('thumb'),         // 400x300
-                        'medium'   => $media->getUrl('medium'),        // 800x600
-                        'full'     => $media->getUrl('full'),          // 1600x1200
+                        'original' => $media->getUrl(),
+                        'thumb'    => $media->getUrl('thumb'),
+                        'medium'   => $media->getUrl('medium'),
+                        'full'     => $media->getUrl('full'),
                     ];
                 })->toArray(),
             ];
         })->toArray();
     }
+
     public function render()
     {
         return view('livewire.projects.project-show');

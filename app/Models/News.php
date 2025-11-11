@@ -3,8 +3,9 @@
 namespace App\Models;
 
 use Spatie\MediaLibrary\HasMedia;
-use Illuminate\Database\Eloquent\Model;
 use Mews\Purifier\Facades\Purifier;
+use Illuminate\Support\Facades\Cache;
+use Illuminate\Database\Eloquent\Model;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
@@ -51,6 +52,16 @@ class News extends Model implements HasMedia
           return Attribute::make(
                set: fn(string $value) => Purifier::clean($value, 'excerpt')
           );
+     }
+     protected static function booted()
+     {
+          static::saved(function ($news) {
+               Cache::forget('news_list');
+          });
+
+          static::deleted(function ($news) {
+               Cache::forget('news_list');
+          });
      }
 
      public function registerMediaConversions(?Media $media = null): void

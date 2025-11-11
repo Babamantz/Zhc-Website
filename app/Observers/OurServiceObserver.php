@@ -2,23 +2,25 @@
 
 namespace App\Observers;
 
+use App\Models\OurService;
 use Illuminate\Support\Facades\Cache;
 
 class OurServiceObserver
 {
     //
 
-    public function created($nproject)
+    public function saved(OurService $ourService): void
     {
         Cache::forget('our_services');
     }
 
-    public function updated($projects): void
+    public function deleted(OurService $ourService): void
     {
         Cache::forget('our_services');
     }
 
-    public function deleted($projects)
+    // (Optional) also clear after restore if using SoftDeletes
+    public function restored(OurService $ourService): void
     {
         Cache::forget('our_services');
     }

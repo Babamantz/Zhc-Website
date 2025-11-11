@@ -18,7 +18,7 @@ class AboutZhc extends Component
         });
 
         $news = Cache::remember('news_list', 604800, function () {
-            return  News::orderBy("created_at", "desc")->get();
+            return  News::orderBy("created_at", "desc")->take(5)->get();
         });
 
         $this->newsArray = $news->map(function ($currentNews) {

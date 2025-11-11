@@ -2,24 +2,24 @@
 
 namespace App\Observers;
 
+use App\Models\Announcement;
 use Illuminate\Support\Facades\Cache;
 
 
 class AnnouncementObserver
 {
-    //
-
-    public function created($aboutUs)
+    public function saved(Announcement $announcement): void
     {
         Cache::forget('announcements');
     }
 
-    public function updated($aboutUs)
+    public function deleted(Announcement $announcement): void
     {
         Cache::forget('announcements');
     }
 
-    public function deleted($aboutUs)
+    // (Optional) also clear after restore if using SoftDeletes
+    public function restored(Announcement $announcement): void
     {
         Cache::forget('announcements');
     }

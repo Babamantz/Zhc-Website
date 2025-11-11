@@ -77,22 +77,23 @@
                     </defs>
 
                     <!-- Title -->
-                    <text x="800" y="40" class="title-text">MUUNDO WA SHIRIKA LA NYUMBA ZANZIBAR</text>
+                    <text x="800" y="40" class="title-text">ORGANIZATION STRUCTURE FOR ZANZIBAR HOUSING
+                        CORPORATION</text>
 
                     <!-- Level 1: Board -->
                     <rect x="710" y="70" width="180" height="50" class="org-box" rx="5" />
-                    <text x="800" y="92" class="org-text">BODI YA</text>
-                    <text x="800" y="108" class="org-text">WAKURUGENZI</text>
+                    <text x="800" y="92" class="org-text">BOARD OF</text>
+                    <text x="800" y="108" class="org-text">DIRECTORS</text>
                     <line x1="800" y1="120" x2="800" y2="150" class="line" />
 
                     <!-- Level 2: Directors -->
                     <rect x="620" y="150" width="180" height="50" class="org-box" rx="5" />
-                    <text x="710" y="172" class="org-text">MKURUGENZI</text>
-                    <text x="710" y="188" class="org-text">MKUU</text>
+                    <text x="710" y="172" class="org-text">DIRECTOR</text>
+                    <text x="710" y="188" class="org-text">GENERAL</text>
 
                     <rect x="800" y="150" width="180" height="50" class="org-box" rx="5" />
-                    <text x="890" y="172" class="org-text">NAIBU</text>
-                    <text x="890" y="188" class="org-text">MKURUGENZI</text>
+                    <text x="890" y="172" class="org-text">DEPUTY</text>
+                    <text x="890" y="188" class="org-text">DIRECTOR</text>
 
                     <line x1="800" y1="200" x2="800" y2="240" class="line" />
 
@@ -103,39 +104,40 @@
                     <!-- Department 1 -->
                     <line x1="235" y1="240" x2="235" y2="280" class="line" />
                     <rect x="150" y="280" width="170" height="50" class="org-box" rx="5" />
-                    <text x="235" y="302" class="org-text">KITENGO CHA</text>
-                    <text x="235" y="318" class="org-text">TEHAMA</text>
+                    <text x="235" y="302" class="org-text">ICT</text>
+                    <text x="235" y="318" class="org-text">UNIT</text>
 
                     <!-- Department 2 -->
                     <line x1="435" y1="240" x2="435" y2="280" class="line" />
                     <rect x="350" y="280" width="170" height="50" class="org-box" rx="5" />
-                    <text x="435" y="295" class="org-text">KITENGO CHA</text>
-                    <text x="435" y="311" class="org-text">HUDUMA ZA SHERIA</text>
+                    <text x="435" y="295" class="org-text">LEGAL SERVICES</text>
+                    <text x="435" y="311" class="org-text">UNIT</text>
 
                     <!-- Department 3 -->
                     <line x1="635" y1="240" x2="635" y2="280" class="line" />
                     <rect x="550" y="280" width="170" height="50" class="org-box" rx="5" />
-                    <text x="635" y="291" class="org-text">KITENGO CHA</text>
-                    <text x="635" y="305" class="org-text">UHUSIANO HABARI</text>
-                    <text x="635" y="319" class="org-text">NA ELIMU</text>
+                    <text x="635" y="291" class="org-text">PUBLIC RELATIONS,</text>
+                    <text x="635" y="305" class="org-text">COMMUNICATION</text>
+                    <text x="635" y="319" class="org-text">AND EDUCATION</text>
+                    <text x="635" y="329" class="org-text">UNIT</text>
 
                     <!-- Department 4 -->
                     <line x1="965" y1="240" x2="965" y2="280" class="line" />
                     <rect x="880" y="280" width="170" height="50" class="org-box" rx="5" />
-                    <text x="965" y="295" class="org-text">KITENGO CHA</text>
-                    <text x="965" y="311" class="org-text">UKAGUZI WA NDANI</text>
+                    <text x="965" y="295" class="org-text">PROCUREMENT AND</text>
+                    <text x="965" y="311" class="org-text">SUPPLY UNIT</text>
 
                     <!-- Department 5 -->
                     <line x1="1165" y1="240" x2="1165" y2="280" class="line" />
                     <rect x="1080" y="280" width="170" height="50" class="org-box" rx="5" />
-                    <text x="1165" y="295" class="org-text">KITENGO CHA</text>
-                    <text x="1165" y="311" class="org-text">UNUNUZI NA UGAVI</text>
+                    <text x="1165" y="295" class="org-text">INTERNAL</text>
+                    <text x="1165" y="311" class="org-text">AUDITING UNIT</text>
 
                     <!-- Department 6 -->
                     <line x1="1365" y1="240" x2="1365" y2="280" class="line" />
                     <rect x="1280" y="280" width="170" height="50" class="org-box" rx="5" />
-                    <text x="1365" y="302" class="org-text">KITENGO CHA</text>
-                    <text x="1365" y="318" class="org-text">UHASIBU</text>
+                    <text x="1365" y="302" class="org-text">ACCOUNTANT</text>
+                    <text x="1365" y="318" class="org-text">UNIT</text>
 
                     <!-- Vertical connector to divisions -->
                     <line x1="800" y1="200" x2="800" y2="370" class="line" />
@@ -147,84 +149,81 @@
                     <!-- Division 1 -->
                     <line x1="210" y1="370" x2="210" y2="410" class="line" />
                     <rect x="100" y="410" width="220" height="60" class="org-box" rx="5" />
-                    <text x="210" y="427" class="org-text">IDARA YA HUDUMA</text>
-                    <text x="210" y="442" class="org-text">ZA KIFUNDI NA</text>
-                    <text x="210" y="457" class="org-text">UEKEZAJI</text>
+                    <text x="210" y="427" class="org-text">DEPARTMENT OF</text>
+                    <text x="210" y="442" class="org-text">CONSTRUCTION</text>
+                    <text x="210" y="457" class="org-text">AND INVESTMENT</text>
 
                     <!-- Division 2 -->
                     <line x1="470" y1="370" x2="470" y2="410" class="line" />
                     <rect x="360" y="410" width="220" height="60" class="org-box" rx="5" />
-                    <text x="470" y="423" class="org-text">IDARA YA</text>
-                    <text x="470" y="437" class="org-text">USIMAMIZI WA MILKI</text>
-                    <text x="470" y="451" class="org-text">NA UENDESHAJI NA</text>
-                    <text x="470" y="465" class="org-text">BIASHARA</text>
+                    <text x="470" y="423" class="org-text">DEPARTMENT OF PROPERTY </text>
+                    <text x="470" y="437" class="org-text">MANAGEMENT,</text>
+                    <text x="470" y="451" class="org-text">OPERATIONS AND</text>
+                    <text x="470" y="465" class="org-text">BUSSINESS</text>
 
                     <!-- Division 3 -->
                     <line x1="730" y1="370" x2="730" y2="410" class="line" />
                     <rect x="620" y="410" width="220" height="60" class="org-box" rx="5" />
-                    <text x="730" y="435" class="org-text">IDARA YA MIPANGO</text>
-                    <text x="730" y="451" class="org-text">NA UTAFITI</text>
+                    <text x="730" y="435" class="org-text">DEPARTMENT OF PLANNING</text>
+                    <text x="730" y="451" class="org-text">AND RESEARCH</text>
 
                     <!-- Division 4 -->
                     <line x1="990" y1="370" x2="990" y2="410" class="line" />
                     <rect x="880" y="410" width="220" height="60" class="org-box" rx="5" />
-                    <text x="990" y="435" class="org-text">IDARA YA UTAWALA</text>
-                    <text x="990" y="451" class="org-text">NA RASIMALI WATU</text>
+                    <text x="990" y="435" class="org-text">DEPARTMENT OF ADMINISTRATION </text>
+                    <text x="990" y="451" class="org-text">AND HUMAN-RESOURCES</text>
 
                     <!-- Division 5 -->
                     <line x1="1250" y1="370" x2="1250" y2="410" class="line" />
                     <rect x="1140" y="410" width="220" height="60" class="org-box" rx="5" />
-                    <text x="1250" y="443" class="org-text">OFISI YA PEMBA</text>
+                    <text x="1250" y="443" class="org-text">PEMBA OFFICE</text>
 
                     <!-- Level 5: Sections under Division 1 -->
                     <line x1="210" y1="470" x2="210" y2="510" class="line" />
                     <rect x="100" y="510" width="220" height="60" class="org-box" rx="5" />
-                    <text x="210" y="527" class="org-text">SEHEMU YA</text>
-                    <text x="210" y="541" class="org-text">HUDUMA ZA</text>
-                    <text x="210" y="555" class="org-text">UHANDISI NA UJENZI</text>
+                    <text x="210" y="527" class="org-text">ENGINEERING</text>
+                    <text x="210" y="541" class="org-text">AND CONSTRUCTION</text>
+                    <text x="210" y="551" class="org-text">UNIT</text>
 
                     <line x1="210" y1="570" x2="210" y2="590" class="line" />
                     <rect x="100" y="590" width="220" height="40" class="org-box" rx="5" />
-                    <text x="210" y="607" class="org-text">SEHEMU YA</text>
-                    <text x="210" y="621" class="org-text">UEKEZAJI</text>
+                    <text x="210" y="607" class="org-text">INVESTMENT</text>
+                    <text x="210" y="621" class="org-text">UNIT</text>
 
                     <line x1="210" y1="630" x2="210" y2="650" class="line" />
                     <rect x="100" y="650" width="220" height="50" class="org-box" rx="5" />
-                    <text x="210" y="667" class="org-text">SEHEMU YA</text>
-                    <text x="210" y="682" class="org-text">UBUNIFU WA MAJENGO</text>
+                    <text x="210" y="667" class="org-text">BULDING DESIGN</text>
+                    <text x="210" y="682" class="org-text">UNIT</text>
 
                     <!-- Level 5: Sections under Division 2 -->
                     <line x1="470" y1="470" x2="470" y2="510" class="line" />
                     <rect x="360" y="510" width="220" height="60" class="org-box" rx="5" />
-                    <text x="470" y="527" class="org-text">SEHEMU YA</text>
-                    <text x="470" y="541" class="org-text">UTAFHMINI NA</text>
-                    <text x="470" y="555" class="org-text">USIMAMIZI WA MILKI</text>
+                    <text x="470" y="527" class="org-text">PROPERTY VALUATION</text>
+                    <text x="470" y="541" class="org-text">AND MANAGMENT UNIT</text>
 
                     <line x1="470" y1="570" x2="470" y2="590" class="line" />
                     <rect x="360" y="590" width="220" height="50" class="org-box" rx="5" />
-                    <text x="470" y="607" class="org-text">SEHEMU YA</text>
-                    <text x="470" y="622" class="org-text">BIASHARA NA MASOKO</text>
+                    <text x="470" y="607" class="org-text">BUSSINESS AND </text>
+                    <text x="470" y="622" class="org-text">MARKETING</text>
 
                     <!-- Level 5: Sections under Division 3 -->
                     <line x1="730" y1="470" x2="730" y2="510" class="line" />
                     <rect x="620" y="510" width="220" height="40" class="org-box" rx="5" />
-                    <text x="730" y="535" class="org-text">SEHEMU YA UTAFITI</text>
+                    <text x="730" y="535" class="org-text">PLANNING UNIT</text>
 
                     <line x1="730" y1="550" x2="730" y2="570" class="line" />
                     <rect x="620" y="570" width="220" height="40" class="org-box" rx="5" />
-                    <text x="730" y="587" class="org-text">SEHEMU YA</text>
-                    <text x="730" y="601" class="org-text">MIPANGO</text>
+                    <text x="730" y="587" class="org-text">RESEARCH UNIT</text>
 
                     <!-- Level 5: Sections under Division 4 -->
                     <line x1="990" y1="470" x2="990" y2="510" class="line" />
                     <rect x="880" y="510" width="220" height="40" class="org-box" rx="5" />
-                    <text x="990" y="527" class="org-text">SEHEMU YA</text>
-                    <text x="990" y="541" class="org-text">UTAWALA</text>
+                    <text x="990" y="527" class="org-text">ADMINISTRATION UNIT</text>
 
                     <line x1="990" y1="550" x2="990" y2="570" class="line" />
                     <rect x="880" y="570" width="220" height="40" class="org-box" rx="5" />
-                    <text x="990" y="587" class="org-text">SEHEMU YA</text>
-                    <text x="990" y="601" class="org-text">RASIMALI WATU</text>
+                    <text x="990" y="587" class="org-text">HUMAN RESOURCE </text>
+                    <text x="990" y="601" class="org-text">UNIT</text>
                 </svg>
 
 

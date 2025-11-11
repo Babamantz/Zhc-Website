@@ -14,11 +14,9 @@
 
             <div class="flex flex-col">
                 <div class="text-sm md:text-base py-3 mx-2">
-
                     <x-services :services="$servicesArray" />
 
-
-
+                    
                 </div>
             </div>
         </div>

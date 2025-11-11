@@ -21,7 +21,7 @@ class DirectorsMessage extends Component
 
         // Cache latest news list (1 week)
         $news = Cache::remember('news_list', 604800, function () {
-            return News::with('media')->orderBy('created_at', 'desc')->get();
+            return News::with('media')->orderBy('created_at', 'desc')->take(5)->get();
         });
 
         // Map news to simple array for frontend

@@ -7,12 +7,7 @@ use Illuminate\Support\Facades\Cache;
 
 class DirectorMessageObserver
 {
-    public function created(DirectorMessage $dMessage): void
-    {
-        Cache::forget('director_message');
-    }
-
-    public function updated(DirectorMessage $dMessage): void
+    public function saved(DirectorMessage $dMessage): void
     {
         Cache::forget('director_message');
     }

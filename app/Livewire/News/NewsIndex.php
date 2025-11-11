@@ -18,7 +18,7 @@ class NewsIndex extends Component
     public function render()
     {
 
-        $newsList = News::latest()->with('media')->paginate(10);
+        $newsList = News::latest()->with('media')->paginate(5);
 
         $this->newsArray = $newsList->getCollection()->map(function ($currentNews) {
             return [
@@ -39,7 +39,7 @@ class NewsIndex extends Component
             ];
         })->toArray();
 
-        $announcements = Announcement::get();
+        $announcements = Announcement::take(5)->get();
         $this->announcementsValues = $announcements->map(function ($announcement) {
             return [
                 'type'        => $announcement->type,

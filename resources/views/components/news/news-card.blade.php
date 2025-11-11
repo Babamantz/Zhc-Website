@@ -22,7 +22,7 @@
         <div class="grid-cols-1">
             @foreach ($news as $item)
                 {{-- @dd($item['images'][0]['original']) --}}
-                <x-news.news-item :imageId="$item['id']" :slug="$teaser['slug']" :image="$item['images'][0]['original']" :title="$item['title']"
+                <x-news.news-item :imageId="$item['id']" :slug="$item['slug']" :image="$item['images'][0]['original']" :title="$item['title']"
                     :date="$item['date']" :excerpt="$item['excerpt'] ?? null" :showExcerpt="true" />
             @endforeach
 

@@ -13,11 +13,11 @@
                     @if (!empty($directorMessage) && $directorMessage->getFirstMediaUrl('director_images'))
                         <img src="{{ $directorMessage->getFirstMediaUrl('director_images') }}" alt="Director Photo"
                             loading="lazy"
-                            class="w-40 h-44 sm:w-48 sm:h-52 object-cover rounded-lg shadow-md mx-auto sm:mx-0 mb-4 sm:mb-0">
+                            class="w-40 h-44 sm:w-48 sm:h-52 mt-1.5 object-cover rounded-lg shadow-md mx-auto sm:mx-0 mb-4 sm:mb-0">
                     @endif
 
                     {{-- Message Content --}}
-                    <div class="flex-1">
+                    <div class="flex-1 mb-3">
                         @if (!empty($directorMessage) && !empty($directorMessage->content))
                             {!! $directorMessage->content !!}
                         @else

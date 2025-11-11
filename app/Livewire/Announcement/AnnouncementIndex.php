@@ -32,7 +32,7 @@ class AnnouncementIndex extends Component
         });
 
         $newsList = Cache::remember('news_list', 604800, function () {
-            return News::get();
+            return News::take(5)->get();
         });
         $this->newsArray = $newsList->map(function ($currentNews) {
             return [

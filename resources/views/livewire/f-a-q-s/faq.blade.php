@@ -14,30 +14,41 @@
 
             <div class="flex flex-col">
                 <div class="text-sm md:text-base my-3 mx-2">
+                    <div x-data="faqPagination()" class="space-y-4">
 
-                    {{-- @dd($faqsArray); --}}
-
-                    <div x-data="{ open: 0 }" class="space-y-4">
-                        @foreach ($faqsArray as $index => $faq)
+                        <!-- FAQs List -->
+                        <template x-for="(faq, index) in paginatedFaqs()" :key="index">
                             <div class="border rounded-lg shadow-sm">
-                                <button @click="open === {{ $index }} ? open = null : open = {{ $index }}"
-                                    class="w-full flex justify-between items-center px-4 py-3 bg-[#0A2C73] text-white"
-                                    hover:bg-gray-200 font-medium">
-                                    <span>{{ $faq['header'] }}</span>
-                                    <span x-text="open === {{ $index }} ? '-' : '+'"></span>
+                                <button @click="open === index ? open = null : open = index"
+                                    class="w-full flex justify-between items-center px-4 py-3 bg-[#0A2C73] text-white font-medium">
+                                    <span x-text="faq.header"></span>
+                                    <span x-text="open === index ? '-' : '+'"></span>
                                 </button>
-                                <div x-show="open === {{ $index }}" x-collapse
-                                    class="px-4 py-3 border-t bg-white">
-                                    {!! $faq['content'] !!}
-                                </div>
+                                <div x-show="open === index" x-collapse class="px-4 py-3 border-t bg-white"
+                                    x-html="faq.content"></div>
                             </div>
-                        @endforeach
+                        </template>
+
+                        <!-- Pagination Controls -->
+                        <div class="flex justify-center space-x-2 mt-100">
+                            <button @click="prevPage()" :disabled="currentPage === 1"
+                                class="px-3 py-1 border rounded bg-gray-200 disabled:opacity-50">Prev</button>
+                            <template x-for="page in totalPages()" :key="page">
+                                <button @click="goToPage(page)"
+                                    :class="{
+                                        'bg-[#0A2C73] text-white': currentPage === page,
+                                        'bg-gray-200': currentPage !==
+                                            page
+                                    }"
+                                    class="px-3 py-1 border rounded">
+                                    <span x-text="page"></span>
+                                </button>
+                            </template>
+                            <button @click="nextPage()" :disabled="currentPage === totalPages()"
+                                class="px-3 py-1 border rounded bg-gray-200 disabled:opacity-50">Next</button>
+                        </div>
+
                     </div>
-
-
-
-
-
                 </div>
             </div>
         </div>
@@ -67,12 +78,6 @@
                                 {{ \Carbon\Carbon::parse($item['date'])->format('d M, Y') }}
                             </div>
 
-                            {{-- Optional excerpt --}}
-                            {{-- @if (!empty($item['excerpt']))
-                                <p class="text-xs text-gray-500 mt-2">
-                                    {{ $item['excerpt'] }}
-                                </p>
-                            @endif --}}
                         </div>
                     </div>
                 </div>
@@ -82,3 +87,39 @@
 
     </div>
 </div>
+<script>
+    function faqPagination() {
+        return {
+            faqs: @json($faqsArray), // Pass your FAQs array from backend
+            perPage: 5,
+            currentPage: 1,
+            open: 0, // <-- First FAQ visible by default
+
+            // Computed: sliced FAQs for current page
+            paginatedFaqs() {
+                let start = (this.currentPage - 1) * this.perPage;
+                let end = start + this.perPage;
+                return this.faqs.slice(start, end);
+            },
+
+            // Total number of pages
+            totalPages() {
+                return Math.ceil(this.faqs.length / this.perPage);
+            },
+
+            // Pagination controls
+            prevPage() {
+                if (this.currentPage > 1) this.currentPage--;
+                this.open = 0; // Reset to first FAQ on new page
+            },
+            nextPage() {
+                if (this.currentPage < this.totalPages()) this.currentPage++;
+                this.open = 0;
+            },
+            goToPage(page) {
+                this.currentPage = page;
+                this.open = 0;
+            }
+        }
+    }
+</script>

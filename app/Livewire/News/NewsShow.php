@@ -37,6 +37,7 @@ class NewsShow extends Component
 
         // Consider eager loading media here too for better performance
         $this->announcementsValues = Announcement::with('media')
+            ->take(5)
             ->get()
             ->map(function ($announcement) {
                 return [

@@ -11,7 +11,7 @@
 
 
             {{-- @dd($announcementsValues) --}}
-            <div x-data="tableHandler({{ Js::from($announcementValues) }})" class="bg-white p-6 rounded-xl shadow">
+            <div x-data="tableHandler({{ Js::from($announcementValues) }})" class="bg-white p-6 rounded-xl shadow mt-3">
 
                 <!-- Search + Entries Control -->
                 <div class="flex justify-between items-center mb-4">

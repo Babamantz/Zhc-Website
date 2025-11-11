@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Spatie\MediaLibrary\HasMedia;
 use Mews\Purifier\Facades\Purifier;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Illuminate\Database\Eloquent\Casts\Attribute;
@@ -15,7 +16,16 @@ class Project extends Model implements HasMedia
     use InteractsWithMedia;
 
     protected $guarded = false;
+    protected static function booted()
+    {
+        static::saved(function ($project) {
+            Cache::forget("project_{$project->slug}");
+        });
 
+        static::deleted(function ($project) {
+            Cache::forget("project_{$project->slug}");
+        });
+    }
 
     protected function title()
     {

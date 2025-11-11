@@ -24,11 +24,11 @@ class Index extends Component
     public function mount()
     {
         // Fetch all data in parallel queries
-        $news = News::orderBy("created_at", "desc")->get(['id', 'slug', 'title', 'date', 'content', 'excerpt']);
+        $news = News::orderBy("created_at", "desc")->take(3)->get(['id', 'slug', 'title', 'date', 'content', 'excerpt']);
         $properties = Property::with('media')->latest()->get(['id', 'title', 'excerpt', 'content']);
         $services = OnlineService::with('media')->latest()->get(['id', 'title', 'alt']);
         $videos = YoutubeVideo::latest()->limit(5)->pluck('url');
-        $announcements = Announcement::get(['id', 'type', 'title', 'created_at']);
+        $announcements = Announcement::take(5)->get(['id', 'type', 'title', 'created_at']);
         $heros = Hero::get(['id', 'title', 'slug']);
         $posterRecord = PosterAdvitising::latest()->first();
 

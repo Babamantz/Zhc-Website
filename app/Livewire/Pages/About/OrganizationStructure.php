@@ -13,7 +13,7 @@ class OrganizationStructure extends Component
     {
 
         $news = Cache::remember('news_list', 604800, function () {
-            News::orderBy("created_at", "desc")->get();
+            News::orderBy("created_at", "desc")->take(5)->get();
         });
 
         $this->newsArray = $news->map(function ($currentNews) {
