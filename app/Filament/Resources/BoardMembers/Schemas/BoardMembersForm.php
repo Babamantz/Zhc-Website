@@ -19,8 +19,7 @@ class BoardMembersForm
                     ->disk('public')
                     ->visibility('public')
                     ->columnSpanFull()
-                    ->collection('board_images')
-                    ->responsiveImages(),
+                    ->collection('board_images'),
                 Select::make('level')
                     ->options(['level_one' => 'level_one', 'level_two' => 'level_two', 'level_three' => 'level_three','level_four'=>'level_four'])
                     ->default('label')
