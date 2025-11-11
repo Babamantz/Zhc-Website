@@ -91,7 +91,6 @@ class News extends Model implements HasMedia
           $this->addMediaConversion('full')
                ->width(1600)
                ->height(1200)
-               ->nonQueued()
                ->performOnCollections('news');
      }
      public function getRouteKeyName()

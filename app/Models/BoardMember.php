@@ -18,9 +18,7 @@ class BoardMember extends Model implements HasMedia
 
     public function registerMediaConversions(?Media $media = null): void
     {
-        if ($media === null) {
-            return;
-        }
+       
 
         $this->addMediaConversion('webp')
             ->format('webp')
