@@ -2,20 +2,22 @@
 
 namespace App\Filament\Resources\Properties;
 
-use App\Filament\Resources\Properties\Pages\CreateProperties;
+use UnitEnum;
+use BackedEnum;
+use App\Models\Property;
+use Filament\Tables\Table;
+use Filament\Schemas\Schema;
+use Filament\Resources\Resource;
+use Filament\Support\Icons\Heroicon;
+use Illuminate\Support\Facades\Cache;
+use Illuminate\Database\Eloquent\Model;
 use App\Filament\Resources\Properties\Pages\EditProperties;
 use App\Filament\Resources\Properties\Pages\ListProperties;
 use App\Filament\Resources\Properties\Pages\ViewProperties;
+use App\Filament\Resources\Properties\Pages\CreateProperties;
 use App\Filament\Resources\Properties\Schemas\PropertiesForm;
-use App\Filament\Resources\Properties\Schemas\PropertiesInfolist;
 use App\Filament\Resources\Properties\Tables\PropertiesTable;
-use App\Models\Property;
-use BackedEnum;
-use Filament\Resources\Resource;
-use Filament\Schemas\Schema;
-use Filament\Support\Icons\Heroicon;
-use Filament\Tables\Table;
-use UnitEnum;
+use App\Filament\Resources\Properties\Schemas\PropertiesInfolist;
 
 class PropertiesResource extends Resource
 {
@@ -23,7 +25,7 @@ class PropertiesResource extends Resource
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::HomeModern;
 
-    
+
     protected static string | UnitEnum | null $navigationGroup = 'Home';
 
     public static function form(Schema $schema): Schema
@@ -40,6 +42,22 @@ class PropertiesResource extends Resource
     {
         return PropertiesTable::configure($table);
     }
+
+    protected static function afterCreate(Model $record): void
+    {
+        Cache::forget('index.properties');
+    }
+
+    protected static function afterUpdate(Model $record): void
+    {
+        Cache::forget('index.properties');
+    }
+
+    protected static function afterDelete(Model $record): void
+    {
+        Cache::forget('index.properties');
+    }
+
 
     public static function getRelations(): array
     {

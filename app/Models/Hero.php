@@ -13,16 +13,18 @@ class Hero extends Model implements HasMedia
     use SoftDeletes;
     use InteractsWithMedia;
 
-     public function registerMediaConversions(?Media $media = null): void 
-    { 
-
-         $this->addMediaConversion('webp')
-            ->format('webp')
-            ->performOnCollections('hero_image');
-    }
-
-
     protected $guarded = false;
 
-   
+
+    public function registerMediaConversions(?Media $media = null): void
+    {
+
+        if (! $media || ! $media->getPath() || ! file_exists($media->getPath())) {
+            return; // skip broken or missing media
+        }
+        $this->addMediaConversion('webp')
+            ->format('webp')
+            ->nonQueued()
+            ->performOnCollections('hero_image');
+    }
 }

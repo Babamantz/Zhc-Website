@@ -38,9 +38,8 @@ class DirectorMessage extends Model implements HasMedia
 
     public function registerMediaConversions(?Media $media = null): void
     {
-        // Add null check - conversions only run when media exists
-        if ($media === null) {
-            return;
+        if (! $media || ! $media->getPath() || ! file_exists($media->getPath())) {
+            return; // skip broken or missing media
         }
 
         $this->addMediaConversion('webp')

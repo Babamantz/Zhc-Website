@@ -67,8 +67,8 @@ class News extends Model implements HasMedia
      public function registerMediaConversions(?Media $media = null): void
      {
           // Add null check - conversions only run when media exists
-          if ($media === null) {
-               return;
+          if (! $media || ! $media->getPath() || ! file_exists($media->getPath())) {
+               return; // skip broken or missing media
           }
 
           $this->addMediaConversion('webp')
@@ -91,6 +91,7 @@ class News extends Model implements HasMedia
           $this->addMediaConversion('full')
                ->width(1600)
                ->height(1200)
+               ->nonQueued()
                ->performOnCollections('news');
      }
      public function getRouteKeyName()

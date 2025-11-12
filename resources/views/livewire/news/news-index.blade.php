@@ -46,7 +46,7 @@
                     </div>
                 </div>
             @endforeach
-            <div class="mt-6 mb-3">
+            <div class="mt-6 mb-3" id="notice">
                 {{ $newsList->links() }}
             </div>
         </div>

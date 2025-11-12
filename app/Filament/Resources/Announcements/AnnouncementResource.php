@@ -2,26 +2,28 @@
 
 namespace App\Filament\Resources\Announcements;
 
-use App\Filament\Resources\Announcements\Pages\CreateAnnouncement;
-use App\Filament\Resources\Announcements\Pages\EditAnnouncement;
-use App\Filament\Resources\Announcements\Pages\ListAnnouncements;
-use App\Filament\Resources\Announcements\Pages\ViewAnnouncement;
-use App\Filament\Resources\Announcements\Schemas\AnnouncementForm;
-use App\Filament\Resources\Announcements\Schemas\AnnouncementInfolist;
-use App\Filament\Resources\Announcements\Tables\AnnouncementsTable;
-use App\Models\Announcement;
-use BackedEnum;
-use Filament\Resources\Resource;
-use Filament\Schemas\Schema;
-use Filament\Support\Icons\Heroicon;
-use Filament\Tables\Table;
 use UnitEnum;
+use BackedEnum;
+use Filament\Tables\Table;
+use App\Models\Announcement;
+use Filament\Schemas\Schema;
+use Filament\Resources\Resource;
+use Filament\Support\Icons\Heroicon;
+use Illuminate\Support\Facades\Cache;
+use Illuminate\Database\Eloquent\Model;
+use App\Filament\Resources\Announcements\Pages\EditAnnouncement;
+use App\Filament\Resources\Announcements\Pages\ViewAnnouncement;
+use App\Filament\Resources\Announcements\Pages\ListAnnouncements;
+use App\Filament\Resources\Announcements\Pages\CreateAnnouncement;
+use App\Filament\Resources\Announcements\Schemas\AnnouncementForm;
+use App\Filament\Resources\Announcements\Tables\AnnouncementsTable;
+use App\Filament\Resources\Announcements\Schemas\AnnouncementInfolist;
 
 class AnnouncementResource extends Resource
 {
     protected static ?string $model = Announcement::class;
 
-    
+
     protected static string | UnitEnum | null $navigationGroup = 'Publications';
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::SpeakerWave;
@@ -40,6 +42,22 @@ class AnnouncementResource extends Resource
     {
         return AnnouncementsTable::configure($table);
     }
+
+    protected static function afterCreate(Model $record): void
+    {
+        Cache::forget('index.announcements');
+    }
+
+    protected static function afterUpdate(Model $record): void
+    {
+        Cache::forget('index.announcements');
+    }
+
+    protected static function afterDelete(Model $record): void
+    {
+        Cache::forget('index.announcements');
+    }
+
 
     public static function getRelations(): array
     {

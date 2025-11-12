@@ -19,9 +19,13 @@ class Property extends Model implements HasMedia
 
     public function registerMediaConversions(?Media $media = null): void
     {
+        if (! $media || ! $media->getPath() || ! file_exists($media->getPath())) {
+            return; // skip broken or missing media
+        }
 
         $this->addMediaConversion('webp')
             ->format('webp')
+            ->nonQueued()
             ->performOnCollections('poster_image');
     }
 

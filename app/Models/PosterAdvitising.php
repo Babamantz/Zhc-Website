@@ -13,13 +13,17 @@ class PosterAdvitising extends Model  implements HasMedia
     use InteractsWithMedia;
 
     protected $table = "posters_advitising";
-    
-    public function registerMediaConversions(?Media $media = null): void 
-    { 
 
-         $this->addMediaConversion('webp')
+    public function registerMediaConversions(?Media $media = null): void
+    {
+        if (! $media || ! $media->getPath() || ! file_exists($media->getPath())) {
+            return; // skip broken or missing media
+        }
+
+        $this->addMediaConversion('webp')
             ->format('webp')
             ->useDisk('public')
+            ->nonQueued()
             ->performOnCollections('poster_image');
     }
 

@@ -3,7 +3,7 @@
     <div class="flex flex-wrap">
         <div class="w-full md:w-1/2 text-white mb-6 md:mb-0">
             <x-footer.heading title="Media Center" />
-            @foreach ([['label' => 'News in Brief', 'url' => '/news/all'], ['label' => 'Photo Gallery', 'url' => '#'], ['label' => 'Magazines', 'url' => '#']] as $link)
+            @foreach ([['label' => 'News in Brief', 'url' => '/news/all'], ['label' => 'Photo Gallery', 'url' => '/'], ['label' => 'Magazines', 'url' => '/']] as $link)
                 <div class="py-1 text-center sm:text-center md:text-left"><a href="{{ $link['url'] }}" class="hover:underline">{{ $link['label'] }}</a></div>
             @endforeach
         </div>

@@ -18,8 +18,8 @@ class Management extends Model implements HasMedia
 
     public function registerMediaConversions(?Media $media = null): void
     {
-        if ($media === null) {
-            return;
+        if (! $media || ! $media->getPath() || ! file_exists($media->getPath())) {
+            return; // skip broken or missing media
         }
 
         $this->addMediaConversion('webp')

@@ -2,18 +2,20 @@
 
 namespace App\Filament\Resources\Posters;
 
-use App\Filament\Resources\Posters\Pages\CreatePosters;
+use UnitEnum;
+use BackedEnum;
+use Filament\Tables\Table;
+use Filament\Schemas\Schema;
+use App\Models\PosterAdvitising;
+use Filament\Resources\Resource;
+use Filament\Support\Icons\Heroicon;
+use Illuminate\Support\Facades\Cache;
+use Illuminate\Database\Eloquent\Model;
 use App\Filament\Resources\Posters\Pages\EditPosters;
 use App\Filament\Resources\Posters\Pages\ListPosters;
+use App\Filament\Resources\Posters\Pages\CreatePosters;
 use App\Filament\Resources\Posters\Schemas\PostersForm;
 use App\Filament\Resources\Posters\Tables\PostersTable;
-use App\Models\PosterAdvitising;
-use BackedEnum;
-use Filament\Resources\Resource;
-use Filament\Schemas\Schema;
-use Filament\Support\Icons\Heroicon;
-use Filament\Tables\Table;
-use UnitEnum;
 
 class PostersResource extends Resource
 {
@@ -39,6 +41,21 @@ class PostersResource extends Resource
     public static function table(Table $table): Table
     {
         return PostersTable::configure($table);
+    }
+
+    protected static function afterCreate(Model $record): void
+    {
+        Cache::forget('index.poster');
+    }
+
+    protected static function afterUpdate(Model $record): void
+    {
+        Cache::forget('index.poster');
+    }
+
+    protected static function afterDelete(Model $record): void
+    {
+        Cache::forget('index.poster');
     }
 
     public static function getRelations(): array

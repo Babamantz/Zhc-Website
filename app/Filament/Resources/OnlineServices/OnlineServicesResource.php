@@ -2,12 +2,15 @@
 
 namespace App\Filament\Resources\OnlineServices;
 
+use UnitEnum;
 use BackedEnum;
 use Filament\Tables\Table;
 use Filament\Schemas\Schema;
 use App\Models\OnlineService;
 use Filament\Resources\Resource;
 use Filament\Support\Icons\Heroicon;
+use Illuminate\Support\Facades\Cache;
+use Illuminate\Database\Eloquent\Model;
 use App\Filament\Resources\OnlineServices\Pages\EditOnlineServices;
 use App\Filament\Resources\OnlineServices\Pages\ListOnlineServices;
 use App\Filament\Resources\OnlineServices\Pages\ViewOnlineServices;
@@ -15,13 +18,12 @@ use App\Filament\Resources\OnlineServices\Pages\CreateOnlineServices;
 use App\Filament\Resources\OnlineServices\Schemas\OnlineServicesForm;
 use App\Filament\Resources\OnlineServices\Tables\OnlineServicesTable;
 use App\Filament\Resources\OnlineServices\Schemas\OnlineServicesInfolist;
-use UnitEnum;
 
 class OnlineServicesResource extends Resource
 {
     protected static ?string $model = OnlineService::class;
 
-    
+
     protected static string | UnitEnum | null $navigationGroup = 'Home';
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::Cog8Tooth;
@@ -39,6 +41,21 @@ class OnlineServicesResource extends Resource
     public static function table(Table $table): Table
     {
         return OnlineServicesTable::configure($table);
+    }
+
+    protected static function afterCreate(Model $record): void
+    {
+        Cache::forget('index.online_services');
+    }
+
+    protected static function afterUpdate(Model $record): void
+    {
+        Cache::forget('index.online_services');
+    }
+
+    protected static function afterDelete(Model $record): void
+    {
+        Cache::forget('index.online_services');
     }
 
     public static function getRelations(): array

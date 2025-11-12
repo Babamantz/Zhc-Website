@@ -2,26 +2,28 @@
 
 namespace App\Filament\Resources\News;
 
-use App\Filament\Resources\News\Pages\CreateNews;
+use UnitEnum;
+use BackedEnum;
+use App\Models\News;
+use Filament\Tables\Table;
+use Filament\Schemas\Schema;
+use Filament\Resources\Resource;
+use Filament\Support\Icons\Heroicon;
+use Illuminate\Support\Facades\Cache;
+use Illuminate\Database\Eloquent\Model;
 use App\Filament\Resources\News\Pages\EditNews;
 use App\Filament\Resources\News\Pages\ListNews;
 use App\Filament\Resources\News\Pages\ViewNews;
+use App\Filament\Resources\News\Pages\CreateNews;
 use App\Filament\Resources\News\Schemas\NewsForm;
-use App\Filament\Resources\News\Schemas\NewsInfolist;
 use App\Filament\Resources\News\Tables\NewsTable;
-use App\Models\News;
-use BackedEnum;
-use Filament\Resources\Resource;
-use Filament\Schemas\Schema;
-use Filament\Support\Icons\Heroicon;
-use Filament\Tables\Table;
-use UnitEnum;
+use App\Filament\Resources\News\Schemas\NewsInfolist;
 
 class NewsResource extends Resource
 {
     protected static ?string $model = News::class;
 
-    
+
     protected static string | UnitEnum | null $navigationGroup = 'Pages';
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::Newspaper;
@@ -46,6 +48,21 @@ class NewsResource extends Resource
         return [
             //
         ];
+    }
+
+    protected static function afterCreate(Model $record): void
+    {
+        Cache::forget('index.news');
+    }
+
+    protected static function afterUpdate(Model $record): void
+    {
+        Cache::forget('index.news');
+    }
+
+    protected static function afterDelete(Model $record): void
+    {
+        Cache::forget('index.news');
     }
 
     public static function getPages(): array
